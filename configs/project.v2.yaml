@@ -1,0 +1,221 @@
+# H3CE v2.0 设计契约；不是 MiniMax/AI Toolkit 的原生训练配置。
+# 本包不包含完整训练器。所有默认超参数均待 GPU 验证。
+schema_version: 2
+project:
+  name: single_character
+  root: .
+  seed: 42
+  budget_seconds: 172800
+  vram_target_gib: 24
+  offline_by_default: true
+paths:
+  raw: dataset/raw
+  pairs_manifest: null
+  tmp: tmp
+  models: models
+  runs: runs
+  exports: exports
+  components_lock: components.lock.json
+backend:
+  name: h3_vae_small_refiner
+  require_trained_base_for_lora: true
+  native_h3_dit_lora_compatible: false
+  require_component_lock: true
+vae:
+  implementation: aitoolkit_h3_pinned
+  weights: models/minimax_h3_video_vae_fp16.safetensors
+  external_range: zero_one
+  latent_normalization: bridge_owned
+  posterior: mean
+  encoder_trainable: false
+  precision_policy: upstream_verified
+  tiling: upstream_locked
+  input_dispatch: auto
+  preserve_pts: true
+  frame_policy: h3_17n_plus_5
+  tail_padding: repeat_last
+  clamp_before_loss: false
+native_temporal:
+  mode: frozen                       # frozen | finetune；不等于关闭原生时序。
+  method: decoder_attention_lora
+  decoder_adapter: null              # 推理可加载经验证的共享 codec adapter。
+  last_n_blocks: 4
+  target_suffixes: [attn.to_out]       # 相对 decoder.transformer_blocks[i]；必须探测校验。
+  rank: 4
+  alpha: 4
+  learning_rate: 0.00001
+  max_steps: 500
+  require_real_video: true
+  train_clip_frames: 5
+  promote_clip_frames: 22
+  image_replay_fraction: 0.25
+  checkpoint_decoder: true
+  freeze_refiner_and_character_loras: true
+  cache_trainable_decoder_outputs: false
+  losses: {reconstruction: 1.0, motion_reconstruction: 0.1, teacher_anchor: 0.05}
+data:
+  mode: hq_self_degrade               # hq_self_degrade | aligned_pairs
+  task: restoration                  # restoration | harmonization
+  auto_prepare: true
+  max_independent_frames: 50000
+  working_long_edge_max: 2048
+  color: sdr_srgb
+  hdr_policy: reject_until_explicit_transform
+  split: {unit: source_group, validation_fraction: 0.15, seed: 42}
+  detection:
+    family: yolo11
+    person:
+      weights: models/yolo11s.pt
+      class_name: person
+      imgsz: 960
+      confidence: 0.30
+      nms_iou: 0.50
+    face:
+      weights: models/yolov11m-face.pt
+      class_name: face
+      imgsz: 960
+      confidence: 0.25
+      nms_iou: 0.50
+    fallback_other_family: false
+    tracking: iou_geometry_only
+    missing_face: keep_fullbody_skip_face
+    ambiguous_person: quarantine
+    allow_identity_embeddings: false
+  sampling:
+    profile: debug
+    canvas_multiple: 32
+    debug_buckets_hw: [[256, 256], [384, 256], [256, 384]]
+    balanced_buckets_hw: [[512, 512], [768, 512], [512, 768]]
+    fullbody_context_fraction: 0.25
+    face_head_shoulders_expand_xy: [1.5, 2.0]
+    min_face_hq_pixels: 64
+    video_crop: fixed_clip_union
+    fullbody_include_head: true
+    fullbody_wide_probability: 0.70
+    face_close_probability: 0.70
+    stretch: false
+    scene_from: degraded_full_frame_only
+  degradation:
+    enabled: true
+    version: degrade_v2
+    variants_per_image: 4             # 每张原图的固定退化方案数；不是每个 crop 的数量。
+    variants_per_clip: 2              # 每个真实短片的退化版本数；不是逐帧随机版本数。
+    include_clean_pair: true          # 干净对独立计数，不占用退化版本配额。
+    seed: 42
+    materialize: true
+    resample_each_epoch: false
+    recipe_order: [blur, downsample, noise, compression, upsample]
+    video_parameter_policy: constant_per_clip
+    resolution:
+      mode: ratio                    # ratio | short_edge；只激活一种。
+      ratio_range: [0.25, 0.75]       # q = LR 边长 / 工作画布 HQ 边长；不是面积比。
+      short_edge_range: [128, 512]    # 仅 short_edge 模式有效；与当前源尺寸求合法交集。
+      distribution: uniform
+      min_lr_side: 2
+      downsample_filter: area
+      upsample_filter: bicubic
+      allow_superresolution_of_target: false
+    blur:
+      probability: 0.80
+      kind: gaussian_isotropic
+      sigma_reference_px_range: [0.0, 1.5]
+      reference_short_edge: 512       # sigma_actual = sigma_ref * HQ短边/512。
+      truncate: 3.0
+      padding: reflect
+    noise:
+      probability: 0.0
+      sigma_255_range: [0.0, 3.0]
+      realization: independent_per_frame
+    compression:
+      kind: none                     # none | jpeg | h264；首版 none，禁止暗中开启。
+      probability: 0.0
+      jpeg_quality_range: [75, 95]
+      h264_crf_range: [16, 24]
+    max_resample_attempts: 32
+cache:
+  content_addressed: true
+  root_marker: .h3ce-cache-root
+  atomic_writes: true
+  verify_checksums: true
+  pin_active_manifests: true
+  prune_default: dry_run
+  latent_storage_dtype: float32
+  quota_gib: null
+  cache_encoder_latents: true
+  decoder_cache_policy: frozen_effective_hash_only
+model:
+  architecture_id: h3ce_spatial_refiner_v2
+  widths: [128, 192, 256]
+  encoder_blocks: [2, 2]
+  bottleneck_blocks: 4
+  decoder_blocks: [2, 2]
+  ffn_multiplier: 2
+  zero_init_output: true
+  custom_temporal_modules: false
+  scene_context:
+    longest_edge: 256
+    grid_hw: [8, 8]
+    width: 256
+    heads: 8
+    context_per_latent: nearest_uniform_source_frame
+    cross_time_attention: false
+    include_crop_coordinates: true
+  output: {mode: decoded_delta, strength: 1.0, coarse_box_feather: true}
+lora:
+  train_mode: fullbody                # fullbody | face
+  rank: 8
+  alpha: 8
+  dropout: 0.0
+  target_suffixes: [ffn.in_proj, ffn.out_proj]
+  spatial_mutual_exclusion: false
+  normalize_mix_weights: false
+  prompt_semantics: adapter_alias_only
+  require_base_match: true
+  require_decoder_validation: true
+  routing:
+    mode: manual
+    adapters: []
+    coefficients:
+      close: {fullbody: 0.0, face: 1.0}
+      medium: {fullbody: 0.7, face: 0.6}
+      far: {fullbody: 1.0, face: 0.0}
+    update_at_chunk_boundary: true
+training:
+  microbatch: 1
+  gradient_accumulation: 4
+  optimizer: adamw
+  weight_decay: 0.0
+  refiner_autocast: bfloat16_if_supported
+  gradient_clip_norm: 1.0
+  preview_every_steps: 100
+  checkpoint_every_steps: 200
+  decoder_input_gradient: true
+  stop_on_budget_exhaustion: true
+  stages:
+    bootstrap_latent: {lr: 0.0002, max_steps: 2000}
+    bootstrap_pixel: {lr: 0.00005, max_steps: 500}
+    character_lora: {lr: 0.0001, max_steps: 1000, review_at_step: 300}
+  losses:
+    rgb: 1.0
+    latent: 0.1
+    perceptual: 0.05
+    lighting_target: 0.2
+    charbonnier_epsilon: 0.001
+    region_normalization: weight_sum
+inference:
+  chunk_frames: 22
+  overlap_frames: 5
+  fps_target: null
+  preserve_frame_count: true
+  preserve_audio_timeline: true
+  reset_on_cut: true
+  performance_report: true
+
+evaluation:
+  require_independent_sources: true
+  native_codec_release:
+    max_relative_rgb_regression: 0.05
+    max_absolute_lpips_regression: 0.02
+    min_relative_motion_error_improvement: 0.02
+    require_human_approval: true
+    missing_required_metric: block_release

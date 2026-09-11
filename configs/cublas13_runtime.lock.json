@@ -1,0 +1,23 @@
+{
+  "url": "https://files.pythonhosted.org/packages/f3/91/bda39230b7a4c102bb724c21b50823efc63544490a885fea0b604911c0ab/nvidia_cublas-13.0.2.14-py3-none-win_amd64.whl",
+  "expected_sha256": "5f7a90456b1392db60e28719547ba6e00696bfa81304b6887cf287f9edf2c1d7",
+  "version": "13.0.2.14",
+  "files": {
+    "nvidia_cublas-13.0.2.14.dist-info/METADATA": "33e81aa782e237f736ab1745b1e85800942b94f08249eb76b4a812f85ab8d7ec",
+    "nvidia_cublas-13.0.2.14.dist-info/RECORD": "ccc698042f4daac7197fe3a6f9858e6ee700f9aeed5ec50a9cdfa000b149858e",
+    "nvidia_cublas-13.0.2.14.dist-info/top_level.txt": "7d3900b6216e2f5ea752b07dcad0c3b69cadcf6b7407836f6139d1cf00213b5e",
+    "nvidia_cublas-13.0.2.14.dist-info/WHEEL": "6635d108d690f584b2a442b64c4d0b441d2ccb63955d2b336f84b1d578ccf7d9",
+    "nvidia/cu13/include/cublas.h": "917979843ed4b042674a0df27b86c06fe1e28b2643c8e24e6709c1e0d85c8b41",
+    "nvidia/cu13/include/cublasLt.h": "86403d38d74d5aa9ed777eacdb8e97f7ae3807576c12248e5e6fe98525263ef7",
+    "nvidia/cu13/include/cublasXt.h": "a51299616004afcc0ed44d3394508d4878c66d6e5fd241ba027bc17e4dcc4fb5",
+    "nvidia/cu13/include/cublas_api.h": "43e5711c33a320d89134baff0c92ffb27f1fa1d41ede5cbc1e5879746fad1fe3",
+    "nvidia/cu13/include/cublas_v2.h": "c00d426fbc7aa24c10702492c0df2530fcf45786fc3e78832a1dccb3fba2c4ee",
+    "nvidia/cu13/include/nvblas.h": "0bebae64184148e78c709fd283616ec831f0802ca915f1951412a9185a627a0c",
+    "nvidia/cu13/bin/x86_64/cublas64_13.dll": "b5846446f2a151ca24b74b8113d4ca32c52105ad89d4c2f1bc56a4ccffa9ea61",
+    "nvidia/cu13/bin/x86_64/cublasLt64_13.dll": "680561bdc5d8a8c921e9ae974e6b60a6608c9d9fca8c0fd125e9da08c5c33ff1",
+    "nvidia/cu13/bin/x86_64/nvblas64_13.dll": "e88fa042c7d71fb6eb3c6f1030958541f0074cc05e4c9edb022434a34410a78a",
+    "nvidia_cublas-13.0.2.14.dist-info/licenses/License.txt": "ad6f5853fba0ca0d159d0f58d49ae49830c2f8c93f7a92648b9ce90adb4c6ccd"
+  },
+  "status": "downloaded_sha256_verified_and_isolated_extracted",
+  "destination": "third_party/h3_cublas13_runtime"
+}

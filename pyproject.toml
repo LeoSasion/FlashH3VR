@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flashh3vr"
+version = "0.1.0"
+description = "FlashH3VR: H3-based portrait video restoration research code"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "AGPL-3.0-only"
+license-files = ["LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md", "h3ce/vae/_upstream/*LICENSE"]
+dependencies = ["pydantic>=2.10,<3", "PyYAML>=6,<7", "numpy>=1.26,<3", "Pillow>=10,<13"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "psutil>=7,<8", "nvidia-ml-py>=13,<14"]
+video = ["av==18.1.0"]
+models = ["ultralytics==8.4.142", "safetensors==0.8.0", "einops==0.8.2"]
+perceptual = ["lpips==0.1.4", "scipy>=1.10", "tqdm>=4.65"]
+
+[project.urls]
+Repository = "https://github.com/LeoSasion/FlashH3VR"
+Issues = "https://github.com/LeoSasion/FlashH3VR/issues"
+
+[project.scripts]
+h3ce = "h3ce.cli:main"
+
+[tool.setuptools.package-data]
+"h3ce.vae" = ["_upstream/*"]
+
+[tool.setuptools.packages.find]
+include = ["h3ce*", "scripts*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not real_model'"
+markers = ["real_model: requires external model assets and a separately authorized GPU test"]

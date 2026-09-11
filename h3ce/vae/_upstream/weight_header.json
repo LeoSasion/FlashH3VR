@@ -1,0 +1,5915 @@
+{
+  "latents_mean": {
+    "dtype": "F16",
+    "shape": [
+      24
+    ],
+    "data_offsets": [
+      0,
+      48
+    ]
+  },
+  "latents_std": {
+    "dtype": "F16",
+    "shape": [
+      24
+    ],
+    "data_offsets": [
+      48,
+      96
+    ]
+  },
+  "decoder.mask_token": {
+    "dtype": "F16",
+    "shape": [
+      1,
+      1,
+      2048
+    ],
+    "data_offsets": [
+      96,
+      4192
+    ]
+  },
+  "decoder.norm_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4192,
+      8288
+    ]
+  },
+  "decoder.norm_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      8288,
+      12384
+    ]
+  },
+  "decoder.proj_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      3072
+    ],
+    "data_offsets": [
+      12384,
+      18528
+    ]
+  },
+  "decoder.proj_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      3072,
+      2048
+    ],
+    "data_offsets": [
+      18528,
+      12601440
+    ]
+  },
+  "decoder.register_tokens": {
+    "dtype": "F16",
+    "shape": [
+      1,
+      4,
+      2048
+    ],
+    "data_offsets": [
+      12601440,
+      12617824
+    ]
+  },
+  "decoder.transformer_blocks.0.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      12617824,
+      12621920
+    ]
+  },
+  "decoder.transformer_blocks.0.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      12621920,
+      21010528
+    ]
+  },
+  "decoder.transformer_blocks.0.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      21010528,
+      21022816
+    ]
+  },
+  "decoder.transformer_blocks.0.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      21022816,
+      46188640
+    ]
+  },
+  "decoder.transformer_blocks.0.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      46188640,
+      46221408
+    ]
+  },
+  "decoder.transformer_blocks.0.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      46221408,
+      113330272
+    ]
+  },
+  "decoder.transformer_blocks.0.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      113330272,
+      113334368
+    ]
+  },
+  "decoder.transformer_blocks.0.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      113334368,
+      146888800
+    ]
+  },
+  "decoder.transformer_blocks.0.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      146888800,
+      146892896
+    ]
+  },
+  "decoder.transformer_blocks.0.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      146892896,
+      146896992
+    ]
+  },
+  "decoder.transformer_blocks.0.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      146896992,
+      146901088
+    ]
+  },
+  "decoder.transformer_blocks.0.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      146901088,
+      146905184
+    ]
+  },
+  "decoder.transformer_blocks.1.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      146905184,
+      146909280
+    ]
+  },
+  "decoder.transformer_blocks.1.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      146909280,
+      155297888
+    ]
+  },
+  "decoder.transformer_blocks.1.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      155297888,
+      155310176
+    ]
+  },
+  "decoder.transformer_blocks.1.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      155310176,
+      180476000
+    ]
+  },
+  "decoder.transformer_blocks.1.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      180476000,
+      180508768
+    ]
+  },
+  "decoder.transformer_blocks.1.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      180508768,
+      247617632
+    ]
+  },
+  "decoder.transformer_blocks.1.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      247617632,
+      247621728
+    ]
+  },
+  "decoder.transformer_blocks.1.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      247621728,
+      281176160
+    ]
+  },
+  "decoder.transformer_blocks.1.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      281176160,
+      281180256
+    ]
+  },
+  "decoder.transformer_blocks.1.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      281180256,
+      281184352
+    ]
+  },
+  "decoder.transformer_blocks.1.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      281184352,
+      281188448
+    ]
+  },
+  "decoder.transformer_blocks.1.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      281188448,
+      281192544
+    ]
+  },
+  "decoder.transformer_blocks.10.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      281192544,
+      281196640
+    ]
+  },
+  "decoder.transformer_blocks.10.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      281196640,
+      289585248
+    ]
+  },
+  "decoder.transformer_blocks.10.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      289585248,
+      289597536
+    ]
+  },
+  "decoder.transformer_blocks.10.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      289597536,
+      314763360
+    ]
+  },
+  "decoder.transformer_blocks.10.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      314763360,
+      314796128
+    ]
+  },
+  "decoder.transformer_blocks.10.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      314796128,
+      381904992
+    ]
+  },
+  "decoder.transformer_blocks.10.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      381904992,
+      381909088
+    ]
+  },
+  "decoder.transformer_blocks.10.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      381909088,
+      415463520
+    ]
+  },
+  "decoder.transformer_blocks.10.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      415463520,
+      415467616
+    ]
+  },
+  "decoder.transformer_blocks.10.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      415467616,
+      415471712
+    ]
+  },
+  "decoder.transformer_blocks.10.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      415471712,
+      415475808
+    ]
+  },
+  "decoder.transformer_blocks.10.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      415475808,
+      415479904
+    ]
+  },
+  "decoder.transformer_blocks.11.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      415479904,
+      415484000
+    ]
+  },
+  "decoder.transformer_blocks.11.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      415484000,
+      423872608
+    ]
+  },
+  "decoder.transformer_blocks.11.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      423872608,
+      423884896
+    ]
+  },
+  "decoder.transformer_blocks.11.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      423884896,
+      449050720
+    ]
+  },
+  "decoder.transformer_blocks.11.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      449050720,
+      449083488
+    ]
+  },
+  "decoder.transformer_blocks.11.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      449083488,
+      516192352
+    ]
+  },
+  "decoder.transformer_blocks.11.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      516192352,
+      516196448
+    ]
+  },
+  "decoder.transformer_blocks.11.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      516196448,
+      549750880
+    ]
+  },
+  "decoder.transformer_blocks.11.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      549750880,
+      549754976
+    ]
+  },
+  "decoder.transformer_blocks.11.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      549754976,
+      549759072
+    ]
+  },
+  "decoder.transformer_blocks.11.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      549759072,
+      549763168
+    ]
+  },
+  "decoder.transformer_blocks.11.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      549763168,
+      549767264
+    ]
+  },
+  "decoder.transformer_blocks.12.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      549767264,
+      549771360
+    ]
+  },
+  "decoder.transformer_blocks.12.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      549771360,
+      558159968
+    ]
+  },
+  "decoder.transformer_blocks.12.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      558159968,
+      558172256
+    ]
+  },
+  "decoder.transformer_blocks.12.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      558172256,
+      583338080
+    ]
+  },
+  "decoder.transformer_blocks.12.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      583338080,
+      583370848
+    ]
+  },
+  "decoder.transformer_blocks.12.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      583370848,
+      650479712
+    ]
+  },
+  "decoder.transformer_blocks.12.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      650479712,
+      650483808
+    ]
+  },
+  "decoder.transformer_blocks.12.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      650483808,
+      684038240
+    ]
+  },
+  "decoder.transformer_blocks.12.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      684038240,
+      684042336
+    ]
+  },
+  "decoder.transformer_blocks.12.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      684042336,
+      684046432
+    ]
+  },
+  "decoder.transformer_blocks.12.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      684046432,
+      684050528
+    ]
+  },
+  "decoder.transformer_blocks.12.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      684050528,
+      684054624
+    ]
+  },
+  "decoder.transformer_blocks.13.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      684054624,
+      684058720
+    ]
+  },
+  "decoder.transformer_blocks.13.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      684058720,
+      692447328
+    ]
+  },
+  "decoder.transformer_blocks.13.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      692447328,
+      692459616
+    ]
+  },
+  "decoder.transformer_blocks.13.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      692459616,
+      717625440
+    ]
+  },
+  "decoder.transformer_blocks.13.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      717625440,
+      717658208
+    ]
+  },
+  "decoder.transformer_blocks.13.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      717658208,
+      784767072
+    ]
+  },
+  "decoder.transformer_blocks.13.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      784767072,
+      784771168
+    ]
+  },
+  "decoder.transformer_blocks.13.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      784771168,
+      818325600
+    ]
+  },
+  "decoder.transformer_blocks.13.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      818325600,
+      818329696
+    ]
+  },
+  "decoder.transformer_blocks.13.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      818329696,
+      818333792
+    ]
+  },
+  "decoder.transformer_blocks.13.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      818333792,
+      818337888
+    ]
+  },
+  "decoder.transformer_blocks.13.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      818337888,
+      818341984
+    ]
+  },
+  "decoder.transformer_blocks.14.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      818341984,
+      818346080
+    ]
+  },
+  "decoder.transformer_blocks.14.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      818346080,
+      826734688
+    ]
+  },
+  "decoder.transformer_blocks.14.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      826734688,
+      826746976
+    ]
+  },
+  "decoder.transformer_blocks.14.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      826746976,
+      851912800
+    ]
+  },
+  "decoder.transformer_blocks.14.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      851912800,
+      851945568
+    ]
+  },
+  "decoder.transformer_blocks.14.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      851945568,
+      919054432
+    ]
+  },
+  "decoder.transformer_blocks.14.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      919054432,
+      919058528
+    ]
+  },
+  "decoder.transformer_blocks.14.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      919058528,
+      952612960
+    ]
+  },
+  "decoder.transformer_blocks.14.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      952612960,
+      952617056
+    ]
+  },
+  "decoder.transformer_blocks.14.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      952617056,
+      952621152
+    ]
+  },
+  "decoder.transformer_blocks.14.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      952621152,
+      952625248
+    ]
+  },
+  "decoder.transformer_blocks.14.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      952625248,
+      952629344
+    ]
+  },
+  "decoder.transformer_blocks.15.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      952629344,
+      952633440
+    ]
+  },
+  "decoder.transformer_blocks.15.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      952633440,
+      961022048
+    ]
+  },
+  "decoder.transformer_blocks.15.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      961022048,
+      961034336
+    ]
+  },
+  "decoder.transformer_blocks.15.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      961034336,
+      986200160
+    ]
+  },
+  "decoder.transformer_blocks.15.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      986200160,
+      986232928
+    ]
+  },
+  "decoder.transformer_blocks.15.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      986232928,
+      1053341792
+    ]
+  },
+  "decoder.transformer_blocks.15.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1053341792,
+      1053345888
+    ]
+  },
+  "decoder.transformer_blocks.15.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      1053345888,
+      1086900320
+    ]
+  },
+  "decoder.transformer_blocks.15.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1086900320,
+      1086904416
+    ]
+  },
+  "decoder.transformer_blocks.15.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1086904416,
+      1086908512
+    ]
+  },
+  "decoder.transformer_blocks.15.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1086908512,
+      1086912608
+    ]
+  },
+  "decoder.transformer_blocks.15.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1086912608,
+      1086916704
+    ]
+  },
+  "decoder.transformer_blocks.16.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1086916704,
+      1086920800
+    ]
+  },
+  "decoder.transformer_blocks.16.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      1086920800,
+      1095309408
+    ]
+  },
+  "decoder.transformer_blocks.16.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      1095309408,
+      1095321696
+    ]
+  },
+  "decoder.transformer_blocks.16.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      1095321696,
+      1120487520
+    ]
+  },
+  "decoder.transformer_blocks.16.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      1120487520,
+      1120520288
+    ]
+  },
+  "decoder.transformer_blocks.16.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      1120520288,
+      1187629152
+    ]
+  },
+  "decoder.transformer_blocks.16.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1187629152,
+      1187633248
+    ]
+  },
+  "decoder.transformer_blocks.16.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      1187633248,
+      1221187680
+    ]
+  },
+  "decoder.transformer_blocks.16.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1221187680,
+      1221191776
+    ]
+  },
+  "decoder.transformer_blocks.16.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1221191776,
+      1221195872
+    ]
+  },
+  "decoder.transformer_blocks.16.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1221195872,
+      1221199968
+    ]
+  },
+  "decoder.transformer_blocks.16.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1221199968,
+      1221204064
+    ]
+  },
+  "decoder.transformer_blocks.17.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1221204064,
+      1221208160
+    ]
+  },
+  "decoder.transformer_blocks.17.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      1221208160,
+      1229596768
+    ]
+  },
+  "decoder.transformer_blocks.17.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      1229596768,
+      1229609056
+    ]
+  },
+  "decoder.transformer_blocks.17.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      1229609056,
+      1254774880
+    ]
+  },
+  "decoder.transformer_blocks.17.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      1254774880,
+      1254807648
+    ]
+  },
+  "decoder.transformer_blocks.17.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      1254807648,
+      1321916512
+    ]
+  },
+  "decoder.transformer_blocks.17.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1321916512,
+      1321920608
+    ]
+  },
+  "decoder.transformer_blocks.17.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      1321920608,
+      1355475040
+    ]
+  },
+  "decoder.transformer_blocks.17.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1355475040,
+      1355479136
+    ]
+  },
+  "decoder.transformer_blocks.17.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1355479136,
+      1355483232
+    ]
+  },
+  "decoder.transformer_blocks.17.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1355483232,
+      1355487328
+    ]
+  },
+  "decoder.transformer_blocks.17.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1355487328,
+      1355491424
+    ]
+  },
+  "decoder.transformer_blocks.18.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1355491424,
+      1355495520
+    ]
+  },
+  "decoder.transformer_blocks.18.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      1355495520,
+      1363884128
+    ]
+  },
+  "decoder.transformer_blocks.18.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      1363884128,
+      1363896416
+    ]
+  },
+  "decoder.transformer_blocks.18.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      1363896416,
+      1389062240
+    ]
+  },
+  "decoder.transformer_blocks.18.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      1389062240,
+      1389095008
+    ]
+  },
+  "decoder.transformer_blocks.18.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      1389095008,
+      1456203872
+    ]
+  },
+  "decoder.transformer_blocks.18.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1456203872,
+      1456207968
+    ]
+  },
+  "decoder.transformer_blocks.18.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      1456207968,
+      1489762400
+    ]
+  },
+  "decoder.transformer_blocks.18.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1489762400,
+      1489766496
+    ]
+  },
+  "decoder.transformer_blocks.18.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1489766496,
+      1489770592
+    ]
+  },
+  "decoder.transformer_blocks.18.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1489770592,
+      1489774688
+    ]
+  },
+  "decoder.transformer_blocks.18.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1489774688,
+      1489778784
+    ]
+  },
+  "decoder.transformer_blocks.19.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1489778784,
+      1489782880
+    ]
+  },
+  "decoder.transformer_blocks.19.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      1489782880,
+      1498171488
+    ]
+  },
+  "decoder.transformer_blocks.19.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      1498171488,
+      1498183776
+    ]
+  },
+  "decoder.transformer_blocks.19.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      1498183776,
+      1523349600
+    ]
+  },
+  "decoder.transformer_blocks.19.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      1523349600,
+      1523382368
+    ]
+  },
+  "decoder.transformer_blocks.19.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      1523382368,
+      1590491232
+    ]
+  },
+  "decoder.transformer_blocks.19.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1590491232,
+      1590495328
+    ]
+  },
+  "decoder.transformer_blocks.19.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      1590495328,
+      1624049760
+    ]
+  },
+  "decoder.transformer_blocks.19.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1624049760,
+      1624053856
+    ]
+  },
+  "decoder.transformer_blocks.19.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1624053856,
+      1624057952
+    ]
+  },
+  "decoder.transformer_blocks.19.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1624057952,
+      1624062048
+    ]
+  },
+  "decoder.transformer_blocks.19.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1624062048,
+      1624066144
+    ]
+  },
+  "decoder.transformer_blocks.2.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1624066144,
+      1624070240
+    ]
+  },
+  "decoder.transformer_blocks.2.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      1624070240,
+      1632458848
+    ]
+  },
+  "decoder.transformer_blocks.2.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      1632458848,
+      1632471136
+    ]
+  },
+  "decoder.transformer_blocks.2.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      1632471136,
+      1657636960
+    ]
+  },
+  "decoder.transformer_blocks.2.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      1657636960,
+      1657669728
+    ]
+  },
+  "decoder.transformer_blocks.2.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      1657669728,
+      1724778592
+    ]
+  },
+  "decoder.transformer_blocks.2.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1724778592,
+      1724782688
+    ]
+  },
+  "decoder.transformer_blocks.2.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      1724782688,
+      1758337120
+    ]
+  },
+  "decoder.transformer_blocks.2.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1758337120,
+      1758341216
+    ]
+  },
+  "decoder.transformer_blocks.2.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1758341216,
+      1758345312
+    ]
+  },
+  "decoder.transformer_blocks.2.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1758345312,
+      1758349408
+    ]
+  },
+  "decoder.transformer_blocks.2.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1758349408,
+      1758353504
+    ]
+  },
+  "decoder.transformer_blocks.20.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1758353504,
+      1758357600
+    ]
+  },
+  "decoder.transformer_blocks.20.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      1758357600,
+      1766746208
+    ]
+  },
+  "decoder.transformer_blocks.20.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      1766746208,
+      1766758496
+    ]
+  },
+  "decoder.transformer_blocks.20.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      1766758496,
+      1791924320
+    ]
+  },
+  "decoder.transformer_blocks.20.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      1791924320,
+      1791957088
+    ]
+  },
+  "decoder.transformer_blocks.20.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      1791957088,
+      1859065952
+    ]
+  },
+  "decoder.transformer_blocks.20.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1859065952,
+      1859070048
+    ]
+  },
+  "decoder.transformer_blocks.20.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      1859070048,
+      1892624480
+    ]
+  },
+  "decoder.transformer_blocks.20.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1892624480,
+      1892628576
+    ]
+  },
+  "decoder.transformer_blocks.20.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1892628576,
+      1892632672
+    ]
+  },
+  "decoder.transformer_blocks.20.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1892632672,
+      1892636768
+    ]
+  },
+  "decoder.transformer_blocks.20.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1892636768,
+      1892640864
+    ]
+  },
+  "decoder.transformer_blocks.21.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1892640864,
+      1892644960
+    ]
+  },
+  "decoder.transformer_blocks.21.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      1892644960,
+      1901033568
+    ]
+  },
+  "decoder.transformer_blocks.21.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      1901033568,
+      1901045856
+    ]
+  },
+  "decoder.transformer_blocks.21.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      1901045856,
+      1926211680
+    ]
+  },
+  "decoder.transformer_blocks.21.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      1926211680,
+      1926244448
+    ]
+  },
+  "decoder.transformer_blocks.21.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      1926244448,
+      1993353312
+    ]
+  },
+  "decoder.transformer_blocks.21.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      1993353312,
+      1993357408
+    ]
+  },
+  "decoder.transformer_blocks.21.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      1993357408,
+      2026911840
+    ]
+  },
+  "decoder.transformer_blocks.21.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2026911840,
+      2026915936
+    ]
+  },
+  "decoder.transformer_blocks.21.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2026915936,
+      2026920032
+    ]
+  },
+  "decoder.transformer_blocks.21.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2026920032,
+      2026924128
+    ]
+  },
+  "decoder.transformer_blocks.21.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2026924128,
+      2026928224
+    ]
+  },
+  "decoder.transformer_blocks.22.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2026928224,
+      2026932320
+    ]
+  },
+  "decoder.transformer_blocks.22.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      2026932320,
+      2035320928
+    ]
+  },
+  "decoder.transformer_blocks.22.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      2035320928,
+      2035333216
+    ]
+  },
+  "decoder.transformer_blocks.22.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      2035333216,
+      2060499040
+    ]
+  },
+  "decoder.transformer_blocks.22.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      2060499040,
+      2060531808
+    ]
+  },
+  "decoder.transformer_blocks.22.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      2060531808,
+      2127640672
+    ]
+  },
+  "decoder.transformer_blocks.22.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2127640672,
+      2127644768
+    ]
+  },
+  "decoder.transformer_blocks.22.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      2127644768,
+      2161199200
+    ]
+  },
+  "decoder.transformer_blocks.22.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2161199200,
+      2161203296
+    ]
+  },
+  "decoder.transformer_blocks.22.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2161203296,
+      2161207392
+    ]
+  },
+  "decoder.transformer_blocks.22.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2161207392,
+      2161211488
+    ]
+  },
+  "decoder.transformer_blocks.22.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2161211488,
+      2161215584
+    ]
+  },
+  "decoder.transformer_blocks.23.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2161215584,
+      2161219680
+    ]
+  },
+  "decoder.transformer_blocks.23.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      2161219680,
+      2169608288
+    ]
+  },
+  "decoder.transformer_blocks.23.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      2169608288,
+      2169620576
+    ]
+  },
+  "decoder.transformer_blocks.23.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      2169620576,
+      2194786400
+    ]
+  },
+  "decoder.transformer_blocks.23.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      2194786400,
+      2194819168
+    ]
+  },
+  "decoder.transformer_blocks.23.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      2194819168,
+      2261928032
+    ]
+  },
+  "decoder.transformer_blocks.23.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2261928032,
+      2261932128
+    ]
+  },
+  "decoder.transformer_blocks.23.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      2261932128,
+      2295486560
+    ]
+  },
+  "decoder.transformer_blocks.23.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2295486560,
+      2295490656
+    ]
+  },
+  "decoder.transformer_blocks.23.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2295490656,
+      2295494752
+    ]
+  },
+  "decoder.transformer_blocks.23.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2295494752,
+      2295498848
+    ]
+  },
+  "decoder.transformer_blocks.23.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2295498848,
+      2295502944
+    ]
+  },
+  "decoder.transformer_blocks.24.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2295502944,
+      2295507040
+    ]
+  },
+  "decoder.transformer_blocks.24.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      2295507040,
+      2303895648
+    ]
+  },
+  "decoder.transformer_blocks.24.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      2303895648,
+      2303907936
+    ]
+  },
+  "decoder.transformer_blocks.24.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      2303907936,
+      2329073760
+    ]
+  },
+  "decoder.transformer_blocks.24.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      2329073760,
+      2329106528
+    ]
+  },
+  "decoder.transformer_blocks.24.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      2329106528,
+      2396215392
+    ]
+  },
+  "decoder.transformer_blocks.24.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2396215392,
+      2396219488
+    ]
+  },
+  "decoder.transformer_blocks.24.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      2396219488,
+      2429773920
+    ]
+  },
+  "decoder.transformer_blocks.24.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2429773920,
+      2429778016
+    ]
+  },
+  "decoder.transformer_blocks.24.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2429778016,
+      2429782112
+    ]
+  },
+  "decoder.transformer_blocks.24.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2429782112,
+      2429786208
+    ]
+  },
+  "decoder.transformer_blocks.24.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2429786208,
+      2429790304
+    ]
+  },
+  "decoder.transformer_blocks.25.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2429790304,
+      2429794400
+    ]
+  },
+  "decoder.transformer_blocks.25.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      2429794400,
+      2438183008
+    ]
+  },
+  "decoder.transformer_blocks.25.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      2438183008,
+      2438195296
+    ]
+  },
+  "decoder.transformer_blocks.25.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      2438195296,
+      2463361120
+    ]
+  },
+  "decoder.transformer_blocks.25.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      2463361120,
+      2463393888
+    ]
+  },
+  "decoder.transformer_blocks.25.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      2463393888,
+      2530502752
+    ]
+  },
+  "decoder.transformer_blocks.25.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2530502752,
+      2530506848
+    ]
+  },
+  "decoder.transformer_blocks.25.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      2530506848,
+      2564061280
+    ]
+  },
+  "decoder.transformer_blocks.25.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2564061280,
+      2564065376
+    ]
+  },
+  "decoder.transformer_blocks.25.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2564065376,
+      2564069472
+    ]
+  },
+  "decoder.transformer_blocks.25.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2564069472,
+      2564073568
+    ]
+  },
+  "decoder.transformer_blocks.25.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2564073568,
+      2564077664
+    ]
+  },
+  "decoder.transformer_blocks.26.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2564077664,
+      2564081760
+    ]
+  },
+  "decoder.transformer_blocks.26.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      2564081760,
+      2572470368
+    ]
+  },
+  "decoder.transformer_blocks.26.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      2572470368,
+      2572482656
+    ]
+  },
+  "decoder.transformer_blocks.26.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      2572482656,
+      2597648480
+    ]
+  },
+  "decoder.transformer_blocks.26.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      2597648480,
+      2597681248
+    ]
+  },
+  "decoder.transformer_blocks.26.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      2597681248,
+      2664790112
+    ]
+  },
+  "decoder.transformer_blocks.26.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2664790112,
+      2664794208
+    ]
+  },
+  "decoder.transformer_blocks.26.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      2664794208,
+      2698348640
+    ]
+  },
+  "decoder.transformer_blocks.26.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2698348640,
+      2698352736
+    ]
+  },
+  "decoder.transformer_blocks.26.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2698352736,
+      2698356832
+    ]
+  },
+  "decoder.transformer_blocks.26.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2698356832,
+      2698360928
+    ]
+  },
+  "decoder.transformer_blocks.26.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2698360928,
+      2698365024
+    ]
+  },
+  "decoder.transformer_blocks.27.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2698365024,
+      2698369120
+    ]
+  },
+  "decoder.transformer_blocks.27.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      2698369120,
+      2706757728
+    ]
+  },
+  "decoder.transformer_blocks.27.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      2706757728,
+      2706770016
+    ]
+  },
+  "decoder.transformer_blocks.27.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      2706770016,
+      2731935840
+    ]
+  },
+  "decoder.transformer_blocks.27.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      2731935840,
+      2731968608
+    ]
+  },
+  "decoder.transformer_blocks.27.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      2731968608,
+      2799077472
+    ]
+  },
+  "decoder.transformer_blocks.27.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2799077472,
+      2799081568
+    ]
+  },
+  "decoder.transformer_blocks.27.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      2799081568,
+      2832636000
+    ]
+  },
+  "decoder.transformer_blocks.27.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2832636000,
+      2832640096
+    ]
+  },
+  "decoder.transformer_blocks.27.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2832640096,
+      2832644192
+    ]
+  },
+  "decoder.transformer_blocks.27.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2832644192,
+      2832648288
+    ]
+  },
+  "decoder.transformer_blocks.27.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2832648288,
+      2832652384
+    ]
+  },
+  "decoder.transformer_blocks.28.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2832652384,
+      2832656480
+    ]
+  },
+  "decoder.transformer_blocks.28.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      2832656480,
+      2841045088
+    ]
+  },
+  "decoder.transformer_blocks.28.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      2841045088,
+      2841057376
+    ]
+  },
+  "decoder.transformer_blocks.28.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      2841057376,
+      2866223200
+    ]
+  },
+  "decoder.transformer_blocks.28.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      2866223200,
+      2866255968
+    ]
+  },
+  "decoder.transformer_blocks.28.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      2866255968,
+      2933364832
+    ]
+  },
+  "decoder.transformer_blocks.28.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2933364832,
+      2933368928
+    ]
+  },
+  "decoder.transformer_blocks.28.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      2933368928,
+      2966923360
+    ]
+  },
+  "decoder.transformer_blocks.28.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2966923360,
+      2966927456
+    ]
+  },
+  "decoder.transformer_blocks.28.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2966927456,
+      2966931552
+    ]
+  },
+  "decoder.transformer_blocks.28.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2966931552,
+      2966935648
+    ]
+  },
+  "decoder.transformer_blocks.28.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2966935648,
+      2966939744
+    ]
+  },
+  "decoder.transformer_blocks.29.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      2966939744,
+      2966943840
+    ]
+  },
+  "decoder.transformer_blocks.29.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      2966943840,
+      2975332448
+    ]
+  },
+  "decoder.transformer_blocks.29.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      2975332448,
+      2975344736
+    ]
+  },
+  "decoder.transformer_blocks.29.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      2975344736,
+      3000510560
+    ]
+  },
+  "decoder.transformer_blocks.29.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      3000510560,
+      3000543328
+    ]
+  },
+  "decoder.transformer_blocks.29.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      3000543328,
+      3067652192
+    ]
+  },
+  "decoder.transformer_blocks.29.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3067652192,
+      3067656288
+    ]
+  },
+  "decoder.transformer_blocks.29.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      3067656288,
+      3101210720
+    ]
+  },
+  "decoder.transformer_blocks.29.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3101210720,
+      3101214816
+    ]
+  },
+  "decoder.transformer_blocks.29.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3101214816,
+      3101218912
+    ]
+  },
+  "decoder.transformer_blocks.29.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3101218912,
+      3101223008
+    ]
+  },
+  "decoder.transformer_blocks.29.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3101223008,
+      3101227104
+    ]
+  },
+  "decoder.transformer_blocks.3.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3101227104,
+      3101231200
+    ]
+  },
+  "decoder.transformer_blocks.3.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      3101231200,
+      3109619808
+    ]
+  },
+  "decoder.transformer_blocks.3.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      3109619808,
+      3109632096
+    ]
+  },
+  "decoder.transformer_blocks.3.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      3109632096,
+      3134797920
+    ]
+  },
+  "decoder.transformer_blocks.3.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      3134797920,
+      3134830688
+    ]
+  },
+  "decoder.transformer_blocks.3.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      3134830688,
+      3201939552
+    ]
+  },
+  "decoder.transformer_blocks.3.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3201939552,
+      3201943648
+    ]
+  },
+  "decoder.transformer_blocks.3.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      3201943648,
+      3235498080
+    ]
+  },
+  "decoder.transformer_blocks.3.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3235498080,
+      3235502176
+    ]
+  },
+  "decoder.transformer_blocks.3.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3235502176,
+      3235506272
+    ]
+  },
+  "decoder.transformer_blocks.3.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3235506272,
+      3235510368
+    ]
+  },
+  "decoder.transformer_blocks.3.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3235510368,
+      3235514464
+    ]
+  },
+  "decoder.transformer_blocks.30.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3235514464,
+      3235518560
+    ]
+  },
+  "decoder.transformer_blocks.30.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      3235518560,
+      3243907168
+    ]
+  },
+  "decoder.transformer_blocks.30.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      3243907168,
+      3243919456
+    ]
+  },
+  "decoder.transformer_blocks.30.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      3243919456,
+      3269085280
+    ]
+  },
+  "decoder.transformer_blocks.30.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      3269085280,
+      3269118048
+    ]
+  },
+  "decoder.transformer_blocks.30.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      3269118048,
+      3336226912
+    ]
+  },
+  "decoder.transformer_blocks.30.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3336226912,
+      3336231008
+    ]
+  },
+  "decoder.transformer_blocks.30.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      3336231008,
+      3369785440
+    ]
+  },
+  "decoder.transformer_blocks.30.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3369785440,
+      3369789536
+    ]
+  },
+  "decoder.transformer_blocks.30.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3369789536,
+      3369793632
+    ]
+  },
+  "decoder.transformer_blocks.30.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3369793632,
+      3369797728
+    ]
+  },
+  "decoder.transformer_blocks.30.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3369797728,
+      3369801824
+    ]
+  },
+  "decoder.transformer_blocks.31.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3369801824,
+      3369805920
+    ]
+  },
+  "decoder.transformer_blocks.31.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      3369805920,
+      3378194528
+    ]
+  },
+  "decoder.transformer_blocks.31.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      3378194528,
+      3378206816
+    ]
+  },
+  "decoder.transformer_blocks.31.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      3378206816,
+      3403372640
+    ]
+  },
+  "decoder.transformer_blocks.31.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      3403372640,
+      3403405408
+    ]
+  },
+  "decoder.transformer_blocks.31.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      3403405408,
+      3470514272
+    ]
+  },
+  "decoder.transformer_blocks.31.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3470514272,
+      3470518368
+    ]
+  },
+  "decoder.transformer_blocks.31.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      3470518368,
+      3504072800
+    ]
+  },
+  "decoder.transformer_blocks.31.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3504072800,
+      3504076896
+    ]
+  },
+  "decoder.transformer_blocks.31.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3504076896,
+      3504080992
+    ]
+  },
+  "decoder.transformer_blocks.31.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3504080992,
+      3504085088
+    ]
+  },
+  "decoder.transformer_blocks.31.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3504085088,
+      3504089184
+    ]
+  },
+  "decoder.transformer_blocks.32.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3504089184,
+      3504093280
+    ]
+  },
+  "decoder.transformer_blocks.32.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      3504093280,
+      3512481888
+    ]
+  },
+  "decoder.transformer_blocks.32.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      3512481888,
+      3512494176
+    ]
+  },
+  "decoder.transformer_blocks.32.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      3512494176,
+      3537660000
+    ]
+  },
+  "decoder.transformer_blocks.32.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      3537660000,
+      3537692768
+    ]
+  },
+  "decoder.transformer_blocks.32.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      3537692768,
+      3604801632
+    ]
+  },
+  "decoder.transformer_blocks.32.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3604801632,
+      3604805728
+    ]
+  },
+  "decoder.transformer_blocks.32.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      3604805728,
+      3638360160
+    ]
+  },
+  "decoder.transformer_blocks.32.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3638360160,
+      3638364256
+    ]
+  },
+  "decoder.transformer_blocks.32.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3638364256,
+      3638368352
+    ]
+  },
+  "decoder.transformer_blocks.32.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3638368352,
+      3638372448
+    ]
+  },
+  "decoder.transformer_blocks.32.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3638372448,
+      3638376544
+    ]
+  },
+  "decoder.transformer_blocks.33.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3638376544,
+      3638380640
+    ]
+  },
+  "decoder.transformer_blocks.33.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      3638380640,
+      3646769248
+    ]
+  },
+  "decoder.transformer_blocks.33.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      3646769248,
+      3646781536
+    ]
+  },
+  "decoder.transformer_blocks.33.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      3646781536,
+      3671947360
+    ]
+  },
+  "decoder.transformer_blocks.33.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      3671947360,
+      3671980128
+    ]
+  },
+  "decoder.transformer_blocks.33.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      3671980128,
+      3739088992
+    ]
+  },
+  "decoder.transformer_blocks.33.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3739088992,
+      3739093088
+    ]
+  },
+  "decoder.transformer_blocks.33.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      3739093088,
+      3772647520
+    ]
+  },
+  "decoder.transformer_blocks.33.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3772647520,
+      3772651616
+    ]
+  },
+  "decoder.transformer_blocks.33.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3772651616,
+      3772655712
+    ]
+  },
+  "decoder.transformer_blocks.33.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3772655712,
+      3772659808
+    ]
+  },
+  "decoder.transformer_blocks.33.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3772659808,
+      3772663904
+    ]
+  },
+  "decoder.transformer_blocks.34.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3772663904,
+      3772668000
+    ]
+  },
+  "decoder.transformer_blocks.34.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      3772668000,
+      3781056608
+    ]
+  },
+  "decoder.transformer_blocks.34.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      3781056608,
+      3781068896
+    ]
+  },
+  "decoder.transformer_blocks.34.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      3781068896,
+      3806234720
+    ]
+  },
+  "decoder.transformer_blocks.34.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      3806234720,
+      3806267488
+    ]
+  },
+  "decoder.transformer_blocks.34.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      3806267488,
+      3873376352
+    ]
+  },
+  "decoder.transformer_blocks.34.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3873376352,
+      3873380448
+    ]
+  },
+  "decoder.transformer_blocks.34.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      3873380448,
+      3906934880
+    ]
+  },
+  "decoder.transformer_blocks.34.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3906934880,
+      3906938976
+    ]
+  },
+  "decoder.transformer_blocks.34.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3906938976,
+      3906943072
+    ]
+  },
+  "decoder.transformer_blocks.34.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3906943072,
+      3906947168
+    ]
+  },
+  "decoder.transformer_blocks.34.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3906947168,
+      3906951264
+    ]
+  },
+  "decoder.transformer_blocks.35.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      3906951264,
+      3906955360
+    ]
+  },
+  "decoder.transformer_blocks.35.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      3906955360,
+      3915343968
+    ]
+  },
+  "decoder.transformer_blocks.35.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      3915343968,
+      3915356256
+    ]
+  },
+  "decoder.transformer_blocks.35.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      3915356256,
+      3940522080
+    ]
+  },
+  "decoder.transformer_blocks.35.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      3940522080,
+      3940554848
+    ]
+  },
+  "decoder.transformer_blocks.35.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      3940554848,
+      4007663712
+    ]
+  },
+  "decoder.transformer_blocks.35.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4007663712,
+      4007667808
+    ]
+  },
+  "decoder.transformer_blocks.35.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      4007667808,
+      4041222240
+    ]
+  },
+  "decoder.transformer_blocks.35.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4041222240,
+      4041226336
+    ]
+  },
+  "decoder.transformer_blocks.35.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4041226336,
+      4041230432
+    ]
+  },
+  "decoder.transformer_blocks.35.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4041230432,
+      4041234528
+    ]
+  },
+  "decoder.transformer_blocks.35.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4041234528,
+      4041238624
+    ]
+  },
+  "decoder.transformer_blocks.4.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4041238624,
+      4041242720
+    ]
+  },
+  "decoder.transformer_blocks.4.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      4041242720,
+      4049631328
+    ]
+  },
+  "decoder.transformer_blocks.4.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      4049631328,
+      4049643616
+    ]
+  },
+  "decoder.transformer_blocks.4.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      4049643616,
+      4074809440
+    ]
+  },
+  "decoder.transformer_blocks.4.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      4074809440,
+      4074842208
+    ]
+  },
+  "decoder.transformer_blocks.4.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      4074842208,
+      4141951072
+    ]
+  },
+  "decoder.transformer_blocks.4.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4141951072,
+      4141955168
+    ]
+  },
+  "decoder.transformer_blocks.4.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      4141955168,
+      4175509600
+    ]
+  },
+  "decoder.transformer_blocks.4.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4175509600,
+      4175513696
+    ]
+  },
+  "decoder.transformer_blocks.4.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4175513696,
+      4175517792
+    ]
+  },
+  "decoder.transformer_blocks.4.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4175517792,
+      4175521888
+    ]
+  },
+  "decoder.transformer_blocks.4.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4175521888,
+      4175525984
+    ]
+  },
+  "decoder.transformer_blocks.5.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4175525984,
+      4175530080
+    ]
+  },
+  "decoder.transformer_blocks.5.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      4175530080,
+      4183918688
+    ]
+  },
+  "decoder.transformer_blocks.5.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      4183918688,
+      4183930976
+    ]
+  },
+  "decoder.transformer_blocks.5.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      4183930976,
+      4209096800
+    ]
+  },
+  "decoder.transformer_blocks.5.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      4209096800,
+      4209129568
+    ]
+  },
+  "decoder.transformer_blocks.5.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      4209129568,
+      4276238432
+    ]
+  },
+  "decoder.transformer_blocks.5.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4276238432,
+      4276242528
+    ]
+  },
+  "decoder.transformer_blocks.5.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      4276242528,
+      4309796960
+    ]
+  },
+  "decoder.transformer_blocks.5.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4309796960,
+      4309801056
+    ]
+  },
+  "decoder.transformer_blocks.5.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4309801056,
+      4309805152
+    ]
+  },
+  "decoder.transformer_blocks.5.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4309805152,
+      4309809248
+    ]
+  },
+  "decoder.transformer_blocks.5.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4309809248,
+      4309813344
+    ]
+  },
+  "decoder.transformer_blocks.6.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4309813344,
+      4309817440
+    ]
+  },
+  "decoder.transformer_blocks.6.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      4309817440,
+      4318206048
+    ]
+  },
+  "decoder.transformer_blocks.6.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      4318206048,
+      4318218336
+    ]
+  },
+  "decoder.transformer_blocks.6.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      4318218336,
+      4343384160
+    ]
+  },
+  "decoder.transformer_blocks.6.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      4343384160,
+      4343416928
+    ]
+  },
+  "decoder.transformer_blocks.6.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      4343416928,
+      4410525792
+    ]
+  },
+  "decoder.transformer_blocks.6.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4410525792,
+      4410529888
+    ]
+  },
+  "decoder.transformer_blocks.6.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      4410529888,
+      4444084320
+    ]
+  },
+  "decoder.transformer_blocks.6.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4444084320,
+      4444088416
+    ]
+  },
+  "decoder.transformer_blocks.6.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4444088416,
+      4444092512
+    ]
+  },
+  "decoder.transformer_blocks.6.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4444092512,
+      4444096608
+    ]
+  },
+  "decoder.transformer_blocks.6.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4444096608,
+      4444100704
+    ]
+  },
+  "decoder.transformer_blocks.7.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4444100704,
+      4444104800
+    ]
+  },
+  "decoder.transformer_blocks.7.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      4444104800,
+      4452493408
+    ]
+  },
+  "decoder.transformer_blocks.7.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      4452493408,
+      4452505696
+    ]
+  },
+  "decoder.transformer_blocks.7.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      4452505696,
+      4477671520
+    ]
+  },
+  "decoder.transformer_blocks.7.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      4477671520,
+      4477704288
+    ]
+  },
+  "decoder.transformer_blocks.7.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      4477704288,
+      4544813152
+    ]
+  },
+  "decoder.transformer_blocks.7.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4544813152,
+      4544817248
+    ]
+  },
+  "decoder.transformer_blocks.7.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      4544817248,
+      4578371680
+    ]
+  },
+  "decoder.transformer_blocks.7.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4578371680,
+      4578375776
+    ]
+  },
+  "decoder.transformer_blocks.7.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4578375776,
+      4578379872
+    ]
+  },
+  "decoder.transformer_blocks.7.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4578379872,
+      4578383968
+    ]
+  },
+  "decoder.transformer_blocks.7.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4578383968,
+      4578388064
+    ]
+  },
+  "decoder.transformer_blocks.8.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4578388064,
+      4578392160
+    ]
+  },
+  "decoder.transformer_blocks.8.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      4578392160,
+      4586780768
+    ]
+  },
+  "decoder.transformer_blocks.8.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      4586780768,
+      4586793056
+    ]
+  },
+  "decoder.transformer_blocks.8.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      4586793056,
+      4611958880
+    ]
+  },
+  "decoder.transformer_blocks.8.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      4611958880,
+      4611991648
+    ]
+  },
+  "decoder.transformer_blocks.8.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      4611991648,
+      4679100512
+    ]
+  },
+  "decoder.transformer_blocks.8.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4679100512,
+      4679104608
+    ]
+  },
+  "decoder.transformer_blocks.8.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      4679104608,
+      4712659040
+    ]
+  },
+  "decoder.transformer_blocks.8.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4712659040,
+      4712663136
+    ]
+  },
+  "decoder.transformer_blocks.8.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4712663136,
+      4712667232
+    ]
+  },
+  "decoder.transformer_blocks.8.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4712667232,
+      4712671328
+    ]
+  },
+  "decoder.transformer_blocks.8.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4712671328,
+      4712675424
+    ]
+  },
+  "decoder.transformer_blocks.9.attn.to_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4712675424,
+      4712679520
+    ]
+  },
+  "decoder.transformer_blocks.9.attn.to_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      2048
+    ],
+    "data_offsets": [
+      4712679520,
+      4721068128
+    ]
+  },
+  "decoder.transformer_blocks.9.attn.to_qkv.bias": {
+    "dtype": "F16",
+    "shape": [
+      6144
+    ],
+    "data_offsets": [
+      4721068128,
+      4721080416
+    ]
+  },
+  "decoder.transformer_blocks.9.attn.to_qkv.weight": {
+    "dtype": "F16",
+    "shape": [
+      6144,
+      2048
+    ],
+    "data_offsets": [
+      4721080416,
+      4746246240
+    ]
+  },
+  "decoder.transformer_blocks.9.ff.w1.bias": {
+    "dtype": "F16",
+    "shape": [
+      16384
+    ],
+    "data_offsets": [
+      4746246240,
+      4746279008
+    ]
+  },
+  "decoder.transformer_blocks.9.ff.w1.weight": {
+    "dtype": "F16",
+    "shape": [
+      16384,
+      2048
+    ],
+    "data_offsets": [
+      4746279008,
+      4813387872
+    ]
+  },
+  "decoder.transformer_blocks.9.ff.w2.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4813387872,
+      4813391968
+    ]
+  },
+  "decoder.transformer_blocks.9.ff.w2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      8192
+    ],
+    "data_offsets": [
+      4813391968,
+      4846946400
+    ]
+  },
+  "decoder.transformer_blocks.9.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4846946400,
+      4846950496
+    ]
+  },
+  "decoder.transformer_blocks.9.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4846950496,
+      4846954592
+    ]
+  },
+  "decoder.transformer_blocks.9.scale1": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4846954592,
+      4846958688
+    ]
+  },
+  "decoder.transformer_blocks.9.scale2": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4846958688,
+      4846962784
+    ]
+  },
+  "decoder.x_embedder.bias": {
+    "dtype": "F16",
+    "shape": [
+      2048
+    ],
+    "data_offsets": [
+      4846962784,
+      4846966880
+    ]
+  },
+  "decoder.x_embedder.weight": {
+    "dtype": "F16",
+    "shape": [
+      2048,
+      24
+    ],
+    "data_offsets": [
+      4846966880,
+      4847065184
+    ]
+  },
+  "encoder.conv_in.bias": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4847065184,
+      4847065440
+    ]
+  },
+  "encoder.conv_in.weight": {
+    "dtype": "F16",
+    "shape": [
+      128,
+      3,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4847065440,
+      4847086176
+    ]
+  },
+  "encoder.conv_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      48
+    ],
+    "data_offsets": [
+      4847086176,
+      4847086272
+    ]
+  },
+  "encoder.conv_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      48,
+      1024,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4847086272,
+      4849740480
+    ]
+  },
+  "encoder.down.0.block.0.conv1.bias": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4849740480,
+      4849740736
+    ]
+  },
+  "encoder.down.0.block.0.conv1.weight": {
+    "dtype": "F16",
+    "shape": [
+      128,
+      128,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4849740736,
+      4850625472
+    ]
+  },
+  "encoder.down.0.block.0.conv2.bias": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4850625472,
+      4850625728
+    ]
+  },
+  "encoder.down.0.block.0.conv2.weight": {
+    "dtype": "F16",
+    "shape": [
+      128,
+      128,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4850625728,
+      4851510464
+    ]
+  },
+  "encoder.down.0.block.0.norm1.bias": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4851510464,
+      4851510720
+    ]
+  },
+  "encoder.down.0.block.0.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4851510720,
+      4851510976
+    ]
+  },
+  "encoder.down.0.block.0.norm2.bias": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4851510976,
+      4851511232
+    ]
+  },
+  "encoder.down.0.block.0.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4851511232,
+      4851511488
+    ]
+  },
+  "encoder.down.0.block.1.conv1.bias": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4851511488,
+      4851511744
+    ]
+  },
+  "encoder.down.0.block.1.conv1.weight": {
+    "dtype": "F16",
+    "shape": [
+      128,
+      128,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4851511744,
+      4852396480
+    ]
+  },
+  "encoder.down.0.block.1.conv2.bias": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4852396480,
+      4852396736
+    ]
+  },
+  "encoder.down.0.block.1.conv2.weight": {
+    "dtype": "F16",
+    "shape": [
+      128,
+      128,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4852396736,
+      4853281472
+    ]
+  },
+  "encoder.down.0.block.1.norm1.bias": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4853281472,
+      4853281728
+    ]
+  },
+  "encoder.down.0.block.1.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4853281728,
+      4853281984
+    ]
+  },
+  "encoder.down.0.block.1.norm2.bias": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4853281984,
+      4853282240
+    ]
+  },
+  "encoder.down.0.block.1.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4853282240,
+      4853282496
+    ]
+  },
+  "encoder.down.0.downsample.conv.bias": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4853282496,
+      4853282752
+    ]
+  },
+  "encoder.down.0.downsample.conv.weight": {
+    "dtype": "F16",
+    "shape": [
+      128,
+      128,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4853282752,
+      4854167488
+    ]
+  },
+  "encoder.down.1.block.0.conv1.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4854167488,
+      4854168000
+    ]
+  },
+  "encoder.down.1.block.0.conv1.weight": {
+    "dtype": "F16",
+    "shape": [
+      256,
+      128,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4854168000,
+      4855937472
+    ]
+  },
+  "encoder.down.1.block.0.conv2.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4855937472,
+      4855937984
+    ]
+  },
+  "encoder.down.1.block.0.conv2.weight": {
+    "dtype": "F16",
+    "shape": [
+      256,
+      256,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4855937984,
+      4859476928
+    ]
+  },
+  "encoder.down.1.block.0.nin_shortcut.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4859476928,
+      4859477440
+    ]
+  },
+  "encoder.down.1.block.0.nin_shortcut.weight": {
+    "dtype": "F16",
+    "shape": [
+      256,
+      128,
+      1,
+      1,
+      1
+    ],
+    "data_offsets": [
+      4859477440,
+      4859542976
+    ]
+  },
+  "encoder.down.1.block.0.norm1.bias": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4859542976,
+      4859543232
+    ]
+  },
+  "encoder.down.1.block.0.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      128
+    ],
+    "data_offsets": [
+      4859543232,
+      4859543488
+    ]
+  },
+  "encoder.down.1.block.0.norm2.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4859543488,
+      4859544000
+    ]
+  },
+  "encoder.down.1.block.0.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4859544000,
+      4859544512
+    ]
+  },
+  "encoder.down.1.block.1.conv1.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4859544512,
+      4859545024
+    ]
+  },
+  "encoder.down.1.block.1.conv1.weight": {
+    "dtype": "F16",
+    "shape": [
+      256,
+      256,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4859545024,
+      4863083968
+    ]
+  },
+  "encoder.down.1.block.1.conv2.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4863083968,
+      4863084480
+    ]
+  },
+  "encoder.down.1.block.1.conv2.weight": {
+    "dtype": "F16",
+    "shape": [
+      256,
+      256,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4863084480,
+      4866623424
+    ]
+  },
+  "encoder.down.1.block.1.norm1.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4866623424,
+      4866623936
+    ]
+  },
+  "encoder.down.1.block.1.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4866623936,
+      4866624448
+    ]
+  },
+  "encoder.down.1.block.1.norm2.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4866624448,
+      4866624960
+    ]
+  },
+  "encoder.down.1.block.1.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4866624960,
+      4866625472
+    ]
+  },
+  "encoder.down.1.downsample.conv.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4866625472,
+      4866625984
+    ]
+  },
+  "encoder.down.1.downsample.conv.weight": {
+    "dtype": "F16",
+    "shape": [
+      256,
+      256,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4866625984,
+      4870164928
+    ]
+  },
+  "encoder.down.2.block.0.conv1.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4870164928,
+      4870165440
+    ]
+  },
+  "encoder.down.2.block.0.conv1.weight": {
+    "dtype": "F16",
+    "shape": [
+      256,
+      256,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4870165440,
+      4873704384
+    ]
+  },
+  "encoder.down.2.block.0.conv2.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4873704384,
+      4873704896
+    ]
+  },
+  "encoder.down.2.block.0.conv2.weight": {
+    "dtype": "F16",
+    "shape": [
+      256,
+      256,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4873704896,
+      4877243840
+    ]
+  },
+  "encoder.down.2.block.0.norm1.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4877243840,
+      4877244352
+    ]
+  },
+  "encoder.down.2.block.0.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4877244352,
+      4877244864
+    ]
+  },
+  "encoder.down.2.block.0.norm2.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4877244864,
+      4877245376
+    ]
+  },
+  "encoder.down.2.block.0.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4877245376,
+      4877245888
+    ]
+  },
+  "encoder.down.2.block.1.conv1.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4877245888,
+      4877246400
+    ]
+  },
+  "encoder.down.2.block.1.conv1.weight": {
+    "dtype": "F16",
+    "shape": [
+      256,
+      256,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4877246400,
+      4880785344
+    ]
+  },
+  "encoder.down.2.block.1.conv2.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4880785344,
+      4880785856
+    ]
+  },
+  "encoder.down.2.block.1.conv2.weight": {
+    "dtype": "F16",
+    "shape": [
+      256,
+      256,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4880785856,
+      4884324800
+    ]
+  },
+  "encoder.down.2.block.1.norm1.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4884324800,
+      4884325312
+    ]
+  },
+  "encoder.down.2.block.1.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4884325312,
+      4884325824
+    ]
+  },
+  "encoder.down.2.block.1.norm2.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4884325824,
+      4884326336
+    ]
+  },
+  "encoder.down.2.block.1.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4884326336,
+      4884326848
+    ]
+  },
+  "encoder.down.2.downsample.conv.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4884326848,
+      4884327360
+    ]
+  },
+  "encoder.down.2.downsample.conv.weight": {
+    "dtype": "F16",
+    "shape": [
+      256,
+      256,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4884327360,
+      4887866304
+    ]
+  },
+  "encoder.down.3.block.0.conv1.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4887866304,
+      4887867328
+    ]
+  },
+  "encoder.down.3.block.0.conv1.weight": {
+    "dtype": "F16",
+    "shape": [
+      512,
+      256,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4887867328,
+      4894945216
+    ]
+  },
+  "encoder.down.3.block.0.conv2.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4894945216,
+      4894946240
+    ]
+  },
+  "encoder.down.3.block.0.conv2.weight": {
+    "dtype": "F16",
+    "shape": [
+      512,
+      512,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4894946240,
+      4909102016
+    ]
+  },
+  "encoder.down.3.block.0.nin_shortcut.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4909102016,
+      4909103040
+    ]
+  },
+  "encoder.down.3.block.0.nin_shortcut.weight": {
+    "dtype": "F16",
+    "shape": [
+      512,
+      256,
+      1,
+      1,
+      1
+    ],
+    "data_offsets": [
+      4909103040,
+      4909365184
+    ]
+  },
+  "encoder.down.3.block.0.norm1.bias": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4909365184,
+      4909365696
+    ]
+  },
+  "encoder.down.3.block.0.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      256
+    ],
+    "data_offsets": [
+      4909365696,
+      4909366208
+    ]
+  },
+  "encoder.down.3.block.0.norm2.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4909366208,
+      4909367232
+    ]
+  },
+  "encoder.down.3.block.0.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4909367232,
+      4909368256
+    ]
+  },
+  "encoder.down.3.block.1.conv1.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4909368256,
+      4909369280
+    ]
+  },
+  "encoder.down.3.block.1.conv1.weight": {
+    "dtype": "F16",
+    "shape": [
+      512,
+      512,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4909369280,
+      4923525056
+    ]
+  },
+  "encoder.down.3.block.1.conv2.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4923525056,
+      4923526080
+    ]
+  },
+  "encoder.down.3.block.1.conv2.weight": {
+    "dtype": "F16",
+    "shape": [
+      512,
+      512,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4923526080,
+      4937681856
+    ]
+  },
+  "encoder.down.3.block.1.norm1.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4937681856,
+      4937682880
+    ]
+  },
+  "encoder.down.3.block.1.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4937682880,
+      4937683904
+    ]
+  },
+  "encoder.down.3.block.1.norm2.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4937683904,
+      4937684928
+    ]
+  },
+  "encoder.down.3.block.1.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4937684928,
+      4937685952
+    ]
+  },
+  "encoder.down.3.downsample.conv.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4937685952,
+      4937686976
+    ]
+  },
+  "encoder.down.3.downsample.conv.weight": {
+    "dtype": "F16",
+    "shape": [
+      512,
+      512,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4937686976,
+      4951842752
+    ]
+  },
+  "encoder.down.4.block.0.conv1.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4951842752,
+      4951843776
+    ]
+  },
+  "encoder.down.4.block.0.conv1.weight": {
+    "dtype": "F16",
+    "shape": [
+      512,
+      512,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4951843776,
+      4965999552
+    ]
+  },
+  "encoder.down.4.block.0.conv2.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4965999552,
+      4966000576
+    ]
+  },
+  "encoder.down.4.block.0.conv2.weight": {
+    "dtype": "F16",
+    "shape": [
+      512,
+      512,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4966000576,
+      4980156352
+    ]
+  },
+  "encoder.down.4.block.0.norm1.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4980156352,
+      4980157376
+    ]
+  },
+  "encoder.down.4.block.0.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4980157376,
+      4980158400
+    ]
+  },
+  "encoder.down.4.block.0.norm2.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4980158400,
+      4980159424
+    ]
+  },
+  "encoder.down.4.block.0.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4980159424,
+      4980160448
+    ]
+  },
+  "encoder.down.4.block.1.conv1.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4980160448,
+      4980161472
+    ]
+  },
+  "encoder.down.4.block.1.conv1.weight": {
+    "dtype": "F16",
+    "shape": [
+      512,
+      512,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4980161472,
+      4994317248
+    ]
+  },
+  "encoder.down.4.block.1.conv2.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      4994317248,
+      4994318272
+    ]
+  },
+  "encoder.down.4.block.1.conv2.weight": {
+    "dtype": "F16",
+    "shape": [
+      512,
+      512,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      4994318272,
+      5008474048
+    ]
+  },
+  "encoder.down.4.block.1.norm1.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      5008474048,
+      5008475072
+    ]
+  },
+  "encoder.down.4.block.1.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      5008475072,
+      5008476096
+    ]
+  },
+  "encoder.down.4.block.1.norm2.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      5008476096,
+      5008477120
+    ]
+  },
+  "encoder.down.4.block.1.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      5008477120,
+      5008478144
+    ]
+  },
+  "encoder.down.5.block.0.conv1.bias": {
+    "dtype": "F16",
+    "shape": [
+      1024
+    ],
+    "data_offsets": [
+      5008478144,
+      5008480192
+    ]
+  },
+  "encoder.down.5.block.0.conv1.weight": {
+    "dtype": "F16",
+    "shape": [
+      1024,
+      512,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      5008480192,
+      5036791744
+    ]
+  },
+  "encoder.down.5.block.0.conv2.bias": {
+    "dtype": "F16",
+    "shape": [
+      1024
+    ],
+    "data_offsets": [
+      5036791744,
+      5036793792
+    ]
+  },
+  "encoder.down.5.block.0.conv2.weight": {
+    "dtype": "F16",
+    "shape": [
+      1024,
+      1024,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      5036793792,
+      5093416896
+    ]
+  },
+  "encoder.down.5.block.0.nin_shortcut.bias": {
+    "dtype": "F16",
+    "shape": [
+      1024
+    ],
+    "data_offsets": [
+      5093416896,
+      5093418944
+    ]
+  },
+  "encoder.down.5.block.0.nin_shortcut.weight": {
+    "dtype": "F16",
+    "shape": [
+      1024,
+      512,
+      1,
+      1,
+      1
+    ],
+    "data_offsets": [
+      5093418944,
+      5094467520
+    ]
+  },
+  "encoder.down.5.block.0.norm1.bias": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      5094467520,
+      5094468544
+    ]
+  },
+  "encoder.down.5.block.0.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      512
+    ],
+    "data_offsets": [
+      5094468544,
+      5094469568
+    ]
+  },
+  "encoder.down.5.block.0.norm2.bias": {
+    "dtype": "F16",
+    "shape": [
+      1024
+    ],
+    "data_offsets": [
+      5094469568,
+      5094471616
+    ]
+  },
+  "encoder.down.5.block.0.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      1024
+    ],
+    "data_offsets": [
+      5094471616,
+      5094473664
+    ]
+  },
+  "encoder.down.5.block.1.conv1.bias": {
+    "dtype": "F16",
+    "shape": [
+      1024
+    ],
+    "data_offsets": [
+      5094473664,
+      5094475712
+    ]
+  },
+  "encoder.down.5.block.1.conv1.weight": {
+    "dtype": "F16",
+    "shape": [
+      1024,
+      1024,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      5094475712,
+      5151098816
+    ]
+  },
+  "encoder.down.5.block.1.conv2.bias": {
+    "dtype": "F16",
+    "shape": [
+      1024
+    ],
+    "data_offsets": [
+      5151098816,
+      5151100864
+    ]
+  },
+  "encoder.down.5.block.1.conv2.weight": {
+    "dtype": "F16",
+    "shape": [
+      1024,
+      1024,
+      3,
+      3,
+      3
+    ],
+    "data_offsets": [
+      5151100864,
+      5207723968
+    ]
+  },
+  "encoder.down.5.block.1.norm1.bias": {
+    "dtype": "F16",
+    "shape": [
+      1024
+    ],
+    "data_offsets": [
+      5207723968,
+      5207726016
+    ]
+  },
+  "encoder.down.5.block.1.norm1.weight": {
+    "dtype": "F16",
+    "shape": [
+      1024
+    ],
+    "data_offsets": [
+      5207726016,
+      5207728064
+    ]
+  },
+  "encoder.down.5.block.1.norm2.bias": {
+    "dtype": "F16",
+    "shape": [
+      1024
+    ],
+    "data_offsets": [
+      5207728064,
+      5207730112
+    ]
+  },
+  "encoder.down.5.block.1.norm2.weight": {
+    "dtype": "F16",
+    "shape": [
+      1024
+    ],
+    "data_offsets": [
+      5207730112,
+      5207732160
+    ]
+  },
+  "encoder.norm_out.bias": {
+    "dtype": "F16",
+    "shape": [
+      1024
+    ],
+    "data_offsets": [
+      5207732160,
+      5207734208
+    ]
+  },
+  "encoder.norm_out.weight": {
+    "dtype": "F16",
+    "shape": [
+      1024
+    ],
+    "data_offsets": [
+      5207734208,
+      5207736256
+    ]
+  },
+  "post_quant_conv.bias": {
+    "dtype": "F16",
+    "shape": [
+      24
+    ],
+    "data_offsets": [
+      5207736256,
+      5207736304
+    ]
+  },
+  "post_quant_conv.weight": {
+    "dtype": "F16",
+    "shape": [
+      24,
+      24,
+      1,
+      1,
+      1
+    ],
+    "data_offsets": [
+      5207736304,
+      5207737456
+    ]
+  },
+  "quant_conv.bias": {
+    "dtype": "F16",
+    "shape": [
+      48
+    ],
+    "data_offsets": [
+      5207737456,
+      5207737552
+    ]
+  },
+  "quant_conv.weight": {
+    "dtype": "F16",
+    "shape": [
+      48,
+      48,
+      1,
+      1,
+      1
+    ],
+    "data_offsets": [
+      5207737552,
+      5207742160
+    ]
+  },
+  "__metadata__": {
+    "minimax_h3_video_vae": "{\"latents_mean\": [0.858090341091156, -0.9606591463088989, 1.0661640167236328, -0.5090325474739075, -0.2727581858634949, -1.3675414323806763, -0.2553254961967468, -0.26907554268836975, -0.5376840829849243, -0.0464097298681736, 0.6657370328903198, 0.19690127670764923, -0.5460608005523682, -0.4035342037677765, -0.23683024942874908, 0.25928452610969543, -0.30133944749832153, 0.211341992020607, -1.1206848621368408, 0.3581933379173279, -0.04225143790245056, 0.2604829967021942, 0.22864092886447906, 0.7056031823158264], \"latents_std\": [1.2223774194717407, 1.2767263650894165, 1.6831774711608887, 1.7549455165863037, 1.5636216402053833, 2.194143533706665, 0.9653137922286987, 1.0569885969161987, 0.841948926448822, 0.7729952931404114, 1.8955937623977661, 0.946841835975647, 0.7996809482574463, 0.44988900423049927, 0.7197399735450745, 0.6936293244361877, 2.961095094680786, 2.7694199085235596, 3.0496184825897217, 2.1088054180145264, 3.276226282119751, 3.1627357006073, 2.2816812992095947, 2.6127843856811523], \"vae_clip_length\": 17, \"vae_token_drop\": 3, \"source_config\": {\"_class_name\": \"AutoencoderKLLegacy\", \"_diffusers_version\": \"0.32.2\", \"causal_decoder\": false, \"causal_encoder\": true, \"ch\": 128, \"ch_mult\": [1, 2, 2, 4, 4, 8], \"embed_dim\": 24, \"in_channels\": 3, \"num_res_blocks\": 2, \"num_res_blocks_decoder\": null, \"out_ch\": 3, \"padding_mode\": \"reflect\", \"padding_mode_t\": null, \"pixel_norm_type\": \"imagenet\", \"scaling_factor\": 1.0, \"shift_factor\": 0.0, \"space_down\": [2, 2, 2, 2, 1, 1], \"space_up\": [1, 2, 2, 2, 2, 1], \"time_down\": [1, 2, 2, 1, 1, 1], \"time_up\": null, \"use_3d_conv\": true, \"use_t_isolated_gn\": true, \"use_vit_decoder\": true, \"vae_ratio\": 16, \"vae_ratio_t\": 4, \"vit_decoder_kwargs\": {\"dim_head\": 64, \"ffn_activation_fn\": \"silu\", \"ffn_use_gated\": true, \"heads\": 32, \"norm_affine\": true, \"norm_type\": \"rms_norm\", \"num_layers\": 36, \"qk_norm_affine\": false, \"qk_norm_type\": \"rms_norm\", \"rope_dim_ratio\": 0.75, \"rope_theta\": 100.0}, \"z_channels\": 24, \"zq_ch_decoder\": null, \"zq_ch_encoder\": null}}"
+  }
+}

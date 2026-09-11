@@ -1,0 +1,136 @@
+{
+  "components": [
+    {
+      "architecture": "yolo11s-detect-coco",
+      "code_revision": "ultralytics==8.4.142",
+      "id": "person",
+      "license_source": {
+        "code": "https://github.com/ultralytics/ultralytics/blob/main/LICENSE",
+        "weights": "https://docs.ultralytics.com/models/yolo11/#citations-and-acknowledgments"
+      },
+      "local_path": "models/yolo11s.pt",
+      "provider": "ultralytics",
+      "revision": "v8.3.0",
+      "runtime_files_sha256": {
+        "ultralytics/cfg/models/11/yolo11.yaml": "43d8a7c86acc77282ddf4966d6526e091e5b064c140ed4a6e4c0b68ecbc3784c",
+        "ultralytics/engine/predictor.py": "c3726b297cee2e489634f6ee82e3bc9c824a92c356942a6bf1a86ba939b8923d",
+        "ultralytics/engine/results.py": "030e4a49e42ef7bd96beab9ca020c6fb41d2c23b2b08d674ea6be8c54b09f281",
+        "ultralytics/nn/modules/block.py": "f815c656fc5c0d6f689322f1ef13655349c5d013792fdf08a7b9156751e21be3",
+        "ultralytics/nn/modules/head.py": "fd14ac4fe568e2bcdde1e50ff0a519c84646b6ccd7fb3d667db1227c12c51eda",
+        "ultralytics/nn/tasks.py": "2371b1bc9b1a17782c55259cf760fcd603f0bd012feb55737e7809dafe89c807",
+        "ultralytics/utils/__init__.py": "f6104573bc3615255bbe725f4557a5984b727dc768d1f313702a1785a942b060",
+        "ultralytics/utils/ops.py": "1a8034386c970fb779ef18f7117083dede6d138d4dbc5f66ed5db76624d36158"
+      },
+      "sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5",
+      "source_asset_digest": null,
+      "source_asset_size_bytes": 19313732,
+      "source_asset_updated_at": "2024-10-01T19:44:09Z",
+      "source_url": "https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11s.pt",
+      "verification": "Historical measured identity; local assets are not distributed in this source release."
+    },
+    {
+      "architecture": "yolo11m-detect-face",
+      "code_revision": "ultralytics==8.4.142",
+      "id": "face",
+      "license_source": {
+        "code": "https://github.com/ultralytics/ultralytics/blob/main/LICENSE",
+        "review_note": "The face repository advertises GPL-3.0, while the modern Ultralytics runtime uses AGPL-3.0/Enterprise terms. These sources are separate; no common dependency license is asserted.",
+        "weights_release": "https://github.com/akanametov/yolo-face/releases/tag/1.0.0",
+        "weights_repository": "https://github.com/akanametov/yolo-face/blob/dev/LICENSE"
+      },
+      "local_path": "models/yolov11m-face.pt",
+      "provider": "akanametov/yolo-face",
+      "revision": "1.0.0",
+      "runtime_files_sha256": {
+        "ultralytics/cfg/models/11/yolo11.yaml": "43d8a7c86acc77282ddf4966d6526e091e5b064c140ed4a6e4c0b68ecbc3784c",
+        "ultralytics/engine/predictor.py": "c3726b297cee2e489634f6ee82e3bc9c824a92c356942a6bf1a86ba939b8923d",
+        "ultralytics/engine/results.py": "030e4a49e42ef7bd96beab9ca020c6fb41d2c23b2b08d674ea6be8c54b09f281",
+        "ultralytics/nn/modules/block.py": "f815c656fc5c0d6f689322f1ef13655349c5d013792fdf08a7b9156751e21be3",
+        "ultralytics/nn/modules/head.py": "fd14ac4fe568e2bcdde1e50ff0a519c84646b6ccd7fb3d667db1227c12c51eda",
+        "ultralytics/nn/tasks.py": "2371b1bc9b1a17782c55259cf760fcd603f0bd012feb55737e7809dafe89c807",
+        "ultralytics/utils/__init__.py": "f6104573bc3615255bbe725f4557a5984b727dc768d1f313702a1785a942b060",
+        "ultralytics/utils/ops.py": "1a8034386c970fb779ef18f7117083dede6d138d4dbc5f66ed5db76624d36158"
+      },
+      "sha256": "6ccbe920c1fac95ed84de570519e89fbe24d326d466a7aae297960b3ecc6c661",
+      "source_asset_digest": null,
+      "source_asset_size_bytes": 40499429,
+      "source_asset_updated_at": "2024-10-09T06:32:49Z",
+      "source_url": "https://github.com/akanametov/yolo-face/releases/download/1.0.0/yolov11m-face.pt",
+      "verification": "Historical measured identity; local assets are not distributed in this source release."
+    },
+    {
+      "architecture": "h3_visual_vae",
+      "code_revision": "h3ce-int8-convrot-v1",
+      "id": "h3_visual_vae",
+      "license_source": {
+        "local_weights_license": "h3ce/vae/_upstream/MiniMax-H3-LICENSE",
+        "repack_model_card": "https://huggingface.co/Comfy-Org/MiniMax-H3/blob/a98869194787969724c7425d95d0ed73ce9202af/README.md",
+        "weights": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/42ed227ee7df40d41602854ae760620d6eb651fe/LICENSE"
+      },
+      "local_path": "models/minimax_h3_video_vae_int8_convrot.safetensors",
+      "provider": "Kijai/MiniMax-H3-experimental",
+      "revision": "f4cac997f880e93cf6940af61ee8d58ef31ff7f3",
+      "sha256": "9bb2d96f218c76babd85e0611b85ca8fb330a90546c01a0005e8a58a59593410",
+      "source_asset_size_bytes": 3171670912,
+      "source_url": "https://huggingface.co/Kijai/MiniMax-H3-experimental/resolve/f4cac997f880e93cf6940af61ee8d58ef31ff7f3/minimax_h3_video_vae_int8_convrot.safetensors",
+      "verification": "Historical measured identity; local assets are not distributed in this source release."
+    },
+    {
+      "architecture": "aitoolkit_h3_visual_vae_backend",
+      "code_revision": "aitoolkit@7690ea62c87133410ffe1596aa222a6e0e9069f7+h3ce-bridge-v1",
+      "id": "aitoolkit_h3_backend",
+      "license_source": {
+        "code": "https://github.com/ostris/ai-toolkit/blob/7690ea62c87133410ffe1596aa222a6e0e9069f7/LICENSE",
+        "local_code_license": "h3ce/vae/_upstream/LICENSE"
+      },
+      "local_path": "h3ce/vae/_vendor.py",
+      "portability_patch": "Remove unrelated OstrisModelMixin import and base class only; AST parity checked for all numerical nodes. Explicit bridge owns normalization and omits display clamp before loss.",
+      "provider": "ostris/ai-toolkit",
+      "revision": "7690ea62c87133410ffe1596aa222a6e0e9069f7",
+      "sha256": "723fc93cf58ad3f3ffe42a770c57046967bdda4288271d0b774ff9ba3a2d2348",
+      "source_url": "https://github.com/ostris/ai-toolkit/blob/7690ea62c87133410ffe1596aa222a6e0e9069f7/extensions_built_in/diffusion_models/minimax_h3/src/vae.py",
+      "upstream_source_sha256": "4ca491b1b038acf5df2d5ceb64fa4f37703cc5d01cd744eb64a104b108b1daa5",
+      "verification": "Historical measured identity; local assets are not distributed in this source release."
+    },
+    {
+      "architecture": "lpips-alex",
+      "backbone": {
+        "path": "models/lpips_alex/alexnet-owt-7be5be79.pth",
+        "sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+        "source_url": "https://download.pytorch.org/models/alexnet-owt-7be5be79.pth",
+        "weights_enum": "AlexNet_Weights.IMAGENET1K_V1"
+      },
+      "code_revision": "lpips==0.1.4",
+      "distribution": {
+        "version": "0.1.4",
+        "wheel_sha256": "fd537af5828b69d2e6ffc0a397bd506dbc28ca183543617690844c08e102ec5e"
+      },
+      "id": "lpips_alex",
+      "license_source": {
+        "backbone_code": "https://github.com/pytorch/vision/blob/v0.25.0/LICENSE",
+        "backbone_weights": "https://docs.pytorch.org/vision/0.25/models/generated/torchvision.models.alexnet.html",
+        "code": "https://github.com/richzhang/PerceptualSimilarity/blob/master/LICENSE",
+        "note": "Code license and pretrained weight/training-data terms are distinct; no assertion that one grants all rights."
+      },
+      "loader": "h3ce.train.perceptual:load_perceptual; explicit offline state loading, weights_only=True, strict coverage",
+      "local_path": "models/lpips_alex/alex-v0.1.pth",
+      "optional": true,
+      "provider": "richzhang/PerceptualSimilarity",
+      "revision": "lpips-v0.1.4/metric-v0.1",
+      "runtime_files_sha256": {
+        "lpips/__init__.py": "36ee004a45e2cc2c5ab47fa3955f00c0e41f6a151ef0249fb6f362533ed58b22",
+        "lpips/lpips.py": "780d09b907cb9b661e0ae28b2d163ddfba92f9e870d7feba34d4790cc6590658",
+        "lpips/pretrained_networks.py": "6a27f714c51796db466e86bebba6a617c1bfc4d566f3a1756497629c1248686e",
+        "lpips/trainer.py": "c44726c274bd31ff20cc1491375a3dc930e61e5dc2660a63e863ce607ceac213",
+        "torchvision/models/alexnet.py": "5dc95d3f652e3a474e51f7718ad192f2a1f32c7efc372ed50b34f32ac6962135"
+      },
+      "sha256": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0",
+      "source_url": "https://pypi.org/project/lpips/0.1.4/",
+      "torchvision_version": "0.25.0+cu128",
+      "verification": "Historical measured identity; local assets are not distributed in this source release."
+    }
+  ],
+  "notes": "New user-selected INT8 source; historical FP16 lock unchanged.",
+  "schema_version": 1,
+  "status": "source_release_external_assets_required"
+}

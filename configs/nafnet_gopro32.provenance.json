@@ -1,0 +1,51 @@
+{
+  "revision": "2b4af71ebe098a92a75910c233a3965a3e93ede4",
+  "architecture": "Official NAFNetLocal GoPro width32, no fast pooling approximation",
+  "files": [
+    {
+      "path": "third_party/NAFNet-2b4af71ebe098a92a75910c233a3965a3e93ede4/readme.md",
+      "sha256": "eb4996e27bc6a6b0706b47471749e9e8c75ccf10cd458f7f9007502057456efd",
+      "source_url": "https://raw.githubusercontent.com/megvii-research/NAFNet/2b4af71ebe098a92a75910c233a3965a3e93ede4/readme.md",
+      "bytes": 15556
+    },
+    {
+      "path": "third_party/NAFNet-2b4af71ebe098a92a75910c233a3965a3e93ede4/LICENSE",
+      "sha256": "a29ecef3456149898f08e4c71b11b33e7d333664e087bc212e84e18ddd6599ad",
+      "source_url": "https://raw.githubusercontent.com/megvii-research/NAFNet/2b4af71ebe098a92a75910c233a3965a3e93ede4/LICENSE",
+      "bytes": 12466
+    },
+    {
+      "path": "third_party/NAFNet-2b4af71ebe098a92a75910c233a3965a3e93ede4/basicsr/models/archs/NAFNet_arch.py",
+      "sha256": "01b22270cc93f1bb90c0e3e4490e98b023fcf73f8552860b4a9ee880ce5c6967",
+      "source_url": "https://raw.githubusercontent.com/megvii-research/NAFNet/2b4af71ebe098a92a75910c233a3965a3e93ede4/basicsr/models/archs/NAFNet_arch.py",
+      "bytes": 6396
+    },
+    {
+      "path": "third_party/NAFNet-2b4af71ebe098a92a75910c233a3965a3e93ede4/basicsr/models/archs/local_arch.py",
+      "sha256": "c4df2ba4d896442a0f6ec984accd6e68f31edce3afdf066add202c25a0d1af26",
+      "source_url": "https://raw.githubusercontent.com/megvii-research/NAFNet/2b4af71ebe098a92a75910c233a3965a3e93ede4/basicsr/models/archs/local_arch.py",
+      "bytes": 4399
+    },
+    {
+      "path": "third_party/NAFNet-2b4af71ebe098a92a75910c233a3965a3e93ede4/basicsr/models/archs/arch_util.py",
+      "sha256": "5a11af2e7c2d7a7b57c1fbd7e19cf0a50b4b4e8c7ae7dd203a915d7a707e7005",
+      "source_url": "https://raw.githubusercontent.com/megvii-research/NAFNet/2b4af71ebe098a92a75910c233a3965a3e93ede4/basicsr/models/archs/arch_util.py",
+      "bytes": 12046
+    },
+    {
+      "path": "third_party/NAFNet-2b4af71ebe098a92a75910c233a3965a3e93ede4/options/test/GoPro/NAFNet-width32.yml",
+      "sha256": "d0c0e6e1fe3e9b39d626d171ec71f8ed11edba18bcb37a446d74c317889c2802",
+      "source_url": "https://raw.githubusercontent.com/megvii-research/NAFNet/2b4af71ebe098a92a75910c233a3965a3e93ede4/options/test/GoPro/NAFNet-width32.yml",
+      "bytes": 1393
+    },
+    {
+      "path": "models/nafnet_gopro32_baseline/NAFNet-GoPro-width32.pth",
+      "sha256": "19394e6155d12ef6371d1d57496f87f0ec88f92bdffa27c0792690722d5d1a5c",
+      "source_url": "https://drive.usercontent.google.com/download?id=1Fr2QadtDCEXg6iwWX8OzeZLbHOx2t5Bj&export=download&confirm=t",
+      "linked_by": "https://github.com/megvii-research/NAFNet/blob/2b4af71ebe098a92a75910c233a3965a3e93ede4/readme.md",
+      "bytes": 68671121,
+      "hash_origin": "Measured download hash, not author-published checksum"
+    }
+  ],
+  "license_source": "third_party/NAFNet-2b4af71ebe098a92a75910c233a3965a3e93ede4/LICENSE"
+}
