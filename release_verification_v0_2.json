@@ -1,0 +1,38 @@
+{
+  "release": "0.2.0",
+  "adapter_sha256": "a210d161a00f7089122495c5176118303fd7d6efe9ff1d2d4d112a0c6753b804",
+  "h3_asset_sha256": "9bb2d96f218c76babd85e0611b85ca8fb330a90546c01a0005e8a58a59593410",
+  "cpu_tests": {
+    "passed": 374,
+    "deselected": 1,
+    "subtests_passed": 19
+  },
+  "wheel_build": "passed",
+  "isolated_wheel_imports_and_cli": "passed",
+  "source_checksums": {
+    "backend_sha256": "a337e9ca0908304afa5aeb3dfd852374f9ecc82cd581a876672289c12a5f63eb",
+    "dense_sha256": "c32a74f1236b4cf1686e8739ddaa857f3b2e000bcd5e5cbdfbf30a046a97cb30",
+    "inference_sha256": "791de6e43299e8368c06547e58edb1a11d8a258ec22a4113ba44d286a2bf446e",
+    "native_sha256": "4e92408fdd9a8d4586900f6b5330b67fe61e701070692fec0dfc44184e8f3dc8"
+  },
+  "gpu_numerical_comparisons": [
+    {
+      "kind": "image",
+      "bucket": 256,
+      "real_frames": 1,
+      "latent_bitwise_equal": true,
+      "output_bitwise_equal": true,
+      "output_max_abs_difference": 0.0
+    },
+    {
+      "kind": "video",
+      "bucket": 832,
+      "real_frames": 22,
+      "latent_bitwise_equal": true,
+      "output_bitwise_equal": true,
+      "output_max_abs_difference": 0.0
+    }
+  ],
+  "scope": "One admitted 256 image and one real832 22-frame video window; no new FPS, full-length-video or device-capacity certification",
+  "private_media_published": false
+}

@@ -11,6 +11,7 @@ from flashh3vr.backend import H3_VENDOR_SHA256, sha256_file
 from flashh3vr.dense import DENSE_SHAPES, DenseInter, load_dense
 from flashh3vr.native import native_tiled_dense_inter
 from flashh3vr import _vendor
+from flashh3vr.__main__ import _read_video_window
 
 
 def test_pinned_vendor_and_weight_contract(tmp_path):
@@ -38,10 +39,27 @@ def test_dense_exact_single_residual_formula():
 def test_real_video_pts_and_image_context():
     FrameMeta("image", (0.0,)).validate(1)
     FrameMeta("video", tuple(i / 24 for i in range(22)), True).validate(22)
-    with pytest.raises(ValueError, match="22 real"):
-        FrameMeta("video", tuple(i / 24 for i in range(5)), True).validate(5)
+    FrameMeta("video", tuple(i / 24 for i in range(5)), True).validate(5)
+    with pytest.raises(ValueError, match="2–22 real"):
+        FrameMeta("video", (0.0,), True).validate(1)
+    with pytest.raises(ValueError, match="2–22 real"):
+        FrameMeta("video", tuple(i / 24 for i in range(23)), True).validate(23)
     with pytest.raises(ValueError, match="increasing"):
         FrameMeta("video", tuple([0.0] * 22), True).validate(22)
+
+
+def test_short_head_window_npy_and_pts_length(tmp_path):
+    for count in (2, 6, 22):
+        path = tmp_path / f"window_{count}.npy"
+        np.save(path, np.zeros((count, 256, 256, 3), dtype=np.float32), allow_pickle=False)
+        assert _read_video_window(path).shape == (1, 3, count, 256, 256)
+        FrameMeta("video", tuple(i / 24 for i in range(count)), True).validate(count)
+        with pytest.raises(ValueError, match="matching PTS"):
+            FrameMeta("video", tuple(i / 24 for i in range(count - 1)), True).validate(count)
+    bad = tmp_path / "one.npy"
+    np.save(bad, np.zeros((1, 256, 256, 3), dtype=np.float32), allow_pickle=False)
+    with pytest.raises(ValueError, match="2–22"):
+        _read_video_window(bad)
 
 
 @pytest.mark.parametrize("side", BUCKETS)
@@ -74,5 +92,6 @@ def test_explicit_half_input_alignment_matches_frozen_algorithms():
     actual_video = align_half_input(video, kind="video", target_side=256)
     assert actual_video.shape == (1, 3, 22, 256, 256)
     assert torch.equal(actual_video, torch.full_like(actual_video, 64 / 255))
+    assert align_half_input(video[:, :, :21], kind="video", target_side=256).shape[2] == 21
     with pytest.raises(ValueError, match="Half input"):
-        align_half_input(video[:, :, :21], kind="video", target_side=256)
+        align_half_input(video[:, :, :1], kind="video", target_side=256)

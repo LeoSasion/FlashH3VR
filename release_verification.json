@@ -1,38 +1,102 @@
 {
-  "release": "0.2.0",
+  "release": "0.3.0",
+  "adapter_unchanged_from": "0.2.0",
   "adapter_sha256": "a210d161a00f7089122495c5176118303fd7d6efe9ff1d2d4d112a0c6753b804",
   "h3_asset_sha256": "9bb2d96f218c76babd85e0611b85ca8fb330a90546c01a0005e8a58a59593410",
+  "face_asset_sha256": "6ccbe920c1fac95ed84de570519e89fbe24d326d466a7aae297960b3ecc6c661",
   "cpu_tests": {
-    "passed": 374,
+    "passed": 386,
     "deselected": 1,
     "subtests_passed": 19
   },
   "wheel_build": "passed",
   "isolated_wheel_imports_and_cli": "passed",
   "source_checksums": {
-    "backend_sha256": "a337e9ca0908304afa5aeb3dfd852374f9ecc82cd581a876672289c12a5f63eb",
-    "dense_sha256": "c32a74f1236b4cf1686e8739ddaa857f3b2e000bcd5e5cbdfbf30a046a97cb30",
-    "inference_sha256": "791de6e43299e8368c06547e58edb1a11d8a258ec22a4113ba44d286a2bf446e",
-    "native_sha256": "4e92408fdd9a8d4586900f6b5330b67fe61e701070692fec0dfc44184e8f3dc8"
+    "flashh3vr/__main__.py": "7d42c3973cb7203eb81a50d42c7299846fb813cd52a5bfe9bc3937cf2d9c1511",
+    "flashh3vr/full_video.py": "4c45ab57d685719230565d1570cfa5cda888329516c16a4ea848004040379212",
+    "flashh3vr/inference.py": "cd28175f36f7780db79cfaaf262c999f149ee44503c479e3480fa3b6016b67be",
+    "h3ce/infer/video_output.py": "5147f1df5607a77ebc15c7394be0e44b2920b423c5f5131d9711002741b65fd7"
   },
-  "gpu_numerical_comparisons": [
+  "gpu_software_integration_checks": [
     {
-      "kind": "image",
-      "bucket": 256,
-      "real_frames": 1,
-      "latent_bitwise_equal": true,
-      "output_bitwise_equal": true,
-      "output_max_abs_difference": 0.0
+      "entry": "public full-video CLI",
+      "real_frames": 44,
+      "actually_restored_frames": 44,
+      "skipped_frames": 0,
+      "canvas_hw": [
+        432,
+        768
+      ],
+      "head_bucket": 448,
+      "real_frames_per_window": [
+        22,
+        22,
+        10
+      ],
+      "h3_context_frames_per_window": [
+        22,
+        22,
+        22
+      ],
+      "decoded_frame_count_preserved": true,
+      "rational_pts_preserved": true
     },
     {
-      "kind": "video",
-      "bucket": 832,
-      "real_frames": 22,
-      "latent_bitwise_equal": true,
-      "output_bitwise_equal": true,
-      "output_max_abs_difference": 0.0
+      "entry": "public full-frame APIs, shared model load",
+      "real_frames": 2,
+      "actually_restored_frames": 2,
+      "canvas_hw": [
+        432,
+        768
+      ],
+      "head_bucket": 448,
+      "h3_context_frames": 5,
+      "decoded_frame_count_preserved": true,
+      "rational_pts_preserved": true
+    },
+    {
+      "entry": "public full-frame APIs, shared model load",
+      "real_frames": 6,
+      "actually_restored_frames": 6,
+      "canvas_hw": [
+        432,
+        768
+      ],
+      "head_bucket": 448,
+      "h3_context_frames": 22,
+      "decoded_frame_count_preserved": true,
+      "rational_pts_preserved": true
     }
   ],
-  "scope": "One admitted 256 image and one real832 22-frame video window; no new FPS, full-length-video or device-capacity certification",
-  "private_media_published": false
+  "test_input_scope": "52 input-frame executions from one private 44-frame source excerpt and its two prefixes; not 52 independent source frames",
+  "source_preparation": "private 4K source decoded, downsampled as a complete 768x432 frame, encoded to supported silent SDR fixtures; original source rational PTS retained",
+  "short_window_padding": "repeat only inside native H3 context; return original real frame count and PTS",
+  "previous_numerical_parity": "release_verification_v0_2.json",
+  "scope": "bounded software integration; no new model quality, full-film streaming, audio, FPS, minimum VRAM or independent generalization certification",
+  "private_media_published": false,
+  "visual_review": {
+    "normal_size_before_after_panels_actually_reviewed": 11,
+    "frames_reviewed": {
+      "44_frame_case": [
+        0,
+        17,
+        21,
+        22,
+        34,
+        38,
+        43
+      ],
+      "2_frame_case": [
+        0,
+        1
+      ],
+      "6_frame_case": [
+        0,
+        5
+      ]
+    },
+    "observation": "No obvious new paste boundary, grid, ghosting or facial structural damage in the viewed panels; slightly softer appearance; no clarity-gain conclusion",
+    "ordinary_playback_completed": false,
+    "temporal_flicker_or_window_transition_continuity_certified": false
+  }
 }

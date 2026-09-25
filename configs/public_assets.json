@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "assets": {
+    "dense": {
+      "filename": "flashh3vr-dense-1837-bundle.zip",
+      "url": "https://github.com/LeoSasion/FlashH3VR/releases/download/v0.2.0/flashh3vr-dense-1837-bundle.zip",
+      "sha256": "a2199b0bdd4b187feeada476b81526677cf767420248971ec0879fc59e12f236",
+      "size_bytes": 11720843,
+      "format": "dense_bundle",
+      "weight_filename": "flashh3vr-dense-1837.safetensors",
+      "weight_sha256": "a210d161a00f7089122495c5176118303fd7d6efe9ff1d2d4d112a0c6753b804"
+    },
+    "h3": {
+      "filename": "minimax_h3_video_vae_int8_convrot.safetensors",
+      "url": "https://huggingface.co/Kijai/MiniMax-H3-experimental/resolve/f4cac997f880e93cf6940af61ee8d58ef31ff7f3/minimax_h3_video_vae_int8_convrot.safetensors",
+      "sha256": "9bb2d96f218c76babd85e0611b85ca8fb330a90546c01a0005e8a58a59593410",
+      "size_bytes": 3171670912,
+      "format": "safetensors"
+    },
+    "face": {
+      "filename": "yolov11m-face.pt",
+      "url": "https://github.com/akanametov/yolo-face/releases/download/1.0.0/yolov11m-face.pt",
+      "sha256": "6ccbe920c1fac95ed84de570519e89fbe24d326d466a7aae297960b3ecc6c661",
+      "size_bytes": 40499429,
+      "format": "upstream_pytorch_checkpoint"
+    }
+  }
+}

@@ -2,14 +2,14 @@
 
 ## Identity and use
 
-A single-person head-restoration research adapter trained for Go Youn-jung (고윤정). It predicts a residual in the frozen MiniMax H3 video VAE latent space. It is not an identity-recognition model, a full-frame video application, a general face-restoration benchmark winner, or an independently trained replacement for H3.
+A single-person head-restoration research adapter trained for Go Youn-jung (고윤정). It predicts a residual in the frozen MiniMax H3 video VAE latent space. The automatic video wrapper supplies detection, cropping and paste-back around this adapter. It is not an identity-recognition model, a general face-restoration benchmark winner, or an independently trained replacement for H3.
 
 - Four float32 tensors, 3,152,128 parameters; 24-channel 16 × 16 latent tiles, a 256-unit Dense bottleneck and GELU.
 - Actual training buckets: 256, 448, 640 and 832; native H3 256-pixel tiles with at least 64 pixels of overlap.
 - Research lineage: 866-step source plus 971 updates, yielding full Adam step 1837.
 - Safetensors SHA256: a210d161a00f7089122495c5176118303fd7d6efe9ff1d2d4d112a0c6753b804.
 - External H3 checkpoint SHA256: 9bb2d96f218c76babd85e0611b85ca8fb330a90546c01a0005e8a58a59593410, executed through dequantized FP16.
-- [Inference interface](docs/USAGE.md), [download and asset identities](docs/ASSETS.md), [metrics](docs/BASELINE.md).
+- [Automatic video](docs/FULL_VIDEO.md), [inference interface](docs/USAGE.md), [download and asset identities](docs/ASSETS.md), [metrics](docs/BASELINE.md).
 
 ## Training data
 

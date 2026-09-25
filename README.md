@@ -2,11 +2,11 @@
 
 **Flash H3 Video Restoration** — a Dense residual adapter inside a frozen H3 video VAE.
 
-[简体中文](README.zh-CN.md) · [Inference guide](docs/USAGE.md) · [Model card](MODEL_CARD.md) · [Assets](docs/ASSETS.md) · [Licensing](THIRD_PARTY_NOTICES.md)
+[简体中文](README.zh-CN.md) · [Automatic video](docs/FULL_VIDEO.md) · [Agent guide](docs/AGENT_REPRODUCTION.md) · [Head-crop API](docs/USAGE.md) · [Model card](MODEL_CARD.md) · [Assets](docs/ASSETS.md) · [Licensing](THIRD_PARTY_NOTICES.md)
 
-The current research baseline is **Dense Inter 1837**, trained at 256, 448, 640 and 832 pixels. A frozen H3 encoder, one learned latent correction and a frozen decoder restore an already cropped head image or a real head-video window. The current path uses no diffusion transformer, iterative repair or RGB NAF tail.
+The current research baseline is **Dense Inter 1837**, trained at 256, 448, 640 and 832 pixels. A frozen H3 encoder, one learned latent correction and a frozen decoder restore head images or real head-video windows. Version 0.3 also provides automatic face detection, crop stabilization, video windows and full-frame paste-back from a video file. The current path uses no diffusion transformer, iterative repair or RGB NAF tail.
 
-The new **flashh3vr** package is the current inference entry. Older h3ce/NAF recipes remain historical source. Their full-frame paste-back, 24 FPS measurements and 16GB-VRAM tag do **not** certify this model.
+The new **flashh3vr** package is the current inference entry. Older h3ce/NAF recipes remain historical source. Their 24 FPS measurements and 16GB-VRAM tag do **not** certify this model. The current automatic entry reuses their media and geometry utilities with the published Dense weights.
 
 **[Download Dense Inter 1837 weights](https://github.com/LeoSasion/FlashH3VR/releases/download/v0.2.0/flashh3vr-dense-1837-bundle.zip)** — 11.18 MiB ZIP, including the model license and checksums. Extract it into models and obtain the external H3 checkpoint listed in [Assets](docs/ASSETS.md).
 
@@ -21,6 +21,18 @@ python -m flashh3vr --help
 
 Inference needs two separate files: the exact external H3 INT8 ConvRot checkpoint and this project's Dense Inter safetensors. H3 is decoded to the tested FP16 numerical path; this is not the old Comfy Kitchen INT8 execution path. See [asset identities and availability](docs/ASSETS.md), then follow the [image and video-window guide](docs/USAGE.md).
 
+## Automatic video, from a fresh clone
+
+After installing CUDA PyTorch and matching torchvision:
+
+~~~bash
+python -m pip install -e ".[full-video]"
+python scripts/download_public_assets.py --asset all --models-dir models
+python -m flashh3vr --kind full-video --input input.mp4 --output restored.mp4 --h3-weights models/minimax_h3_video_vae_int8_convrot.safetensors --dense-weights models/flashh3vr-dense-1837.safetensors --face-weights models/yolov11m-face.pt --target-side 448 --max-frames 90
+~~~
+
+Use a short supported SDR clip without audio. This entry detects and crops heads automatically and writes a full-frame video plus a JSON report. It processes the entire input within the explicit frame limit; it does not silently trim a longer file. [Inputs, limits and output checks](docs/FULL_VIDEO.md). Give [the reproduction guide](docs/AGENT_REPRODUCTION.md) to another agent for setup and verification.
+
 ## Current model
 
 | Property | Value |
@@ -30,7 +42,7 @@ Inference needs two separate files: the exact external H3 INT8 ConvRot checkpoin
 | Export | flashh3vr-dense-1837.safetensors, 12,609,192 bytes |
 | Training | 105.005 effective minutes, 971 new updates, Adam step 1837 |
 | Spatial execution | Native 256-pixel tiles, at least 64 pixels of overlap |
-| Input/output | Prepared head crops; real video frames and source PTS |
+| Input/output | Head-crop API or automatic full-frame SDR video; real frames and source PTS |
 
 Relative to the study's 866-step starting checkpoint, train-partition edge error decreased **8.08%**, and reused development-window edge error decreased **4.10%**. The 448-pixel photograph mouth metric regressed about **2.2%**. Reviewed panels showed small visual differences and no obvious new severe artifacts. These are limited internal observations, not fresh independent generalization or a speed claim. [Definitions and limitations](docs/BASELINE.md).
 
@@ -43,6 +55,6 @@ python -m pip install -e ".[dev,video,models,inference]"
 python -m pytest -q
 ~~~
 
-CPU tests use synthetic inputs and do not substitute for real-model verification. Full-frame detection, tracking, audio and paste-back are outside the new inference entry. See [release scope](docs/RELEASE_SCOPE.md).
+CPU tests use synthetic inputs and do not substitute for real-model verification. The automatic path is bounded in memory and does not support audio remux or multi-person identity selection. See [release scope](docs/RELEASE_SCOPE.md).
 
 FlashH3VR is independent and does not imply endorsement by MiniMax or the person represented in the adaptation data.

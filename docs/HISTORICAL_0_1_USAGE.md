@@ -1,4 +1,6 @@
-# Using the research source
+# Historical version 0.1 research source
+
+For a runnable automatic workflow with the currently published Dense weights, use [version 0.3 full-frame inference](FULL_VIDEO.md) and [the agent reproduction guide](AGENT_REPRODUCTION.md). The NAF construction below is historical and requires unreleased old assets.
 
 ## What works without model assets
 
@@ -13,7 +15,7 @@ The repository includes CPU tests for detection scheduling, byte preparation, in
 
 The original Windows environment is recorded in `requirements.gpu.lock.txt`. It includes a Windows Python 3.12 CUDA wheel and must not be used as a universal platform lock. The current INT8 runtime loader requires the specific Windows extension and isolated cuBLAS13 recorded in the manifests. Linux CUDA inference and other GPUs have not been accepted for this release.
 
-## Current inference API
+## Historical inference API
 
 The active research file function is:
 

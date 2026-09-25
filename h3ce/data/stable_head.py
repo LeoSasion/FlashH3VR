@@ -16,7 +16,7 @@ def stabilize_head_boxes(boxes, pts, shot_ids, canvas_hw, *, side=256):
     Two future frames are needed: this is an offline, bounded-lookahead method.
     """
     n=len(boxes);h,w=canvas_hw
-    if n!=len(pts) or n!=len(shot_ids) or side not in (256,512):
+    if n!=len(pts) or n!=len(shot_ids) or side not in (256,448,512,640,832):
         raise ValueError('Length or head size mismatch')
     if any(not math.isfinite(t) for t in pts) or any(b<=a for a,b in zip(pts,pts[1:])):
         raise ValueError('Strictly increasing finite source PTS required')

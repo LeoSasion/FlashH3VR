@@ -1,6 +1,6 @@
 # Contributing
 
-Read [release scope](docs/RELEASE_SCOPE.md), [inference usage](docs/USAGE.md) and [the model card](MODEL_CARD.md).
+Read [release scope](docs/RELEASE_SCOPE.md), [automatic video](docs/FULL_VIDEO.md), [agent reproduction](docs/AGENT_REPRODUCTION.md), [head-crop inference](docs/USAGE.md) and [the model card](MODEL_CARD.md).
 
 Describe the changed behavior and run the relevant CPU tests. Preserve source-time ordering, explicit input/output ranges, strict model hashes and native H3 spatial/temporal contracts. Do not turn a failed shape/hash check into a silent fallback.
 

@@ -1,0 +1,125 @@
+{
+  "release": "0.3.0",
+  "feature": "Automatic full-frame Dense Inter video inference",
+  "source_base_commit": "57d490a640d9f7cb2dcd1f327b86c35dc066d356",
+  "new_cli": "python -m flashh3vr --kind full-video",
+  "adapter_unchanged_from": "v0.2.0",
+  "adapter_sha256": "a210d161a00f7089122495c5176118303fd7d6efe9ff1d2d4d112a0c6753b804",
+  "source_origins": {
+    "full_video": "New public wrapper around existing H3/Dense and media/geometry utilities",
+    "video_output": "Exact encoding implementation extracted from h3ce/infer/head_video_file.py; historical import remains compatible",
+    "stable_head": "Existing stable geometry with additional 448/640/832 canvas sizes",
+    "short_windows": "Existing H3 native 5/22 context convention exposed in public Dense API, padding separated from real input",
+    "download_helper": "Explicit standard-library downloader for the pinned public assets"
+  },
+  "changed_or_added_files": {
+    "AGENTS.md": {
+      "sha256": "db1aa541643fc2f75d34769a4dd438b1c28587a5d925edb334d90ca4d527cc88",
+      "bytes": 1521
+    },
+    "CONTRIBUTING.md": {
+      "sha256": "c52c567e46baeb741a1acaf89fb2b84b31393956a6f15bbcc415d86c411dbe2f",
+      "bytes": 1147
+    },
+    "MODEL_CARD.md": {
+      "sha256": "861268b2c9f9a6b4b1a84b561681f74e9770d585dff8aa34d68521c3d1ae318e",
+      "bytes": 3780
+    },
+    "README.md": {
+      "sha256": "1a6e7c1d6ed5bd600bbf0dacb6bb0b50a50e90aaf474217a76d018a9248958fa",
+      "bytes": 4640
+    },
+    "README.zh-CN.md": {
+      "sha256": "1baab9518241e3f0866dda99c745439b2fa380c5ade0bc91653a366fc140723c",
+      "bytes": 4381
+    },
+    "configs/public_assets.json": {
+      "sha256": "98c3a07ab67cd755a2727a117431b83cbe55ca42a775fc5c919b9bb3ffe5652e",
+      "bytes": 1240
+    },
+    "docs/AGENT_REPRODUCTION.md": {
+      "sha256": "45ef6fc6e65ad46f55b07c3eeaca3705d736cd33afeed877621f8de980f2f061",
+      "bytes": 5435
+    },
+    "docs/ASSETS.md": {
+      "sha256": "4052ceefb4aa52ab1921afc8d34b17003db859d6e6f004886ed856efc7a65f25",
+      "bytes": 4169
+    },
+    "docs/FULL_VIDEO.md": {
+      "sha256": "0bd511278510c1eb5aea5c7276ea08afb2287a41727449f6087911e90b12665a",
+      "bytes": 7641
+    },
+    "docs/HISTORICAL_0_1_USAGE.md": {
+      "sha256": "3b6b55d62318405f01b6da6ffabc3639103a0ff6e070a10202a63bd73c2b2b50",
+      "bytes": 4739
+    },
+    "docs/RELEASE_SCOPE.md": {
+      "sha256": "e1d5c2564546d489f1a8a25a0c98c1d6193f06b6301fe0ad1e45ae126ebb5d2f",
+      "bytes": 2153
+    },
+    "docs/USAGE.md": {
+      "sha256": "0e679a8c6ed527e29482ab72c17a8b7a3a3f69276584586f0a67c1a732b594e2",
+      "bytes": 4493
+    },
+    "docs/VERIFICATION.md": {
+      "sha256": "8b2808fbddd3408a8af90e0704bb95efe44c23e87047e5abf1eaab0481089f77",
+      "bytes": 3416
+    },
+    "flashh3vr/__main__.py": {
+      "sha256": "7d42c3973cb7203eb81a50d42c7299846fb813cd52a5bfe9bc3937cf2d9c1511",
+      "bytes": 6792
+    },
+    "flashh3vr/full_video.py": {
+      "sha256": "4c45ab57d685719230565d1570cfa5cda888329516c16a4ea848004040379212",
+      "bytes": 15711
+    },
+    "flashh3vr/inference.py": {
+      "sha256": "cd28175f36f7780db79cfaaf262c999f149ee44503c479e3480fa3b6016b67be",
+      "bytes": 8588
+    },
+    "h3ce/data/stable_head.py": {
+      "sha256": "e69c3fd2c75e52525af63dd6334520413ad3ac93df5f12fcecf8127d7d2bb309",
+      "bytes": 4446
+    },
+    "h3ce/infer/head_video_file.py": {
+      "sha256": "7298abf1458a475656d85662e76fb8fe966c5030fa1d29f216a1155011e87cae",
+      "bytes": 6651
+    },
+    "h3ce/infer/video_output.py": {
+      "sha256": "5147f1df5607a77ebc15c7394be0e44b2920b423c5f5131d9711002741b65fd7",
+      "bytes": 2651
+    },
+    "pyproject.toml": {
+      "sha256": "cacdc214d87e762fd3ecd5b8293842e1b84e32a6240e3316b50f5d06e2e602d3",
+      "bytes": 1443
+    },
+    "release_verification.json": {
+      "sha256": "baa13d8deb1bfe0651ce49368c8aaf83d4df4270aec17786e5487f7106f8351e",
+      "bytes": 3499
+    },
+    "release_verification_v0_2.json": {
+      "sha256": "f7f55753a248a53d4f9c764f245d116bda766475b155c35b8e3b3bdae914a869",
+      "bytes": 1385
+    },
+    "scripts/download_public_assets.py": {
+      "sha256": "d761d56c6268e243e0d40095145b69a2270997c52edf8bd4a1707a0b96be8d59",
+      "bytes": 5732
+    },
+    "tests/test_dense_full_video.py": {
+      "sha256": "afcf6f5e28bf2123602b2366b0c009514d72747b5b6eb1b2bfd6d6ba585e273c",
+      "bytes": 6503
+    },
+    "tests/test_dense_release_cpu.py": {
+      "sha256": "e5023c0e6290e061131a8c400fcd9e13da699b0505c0cf8e9f0cd972393cf0e9",
+      "bytes": 4502
+    },
+    "tests/test_public_assets.py": {
+      "sha256": "e321600a91462140a8a69d85622518bf0cf10912aa7977ce96a31bffcc9444f2",
+      "bytes": 2973
+    }
+  },
+  "private_media_included": false,
+  "private_training_or_optimizer_state_included": false,
+  "h3_base_weights_included": false,
+  "verification": "release_verification.json"
+}

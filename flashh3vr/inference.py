@@ -18,6 +18,7 @@ from .native import native_tiled_dense_inter
 
 BUCKETS = (256, 448, 640, 832)
 REAL_VIDEO_FRAMES = 22
+MIN_VIDEO_FRAMES = 2
 
 
 @dataclass(frozen=True)
@@ -31,8 +32,8 @@ class FrameMeta:
             if frames != 1 or self.real_video or len(self.pts) != 1:
                 raise ValueError("Image inference needs exactly one real frame")
         elif self.kind == "video":
-            if frames != REAL_VIDEO_FRAMES or not self.real_video or len(self.pts) != frames:
-                raise ValueError("This verified video interface needs 22 real frames and 22 PTS values")
+            if not MIN_VIDEO_FRAMES <= frames <= REAL_VIDEO_FRAMES or not self.real_video or len(self.pts) != frames:
+                raise ValueError("Video windows need 2–22 real frames and matching PTS values")
         else:
             raise ValueError("Media kind must be image or video")
         if not all(math.isfinite(p) for p in self.pts) or any(
@@ -50,7 +51,7 @@ def align_half_input(low: torch.Tensor, *, kind: str, target_side: int) -> torch
     if (target_side not in BUCKETS or low.ndim != 5 or low.shape[0] != 1
             or low.shape[1] != 3 or low.shape[-2:] != (target_side // 2, target_side // 2)
             or (kind == "image" and low.shape[2] != 1)
-            or (kind == "video" and low.shape[2] != REAL_VIDEO_FRAMES)
+            or (kind == "video" and not MIN_VIDEO_FRAMES <= low.shape[2] <= REAL_VIDEO_FRAMES)
             or kind not in ("image", "video") or not low.is_floating_point()
             or not bool(torch.isfinite(low).all()) or bool((low < 0).any()) or bool((low > 1).any())):
         raise ValueError("Half input must be finite RGB [1,3,T,S/2,S/2] in [0,1]")
@@ -78,7 +79,7 @@ class DenseRestorer:
     """Head-crop tensor inference with the adopted four-tensor Dense baseline.
 
     Input and output are RGB float [B,3,T,H,W]. B is currently 1, T is 1 for
-    images or 22 for a real, continuous video window. Accepted canvases are
+    images or 2–22 for a real, continuous video window. Accepted canvases are
     square 256/448/640/832. No detection, identity recognition, source crop,
     shot segmentation, face pasting, or long-video stitching is performed.
     """
@@ -107,9 +108,14 @@ class DenseRestorer:
         if model.training or self.dense.training or any(p.requires_grad for p in model.parameters()):
             raise ValueError("H3 and Dense must remain frozen in evaluation mode")
         valid_frames = rgb.shape[2]
-        expected_latent_frames = 1 if meta.kind == "image" else 7
+        padded_frames = (1 if meta.kind == "image" else
+                         5 if valid_frames <= 5 else REAL_VIDEO_FRAMES)
+        expected_latent_frames = 1 if padded_frames == 1 else 2 if padded_frames == 5 else 7
         with tf32_disabled(), torch.no_grad():
-            raw = self.h3.encode_mean_raw(rgb.float() * 2.0 - 1.0)
+            model_input = (torch.cat([rgb, rgb[:, :, -1:].expand(-1, -1, padded_frames - valid_frames,
+                                                               -1, -1)], dim=2)
+                           if padded_frames != valid_frames else rgb)
+            raw = self.h3.encode_mean_raw(model_input.float() * 2.0 - 1.0)
             normalized = (raw - model.latents_mean.view(1, 24, 1, 1, 1)) / model.latents_std.view(1, 24, 1, 1, 1)
             expected = (1, 24, expected_latent_frames, rgb.shape[-2] // 16, rgb.shape[-1] // 16)
             if normalized.shape != expected or not bool(torch.isfinite(normalized).all()):
@@ -118,9 +124,14 @@ class DenseRestorer:
             raw_corrected = (corrected.float() * model.latents_std.view(1, 24, 1, 1, 1)
                              + model.latents_mean.view(1, 24, 1, 1, 1))
             output = self.h3.decode_raw(raw_corrected)
-            if output.shape != rgb.shape or not bool(torch.isfinite(output).all()):
+            if output.shape != model_input.shape or not bool(torch.isfinite(output).all()):
                 raise ValueError("Native H3 decoder returned invalid RGB output")
-            self.last_plan = plan
+            self.last_plan = {**plan, "valid_frames": valid_frames,
+                              "h3_context_frames": padded_frames,
+                              "padded_frames": padded_frames,
+                              "padding_frames_added": padded_frames - valid_frames,
+                              "padded_frames_meaning": "total H3 context frames, including real frames"}
+            output = output[:, :, :valid_frames]
             return output.clamp(0, 1) if clamp_output else output
 
     def restore_image(self, rgb: torch.Tensor, *, clamp_output: bool = False) -> torch.Tensor:
@@ -143,5 +154,7 @@ class DenseRestorer:
                 "minimum_overlap_pixels": 64,
                 "buckets": list(BUCKETS),
                 "video_window_real_frames": REAL_VIDEO_FRAMES,
+                "video_window_real_frames_min": MIN_VIDEO_FRAMES,
+                "video_tail_padding": "repeat_last_only_inside_H3_to_5_or_22; trim_to_real_frames",
                 "repair_steps": 1,
                 "output_is_unclamped_by_default": True}
