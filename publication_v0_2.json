@@ -1,0 +1,60 @@
+{
+  "release": "0.2.0",
+  "current_inference_package": "flashh3vr",
+  "files": {
+    "flashh3vr/__init__.py": {
+      "sha256": "520bb635ad06a2bd073af49d41a152e122c6878a0bd0bf4826174db365d23bfc",
+      "bytes": 437
+    },
+    "flashh3vr/__main__.py": {
+      "sha256": "71fb49af909b72877616dcf42fef41562ee313df3d8d3a9638f3fa4904635a34",
+      "bytes": 5027
+    },
+    "flashh3vr/_vendor.py": {
+      "sha256": "723fc93cf58ad3f3ffe42a770c57046967bdda4288271d0b774ff9ba3a2d2348",
+      "bytes": 32275
+    },
+    "flashh3vr/backend.py": {
+      "sha256": "a337e9ca0908304afa5aeb3dfd852374f9ecc82cd581a876672289c12a5f63eb",
+      "bytes": 9202
+    },
+    "flashh3vr/dense.py": {
+      "sha256": "c32a74f1236b4cf1686e8739ddaa857f3b2e000bcd5e5cbdfbf30a046a97cb30",
+      "bytes": 2436
+    },
+    "flashh3vr/inference.py": {
+      "sha256": "791de6e43299e8368c06547e58edb1a11d8a258ec22a4113ba44d286a2bf446e",
+      "bytes": 7532
+    },
+    "flashh3vr/licenses/AI-TOOLKIT-LICENSE": {
+      "sha256": "e73058fe55271c3bb4f991e695110525c9597f254360413968e01c95b0180f51",
+      "bytes": 1068
+    },
+    "flashh3vr/licenses/MINIMAX-H3-LICENSE": {
+      "sha256": "59b99642b95ea21630e311198ddbfffbfe05aadba0c2f5d884cbdf4efcc90f44",
+      "bytes": 17604
+    },
+    "flashh3vr/native.py": {
+      "sha256": "4e92408fdd9a8d4586900f6b5330b67fe61e701070692fec0dfc44184e8f3dc8",
+      "bytes": 3963
+    }
+  },
+  "third_party_vendor": {
+    "source": "ostris/ai-toolkit",
+    "revision": "7690ea62c87133410ffe1596aa222a6e0e9069f7",
+    "original_module": "extensions_built_in/diffusion_models/minimax_h3/src/vae.py",
+    "license": "MIT",
+    "local_modification": "Remove the unrelated OstrisModelMixin import/base; preserve native numerical logic",
+    "copied_vendor_sha256": "723fc93cf58ad3f3ffe42a770c57046967bdda4288271d0b774ff9ba3a2d2348"
+  },
+  "project_numeric_logic_sources": [
+    "h3ce/vae/aitoolkit_h3_backend.py",
+    "h3ce/vae/int8_convrot_backend.py",
+    "h3ce/vae/bridge.py",
+    "h3ce/model/restoration_inter.py",
+    "h3ce/model/native_tiled_inter.py"
+  ],
+  "changes": "Package the existing dequantized FP16/norm/temporal/tile operations with external safe loaders and head-window CLI; private research bindings removed.",
+  "verification": "release_verification.json",
+  "weights_separate": true
+}

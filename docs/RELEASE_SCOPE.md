@@ -1,27 +1,21 @@
-# Source release scope — 0.1.0
+# Release scope — 0.2.0
 
-The first public FlashH3VR release packages the September 12, 2026 research closure as source code. No new training, model forward pass or GPU speed measurement is performed to publish it.
+This version introduces the current Dense latent-restoration inference path and registers its 1837-step adapter format.
 
 Included:
 
-- Project Python modules, including the accepted video/head inference path and previous engineering foundations.
-- Selected historical training and benchmark recipes with their imported project helpers. They require the original experiment receipts and are not fresh-clone commands.
-- Original third-party source notices, selected NAFNet sources, component origins and hashes.
-- A selected CPU regression suite and documentation of the accepted model, performance, quality and resource observations.
+- A standalone flashh3vr package with strict safetensors loading, the pinned dequantized-FP16 H3 numerical path, native spatial tiling, image and real 22-frame video-window APIs, and a command-line entry.
+- Current-model English/Chinese documentation, model card, numerical limitations, dependency identities and source/license notices.
+- Synthetic CPU contract tests and a documented bounded comparison against the private research implementation.
+- Existing version 0.1 engineering code and historical NAF evidence, explicitly separated from current model claims.
 
-Excluded:
+Excluded from Git:
 
-- All model checkpoints and pretrained model assets.
-- Training/evaluation media, derived arrays, crops, cached features and output videos.
-- Private experiment logs, host process inventories, local environments, downloaded binary runtimes and agent/task instructions.
-- Unrelated historical experiments and internal acceptance registries that would imply independently reproducible public evidence.
+- Dense/H3/NAF/YOLO weight binaries, optimizer checkpoints, media, raw arrays, crops, generated portrait examples and private research data.
+- Local environments, CUDA binaries, credential files, internal task instructions and private execution logs.
 
-## Packaging changes
+Adapter safetensors have been exported separately. Their availability is tracked in [ASSETS.md](ASSETS.md); source publication does not imply a public weight download.
 
-The Python distribution is named `flashh3vr`; imports retain `h3ce`. The helper `scripts` package is explicitly included because the current video pipeline imports its chunk/overlap functions.
+No new training was performed for this release. The current API is for prepared head crops, not a complete long-video detector/paste-back application. Old throughput and VRAM tags apply only to the [historical version](HISTORICAL_0_1_BASELINE.md).
 
-Two copied loaders now resolve NAF provenance and cuBLAS13 runtime manifests relative to the repository. Their numeric operations are unchanged. Component manifests remove local acquisition records and machine-specific paths. Current public manifests therefore have new identities; historical results must not be described as measurements of these changed file bytes.
-
-`publication_origins.json` records the original research hashes for copied files and describes modified copies. The original research workspace remains separate from this public repository.
-
-The historical 32-step training recipe contains temporal objectives because it documents how the accepted model was obtained. Their presence does not restart that research direction. Further temporal optimization and exploratory training remain paused.
+The publication inventory records current source origins and the release verification report. Private test inputs are kept outside this repository.

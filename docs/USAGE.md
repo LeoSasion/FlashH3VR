@@ -1,60 +1,69 @@
-# Using the research source
+# Dense Inter inference
 
-## What works without model assets
+The current entry is the **flashh3vr** package. It restores already cropped head images or exactly 22 real, continuous video frames. Detection, source cropping, shot segmentation, identity recognition, audio, full-frame paste-back and long-video stitching are not part of this entry.
 
-Install the project in an isolated Python environment after installing PyTorch and torchvision for your platform:
+## Installation and assets
 
-```bash
-python -m pip install -e ".[dev,video,models]"
-python -m pytest -q
-```
+Use Python 3.12 and a CUDA-capable PyTorch installation. The recorded validation version is PyTorch 2.10.0.
 
-The repository includes CPU tests for detection scheduling, byte preparation, input overlap, continuous head geometry, native frame/chunk contracts, timestamps, color conversion, cache behavior and checkpoints. Model classes are not accepted on the strength of these tests.
+~~~bash
+python -m pip install -e ".[inference]"
+python -m flashh3vr --help
+~~~
 
-The original Windows environment is recorded in `requirements.gpu.lock.txt`. It includes a Windows Python 3.12 CUDA wheel and must not be used as a universal platform lock. The current INT8 runtime loader requires the specific Windows extension and isolated cuBLAS13 recorded in the manifests. Linux CUDA inference and other GPUs have not been accepted for this release.
+Obtain the exact two safetensors files listed in [ASSETS.md](ASSETS.md), subject to their terms. No automatic download or random-weight fallback is provided. A different H3 or Dense hash is rejected.
 
-## Current inference API
+## One head image
 
-The active research file function is:
+An RGB PNG with a square side of 256, 448, 640 or 832:
 
-```python
-from h3ce.infer.head_video_file import restore_video_file
+~~~bash
+python -m flashh3vr --h3-weights models/minimax_h3_video_vae_int8_convrot.safetensors --dense-weights models/flashh3vr-dense-1837.safetensors --kind image --input head.png --output restored.png
+~~~
 
-result = restore_video_file(
-    source, destination, bridge, head, detector,
-    max_frames=60,
-    side=256,
-    long_edge=768,
-    reuse_execution=True,
-    optimize_input=True,
-    overlap_input=True,
+For an actual half-size source, explicitly align it to the training canvas. This example requires a 224 × 224 input and produces a 448 × 448 output:
+
+~~~bash
+python -m flashh3vr --h3-weights models/minimax_h3_video_vae_int8_convrot.safetensors --dense-weights models/flashh3vr-dense-1837.safetensors --kind image --input head224.png --output restored448.png --half-input --target-side 448
+~~~
+
+The image path preserves the verified single-image temporal context handling. RGB8 export clips to [0,1]; the tensor API defaults to unclamped float output. No claim is made that canvas enlargement creates real source detail.
+
+## A real video window
+
+Prepare a non-pickled NumPy array with shape **[22,S,S,3]**, RGB float32 in [0,1], with S one of the four bucket sizes. Frames must come from one continuous shot with consistent head geometry. A separate JSON array must contain their 22 real source PTS values in seconds, finite and strictly increasing; retain the original frame IDs/PTS in your own input records. Do not fabricate a clip by repeating independent images.
+
+~~~bash
+python -m flashh3vr --h3-weights models/minimax_h3_video_vae_int8_convrot.safetensors --dense-weights models/flashh3vr-dense-1837.safetensors --kind video --input window.npy --pts-json pts.json --output restored.npy
+~~~
+
+Video output retains the input order and frame count as float32 **[22,S,S,3]**, unclamped. The CLI also writes a **.pts.json** sidecar with the source time mapping; the output array itself is not an MP4 container. A half-size video array can use the same paired half-input/target-side flags. Image and video alignment reproduce their respective recorded input preparation methods.
+
+Existing output files are rejected unless you pass --overwrite. CUDA is required for the verified model numerical path. CPU tests do not imply CPU inference support.
+
+## Python API
+
+~~~python
+import torch
+from flashh3vr import DenseRestorer, align_half_input
+
+restorer = DenseRestorer(
+    h3_weights="models/minimax_h3_video_vae_int8_convrot.safetensors",
+    dense_weights="models/flashh3vr-dense-1837.safetensors",
+    device="cuda",
 )
-```
 
-This is an integration example with already-loaded objects, not a complete runnable quick start. The adapted checkpoint is currently unavailable. The required objects and their source constructors are:
+# Supply your own RGB head tensor, float32 in [0,1].
+# Image: [1,3,S,S]; video: [1,3,22,S,S].
+image = image.to(restorer.device)
+restored_image = restorer.restore_image(image)
+video = video.to(restorer.device)
+restored_video = restorer.restore_video_window(video, pts=source_pts_seconds)
 
-| Object | Required setup |
-|---|---|
-| `bridge` | `H3VAEBridge(Int8KitchenH3Backend.from_locked(...))`; current component lock and external INT8 weight required |
-| `detector` | Context-managed `Yolo11BatchExecutor(config, root, profile='dual16', device='cuda:0', byte_preparation='direct_bgr')` |
-| `head` | Official `load_model()` from `scripts/research_nafnet_gopro32.py`, then `NAFHead3`; restore the **accepted** tail, freeze all parameters, move to CUDA and wrap with `NAFHead3Inference` |
+# Optional explicit low-resolution input alignment uses [1,3,T,S/2,S/2].
+aligned = align_half_input(low_tensor, kind="image", target_side=448)
+~~~
 
-Use `configs/project.int8.yaml` to supply recorded detection and component settings. Its older VAE factory declaration does not select the accepted Comfy Kitchen path by itself; the explicit backend above is necessary. `CheckpointManager` in `h3ce/train/checkpoint.py` checks a checkpoint receipt and exact training contract before loading with `weights_only=True`. Those private training receipts are not part of this release.
+The variables above are caller-provided real inputs, not bundled private examples. The model preserves native 256-pixel spatial tiles with at least 64 pixels of overlap, computes one Dense residual, and uses the external H3 checkpoint's dequantized FP16 path. It does not run the legacy Comfy Kitchen INT8 kernels.
 
-`scripts/benchmark_closure_baseline.py` preserves the complete historical construction, execution and observation recipe. It binds private data, checkpoint and evidence files; running it from a fresh clone fails its preflight. Do not remove those checks to claim reproduction.
-
-## Input and output boundaries
-
-- Explicit finite `max_frames` is required. The implementation retains frame tensors in memory; it is not an unbounded streaming processor.
-- Input requires one SDR video stream with usable source color metadata and increasing timestamps. Audio is currently rejected. HDR needs a separately defined transform.
-- The current restoration path selects segments with a unique eligible face of at least 64 pixels. Missing, ambiguous, isolated or cut-separated frames do not share H3 context. This is not multi-person identity tracking.
-- Output needs a new destination file and even dimensions. H.264 uses CRF 18, preset `fast`, YUV420p, limited BT.709 and source timestamps. Timing includes final encoding and closing.
-- Geometry uses limited future context, so the throughput measurement is not a causal streaming-latency guarantee.
-
-## Resource observation and further testing
-
-`scripts/closure_resource_monitor.py` provides `Sampler(root_pid=...)`, `sample()` and `close()` for an external sampler process. It observes whole-machine/per-core CPU, process-tree CPU/RSS and device GPU utilization/memory; unavailable driver fields remain null. It records local process information, so review raw logs before sharing them.
-
-For a new GPU experiment, define the input, checkpoint, configuration and number of full passes first. Start resource sampling before model loading; align samples to loading and inference phase timestamps. Do not automatically rerun failed measurements. CPU tests do not need a GPU, real model assets, or NVML initialization.
-
-The legacy `h3ce` CLI, character LoRA components and older training configurations remain source material for earlier workflows. They do not imply a finished CLI or role-training product for the accepted NAF path.
+The [old NAF API](HISTORICAL_0_1_USAGE.md) describes version 0.1 only. It is not the constructor for this checkpoint.

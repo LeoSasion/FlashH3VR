@@ -9,7 +9,9 @@ The source distribution includes AI Toolkit-derived H3 VAE source under MIT
 and selected NAFNet/BasicSR source under the licenses preserved beside it.
 See THIRD_PARTY_NOTICES.md for locations, revisions and modifications.
 
-No model weights or datasets are supplied or relicensed by this source release.
+No model weights or datasets are supplied or relicensed by this source repository.
+The separate Dense Inter adapter format and its availability are documented in
+MODEL_CARD.md and docs/ASSETS.md; AGPL does not replace the applicable model terms.
 For reference to the external H3 model terms:
 MiniMax H3 is licensed under the MiniMax H3 Community License Agreement,
 Copyright © 2026 MiniMax. All Rights Reserved.

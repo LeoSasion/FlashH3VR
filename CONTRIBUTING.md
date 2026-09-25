@@ -1,11 +1,11 @@
 # Contributing
 
-Start with [release scope](docs/RELEASE_SCOPE.md) and [usage](docs/USAGE.md). The current release is research source, with adapted checkpoint distribution unresolved.
+Read [release scope](docs/RELEASE_SCOPE.md), [inference usage](docs/USAGE.md) and [the model card](MODEL_CARD.md).
 
-For code changes, explain the behavior affected and run the relevant CPU tests. Keep source-time geometry, color conventions, component hashes and safe checkpoint loading explicit. A CPU test does not establish model quality or GPU performance.
+Describe the changed behavior and run the relevant CPU tests. Preserve source-time ordering, explicit input/output ranges, strict model hashes and native H3 spatial/temporal contracts. Do not turn a failed shape/hash check into a silent fallback.
 
-Performance reports should state the input, GPU, runtime, loading treatment, full-pass count, CPU/GPU sampling and output agreement. Distinguish device-wide memory from framework allocations. Do not claim broad real-time performance from one short clip.
+Synthetic CPU tests do not establish perceptual quality or GPU performance. Reports must state the exact checkpoint, input scope, numerical backend and what was actually measured. The historical 24 FPS and 16GB labels do not apply to Dense Inter 1837.
 
-Do not contribute third-party weights, datasets, private media or raw process logs without established rights and review. Project code contributions are under AGPL-3.0-only unless a retained third-party license applies.
+Do not contribute private media, credentials, optimizer states or third-party assets without the appropriate rights. Project-owned contributions are AGPL-3.0-only; upstream code keeps its original notices. Learned-weight terms are separate.
 
-Exploratory training and temporal optimization are currently paused. The immediate project direction is usable packaging, distribution-rights clarification and reproducible bounded validation.
+The published path performs a single latent correction. New training, temporal objectives or model architecture changes require their own documented research protocol.

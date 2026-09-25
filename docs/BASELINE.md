@@ -1,66 +1,38 @@
-# Accepted baseline and closure observations
+# Current Dense Inter baseline
 
-Snapshot: 2026-09-12. These are historical project measurements, not a new benchmark performed for the public release. Raw video, arrays, checkpoint and private host process samples are not included. Published hashes identify the internal artifacts; hashes alone do not enable independent reproduction without those artifacts.
+Selected September 26, 2026: **h3-dense-multires-1837-20260926**.
 
-## Identity
+The research checkpoint SHA256 is 222de15af77cdc9327068ccc9a3f46b3f9bac78b6d63e5cf88da522150717cd1. It contains optimizer/research state and is not the public inference format. The four-tensor safetensors export SHA256 is **a210d161a00f7089122495c5176118303fd7d6efe9ff1d2d4d112a0c6753b804**. Every exported tensor is bitwise equal to the adopted checkpoint.
 
-- Baseline ID: `naf-balanced32-direct-bgr-20260911`.
-- Training run: `multihead-balanced-mae32-20260910-v1`, final step 32.
-- Checkpoint SHA256: `c6c90106b7206d27878d8099a71b99f3971eff38d4e235a49ab816813bb802bc`.
-- Adapted component: 199,747 parameters in the last three existing NAF decoder levels and output layer. No newly added temporal module.
-- Accepted execution: dual16, direct BGR preparation, input optimization/overlap and execution reuse.
+## Training
 
-## Speed and output agreement
+- Frozen H3 encoder and decoder; only the 3,152,128-parameter Dense Inter was updated.
+- 971 new updates, 6,300.325 effective seconds; full optimizer step 1837.
+- Bucket updates: 256 × 532, 448 × 233, 640 × 174, 832 × 32. The 105 minutes are shared across buckets.
+- 75 photographs and 146 real video windows from 19 canonical video sources; 3,207 unique video source frames.
+- All 221 underlying samples received at least four paired half-size/clean exposures. 570/608 admitted training conditions entered the optimizer; the remaining 38 are size variants exposed at other sizes.
+- 119 newly added windows share one ELLE master. Window count is not independent-source count. The 832 bucket has only three windows from two video sources and no independent 832 validation.
+- HQ targets came directly from clear native-size master crops, kept or downsampled. Half-size inputs were derived from the same clean source; canvas alignment did not add native detail.
 
-The source clip contains 60 frames at 60 fps, 768 × 432. Timing starts with input-file opening after model loading and ends after output-file close. It includes decode, cut analysis, input detection, head geometry, H3 and NAF forward passes, paste-back, color conversion, transfer and H.264 encoding. Preflight, model loading and later evidence saving are excluded.
+## Endpoint comparison
 
-| Measurement | Historical accepted baseline | Closure with monitoring |
+Comparator: the 866-step initialization, SHA256 8a5eb35fa0ce61c7b4ff5bb1edbf7c0ef45f921ca57acd6070e459d24bd3f201. Both models received identical inputs. Positive improvement means lower error.
+
+| Partition | RGB L1 improvement | Edge L1 improvement |
 |---|---:|---:|
-| Date | 2026-09-11 | 2026-09-12 |
-| Full passes | 1 | 1 |
-| Processing seconds | 2.4402117 | 2.5396372 |
-| Frames per processing second | 24.5880306 | 23.6254218 |
-| Loading seconds | 4.9530436 | 6.3140686 |
+| Frozen training partition | 19.194% | 8.080% |
+| Reused development windows | 11.598% | 4.098% |
 
-GPU: NVIDIA RTX PRO 6000 Blackwell, 96 GB class. Recorded environment: Windows, Python 3.12, torch 2.10.0+cu128, torchvision 0.25.0+cu128, PyAV 18.1.0. Driver during closure: 591.86.
+Real frames were averaged into windows, then into equal-weight canonical sources within each populated bucket/condition/media stratum; populated strata were weighted equally. The training summary includes the 38 unexposed same-source size variants, not independent validation. Development uses three repeatedly evaluated windows at 448/640 in half-size/clean conditions.
 
-The closure time was 4.07% greater than the historical baseline. A single measurement does not establish a stable regression or its cause; the historical baseline remains accepted.
+**448 photographs regress:** RGB error rises 1.885%–2.520%, edge error 0.651%–0.840%, and mouth-edge error 2.217%–2.233%. The owner accepted the endpoint as the next research baseline with these regressions recorded.
 
-Closure comparison covered 11 floating-point arrays, detections/geometry, all 60 decoded YUV frames and the encoded MP4, with exact identity. MP4 SHA256: `93cf457a3762aa81c88bfdf1cdfdc7fe08e03c295accb3bf0a15dd83b22d791d`.
+The calculation was separately recomputed on CPU from 1,240 raw arrays and 15,604 frame references. Thirty fixed output panels and two loss charts were actually reviewed: visual changes were small, with no obvious new severe grid, seam, ghosting or facial-structure damage in the reviewed set. Private media/arrays are not published; this is a disclosed internal evaluation, not a reproducible public benchmark.
 
-Independent CPU geometry/color/PTS checks passed. There was no new continuous-playback human review, LPIPS evaluation, temporal-metric evaluation, gradient calculation or training update during closure. Output identity carries the historical visual result; it is not a new human-review claim.
+## Memory and limitations
 
-## Historical quality
+Training plus fixed-anchor framework peaks were 12.047 GiB allocated and 13.324 GiB reserved on the research workstation. These overlapping counters must not be added; they are not an inference memory requirement or 16GB-device certification.
 
-Johnny evaluation: one degraded 180-frame pass and one clean 180-frame pass with the accepted checkpoint.
+There was no equal-time control arm, so longer training, more data and multiresolution effects were not separated. The endpoint has no new ordinary-playback, full-length-video, protected-test or FPS certification. Internal numerical gains do not establish broad perceptual superiority.
 
-| Metric | Accepted model | Interpretation |
-|---|---:|---|
-| LPIPS | 0.2282778112 | 5.847786% lower than degraded input |
-| High-frequency error MSE | 0.0004007139 | 1.210707% lower than degraded input |
-| Clean ROI RGB MAE | 0.0002870821 | Clean-input alteration under the original ROI protocol |
-
-The improvement percentages are relative to the degraded input in that evaluation, not relative to another restoration model. The corpus and source diversity are limited. Temporal optimization and the previous numerical temporal threshold were retired by the project owner after accepting visual stability; the historical metric did not meet the old threshold. No temporal improvement is claimed.
-
-## CPU/GPU observation
-
-The closure sampler recorded 325 samples over the whole process, with a median interval of about 100.36 ms. Statistics below intersect the inference interval; 27 sampling intervals overlapped it.
-
-| Resource | Time-weighted mean | Sampled peak |
-|---|---:|---:|
-| Whole-machine CPU | 13.01% | 43.10% |
-| Test process tree, one core = 100% | 231.25% (about 2.31 cores) | See sampling limitations |
-| GPU device compute utilization | 52.21% | 99% |
-| GPU memory-controller utilization | 27.14% | 48% |
-| Device GPU memory, including background | — | 13.2228 GiB |
-| Framework allocated GPU memory | — | 6.1899 GiB |
-| Framework reserved GPU memory | — | 9.7852 GiB |
-| Inference process-tree RSS | — | 3.0556 GiB |
-
-The host had 24 logical CPUs. Whole-machine CPU and device GPU readings include background activity. Framework reserved and allocated memory overlap and must not be added. Summed process RSS can include shared pages. Per-process GPU memory was unavailable from the Windows driver and is not reported as zero.
-
-NVML utilization has driver-defined measurement windows; 100 ms polling does not make each short stage independently measurable. The sampler consumed about 3.56 CPU seconds over 32.43 seconds. Its presence cannot be assumed to explain the full timing difference. One final process-disappearance record occurred after exit; no sampler error occurred in inference.
-
-## Public-copy changes
-
-The publication changes two asset-location lookups to use repository-relative manifests. Numerical inference source is otherwise preserved. These packaging changes have CPU verification only; the historical GPU measurements predate them. See `publication_origins.json` for original source hashes and the listed modifications.
+The [version 0.1 NAF baseline](HISTORICAL_0_1_BASELINE.md) is a different model and execution path; its performance labels remain historical.

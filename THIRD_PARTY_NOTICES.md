@@ -12,7 +12,7 @@ Primary references: [GNU AGPLv3](https://www.gnu.org/licenses/agpl-3.0.html), [G
 
 | Component | Revision / location | Retained license and changes |
 |---|---|---|
-| Ostris AI Toolkit H3 VAE | `7690ea62c87133410ffe1596aa222a6e0e9069f7`; `h3ce/vae/_vendor.py` and `_upstream/vae.py` | MIT, copyright 2024 Ostris, LLC. [License](h3ce/vae/_upstream/LICENSE). The local vendor removes the unrelated loader mixin import/base; the original source is retained for parity checks. |
+| Ostris AI Toolkit H3 VAE | `7690ea62c87133410ffe1596aa222a6e0e9069f7`; `flashh3vr/_vendor.py`, `h3ce/vae/_vendor.py` and `_upstream/vae.py` | MIT, copyright 2024 Ostris, LLC. [License](h3ce/vae/_upstream/LICENSE). The local vendor removes the unrelated loader mixin import/base; the original source is retained for parity checks. The new Dense package carries its own copy in `flashh3vr/licenses/`. |
 | NAFNet and contained BasicSR code | `2b4af71ebe098a92a75910c233a3965a3e93ede4`; `third_party/NAFNet-2b4af71ebe098a92a75910c233a3965a3e93ede4/` | [Original combined license](third_party/NAFNet-2b4af71ebe098a92a75910c233a3965a3e93ede4/LICENSE): NAFNet MIT, copyright 2022 megvii-model; BasicSR Apache-2.0, copyright 2018–2020 BasicSR Authors. Selected upstream files are copied unchanged. The project loader supplies two import bindings locally while retaining upstream class bodies. |
 | Ultralytics architecture description and integration | `h3ce/data/detect_yolo11.py`; dependency `ultralytics==8.4.142` | Runtime is external. Its YOLO11 topology is referenced by validation code. [Ultralytics AGPL source license](https://github.com/ultralytics/ultralytics/blob/main/LICENSE) applies to upstream material. |
 
@@ -26,8 +26,16 @@ Upstream source: [AI Toolkit VAE](https://github.com/ostris/ai-toolkit/blob/7690
 - **Comfy Kitchen and NVIDIA cuBLAS:** external runtime dependencies. Follow their own distribution terms. This repository supplies hashes and origins, not their binaries.
 - **PyTorch, torchvision, PyAV/FFmpeg, Ultralytics, safetensors, NumPy, Pillow, LPIPS and other Python dependencies:** installed separately under their respective terms. H.264 availability depends on the selected FFmpeg build.
 
+## Current Dense Inter 1837 adapter
+
+The current path is frozen H3 -> Dense latent residual -> frozen H3. It does not use the historical RGB NAF tail. Project-owned inference code remains AGPL-3.0-only. The separately exported adapter is prepared under the MiniMax H3 Community License and its applicable restrictions; this is not an assertion that the upstream-dependent weights have an unrestricted open-source license. See [the model card](MODEL_CARD.md) and [asset availability](docs/ASSETS.md).
+
+The new package uses dequantized FP16 tensors from the pinned ConvRot asset and requires no Comfy Kitchen binary. It ships no H3 weights. Third-party Python/runtime packages remain external dependencies under their own terms.
+
 ## Training and evaluation material
 
-No training data, evaluation video, extracted frames or generated demo footage is distributed. ElFuente/Narrator material used by the accepted adaptation has a recorded **CC BY-NC-ND 4.0** notice; its admission in the research workspace was not approval for public checkpoint or product distribution. See [the original source notice](https://media.xiph.org/video/derf/ElFuente/Netflix_Narrator_Copyright.txt).
+Dense Inter 1837 uses the portrait photo/video data summarized in the model card. The original images, videos, crops and generated output portraits are not included. Public availability and research admission are not a blanket redistribution permission. The current adapter's publication scope must not be inferred from the historical NAF checkpoint discussion below.
 
-The legal status of the adapted checkpoint is not resolved by this code release. That checkpoint is withheld pending clarification of H3-output adaptation terms and training-source rights. The project does not assert that every model trained on such material is automatically a derivative work, nor that the research admission establishes permission to distribute it.
+No training data, evaluation video, extracted frames or generated demo footage is distributed. ElFuente/Narrator material used by the historical version 0.1 NAF adaptation has a recorded **CC BY-NC-ND 4.0** notice; its research admission was not approval for public checkpoint or product distribution. See [the original source notice](https://media.xiph.org/video/derf/ElFuente/Netflix_Narrator_Copyright.txt).
+
+This paragraph concerns the historical NAF balanced32 checkpoint, not Dense Inter 1837: its legal status was not resolved by version 0.1, and it remains withheld. The project does not assert that every model trained on such material is automatically a derivative work, nor that research admission establishes permission to distribute it.
