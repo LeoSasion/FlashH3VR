@@ -8,6 +8,8 @@
 
 新的 **flashh3vr** 包负责当前推理。旧 h3ce 与 NAF 脚本保留为历史源码；旧版整帧回贴、24 FPS 数据及 16GB-VRAM 标签不能用于认证本模型。
 
+**[下载 Dense Inter 1837 权重包](https://github.com/LeoSasion/FlashH3VR/releases/download/v0.2.0/flashh3vr-dense-1837-bundle.zip)**：GitHub 直接下载，ZIP 约 11.18 MiB，内含模型许可与校验清单。完整解压到 models 目录，再按[权重与依赖](docs/ASSETS.md)单独准备 H3 基座文件。
+
 ## 安装
 
 验证环境使用 Python 3.12、PyTorch 2.10.0。先安装适合本机 CUDA 的 PyTorch，再运行：

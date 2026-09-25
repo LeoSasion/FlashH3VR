@@ -28,7 +28,7 @@ Upstream source: [AI Toolkit VAE](https://github.com/ostris/ai-toolkit/blob/7690
 
 ## Current Dense Inter 1837 adapter
 
-The current path is frozen H3 -> Dense latent residual -> frozen H3. It does not use the historical RGB NAF tail. Project-owned inference code remains AGPL-3.0-only. The separately exported adapter is prepared under the MiniMax H3 Community License and its applicable restrictions; this is not an assertion that the upstream-dependent weights have an unrestricted open-source license. See [the model card](MODEL_CARD.md) and [asset availability](docs/ASSETS.md).
+The current path is frozen H3 -> Dense latent residual -> frozen H3. It does not use the historical RGB NAF tail. Project-owned inference code remains AGPL-3.0-only. The separately distributed adapter is subject to the MiniMax H3 Community License and its applicable restrictions; this is not an assertion that the upstream-dependent weights have an unrestricted open-source license. See [the model card](MODEL_CARD.md) and [asset availability](docs/ASSETS.md).
 
 The new package uses dequantized FP16 tensors from the pinned ConvRot asset and requires no Comfy Kitchen binary. It ships no H3 weights. Third-party Python/runtime packages remain external dependencies under their own terms.
 

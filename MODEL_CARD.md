@@ -9,7 +9,7 @@ A single-person head-restoration research adapter trained for Go Youn-jung (ê³ ì
 - Research lineage: 866-step source plus 971 updates, yielding full Adam step 1837.
 - Safetensors SHA256: a210d161a00f7089122495c5176118303fd7d6efe9ff1d2d4d112a0c6753b804.
 - External H3 checkpoint SHA256: 9bb2d96f218c76babd85e0611b85ca8fb330a90546c01a0005e8a58a59593410, executed through dequantized FP16.
-- [Inference interface](docs/USAGE.md), [download status](docs/ASSETS.md), [metrics](docs/BASELINE.md).
+- [Inference interface](docs/USAGE.md), [download and asset identities](docs/ASSETS.md), [metrics](docs/BASELINE.md).
 
 ## Training data
 
@@ -27,7 +27,7 @@ The validation windows were reused; source-event independence and broad generali
 
 ## Terms and contents
 
-Project-owned source: AGPL-3.0-only, with third-party code notices retained. The H3-dependent adapter is prepared subject to the MiniMax H3 Community License and downstream conditions, separately from the source license. See [licensing](THIRD_PARTY_NOTICES.md).
+Project-owned source: AGPL-3.0-only, with third-party code notices retained. The H3-dependent adapter is distributed subject to the MiniMax H3 Community License and downstream conditions, separately from the source license. See [licensing](THIRD_PARTY_NOTICES.md).
 
 The adapter format contains only the four learned Dense tensors. It excludes H3 weights, optimizer/scaler state, RNG, training paths, private caches, media, face detections and other model weights. The public inference format uses safetensors; no executable pickle is needed.
 

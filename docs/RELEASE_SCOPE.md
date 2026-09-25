@@ -14,7 +14,7 @@ Excluded from Git:
 - Dense/H3/NAF/YOLO weight binaries, optimizer checkpoints, media, raw arrays, crops, generated portrait examples and private research data.
 - Local environments, CUDA binaries, credential files, internal task instructions and private execution logs.
 
-Adapter safetensors have been exported separately. Their availability is tracked in [ASSETS.md](ASSETS.md); source publication does not imply a public weight download.
+The Dense Inter 1837 safetensors are distributed separately as a GitHub Release bundle, together with the model card, license, notice and checksums. Download links and exact identities are in [ASSETS.md](ASSETS.md). The weight binary is a Release asset and is not committed to Git.
 
 No new training was performed for this release. The current API is for prepared head crops, not a complete long-video detector/paste-back application. Old throughput and VRAM tags apply only to the [historical version](HISTORICAL_0_1_BASELINE.md).
 

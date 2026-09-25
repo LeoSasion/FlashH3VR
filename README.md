@@ -8,6 +8,8 @@ The current research baseline is **Dense Inter 1837**, trained at 256, 448, 640 
 
 The new **flashh3vr** package is the current inference entry. Older h3ce/NAF recipes remain historical source. Their full-frame paste-back, 24 FPS measurements and 16GB-VRAM tag do **not** certify this model.
 
+**[Download Dense Inter 1837 weights](https://github.com/LeoSasion/FlashH3VR/releases/download/v0.2.0/flashh3vr-dense-1837-bundle.zip)** — 11.18 MiB ZIP, including the model license and checksums. Extract it into models and obtain the external H3 checkpoint listed in [Assets](docs/ASSETS.md).
+
 ## Install
 
 Python 3.12 and PyTorch 2.10.0 are the verification environment. Install a PyTorch build appropriate for your CUDA device, then:

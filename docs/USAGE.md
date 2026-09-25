@@ -11,7 +11,7 @@ python -m pip install -e ".[inference]"
 python -m flashh3vr --help
 ~~~
 
-Obtain the exact two safetensors files listed in [ASSETS.md](ASSETS.md), subject to their terms. No automatic download or random-weight fallback is provided. A different H3 or Dense hash is rejected.
+Download [the Dense Inter 1837 bundle](https://github.com/LeoSasion/FlashH3VR/releases/download/v0.2.0/flashh3vr-dense-1837-bundle.zip) and extract it into models, keeping its license and notice alongside the safetensors file. Obtain the exact external H3 safetensors file listed in [ASSETS.md](ASSETS.md), subject to its terms. No automatic download or random-weight fallback is provided. A different H3 or Dense hash is rejected.
 
 ## One head image
 

@@ -26,5 +26,13 @@
   "export_parity": "all four tensors bitwise equal to the adopted checkpoint",
   "includes_h3_base_weights": false,
   "includes_optimizer_or_training_data": false,
-  "distribution_status": "prepared_locally_pending_distribution_route"
+  "distribution_status": "github_release",
+  "release_url": "https://github.com/LeoSasion/FlashH3VR/releases/tag/v0.2.0",
+  "download_url": "https://github.com/LeoSasion/FlashH3VR/releases/download/v0.2.0/flashh3vr-dense-1837-bundle.zip",
+  "bundle": {
+    "name": "flashh3vr-dense-1837-bundle.zip",
+    "sha256": "a2199b0bdd4b187feeada476b81526677cf767420248971ec0879fc59e12f236",
+    "size_bytes": 11720843,
+    "download_url": "https://github.com/LeoSasion/FlashH3VR/releases/download/v0.2.0/flashh3vr-dense-1837-bundle.zip"
+  }
 }
