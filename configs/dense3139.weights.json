@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "artifact": "flashh3vr-dense-3139.safetensors",
+  "sha256": "1f199f95b3ae146d17bdf2ac8b7dede20262483a569189a4ce1c78a27cf58551",
+  "size_bytes": 12608912,
+  "dtype": "float32",
+  "parameter_count": 3152128,
+  "source_checkpoint_sha256": "04cca1fe931e7aa24961d6c9f64ea66cc86186463e946038db7c42e94d2fd72b",
+  "optimizer_step": 3139,
+  "source_optimizer_step": 1837,
+  "additional_updates": 1302,
+  "effective_seconds": 9000.926569399453,
+  "tensor_keys_and_shapes": {
+    "body.1.weight": [
+      256,
+      6144
+    ],
+    "body.1.bias": [
+      256
+    ],
+    "output.weight": [
+      6144,
+      256
+    ],
+    "output.bias": [
+      6144
+    ]
+  },
+  "export_parity": "All four tensors bitwise equal to the frozen Adam3139 checkpoint",
+  "role": "optional_experimental_candidate",
+  "changes_default_or_research_baseline": false,
+  "includes_h3_base_weights": false,
+  "includes_optimizer_or_training_data": false,
+  "release_url": "https://github.com/LeoSasion/FlashH3VR/releases/tag/v0.3.1",
+  "download_url": "https://github.com/LeoSasion/FlashH3VR/releases/download/v0.3.1/flashh3vr-dense-3139-bundle.zip"
+}

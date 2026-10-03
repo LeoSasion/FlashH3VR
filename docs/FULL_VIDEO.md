@@ -2,6 +2,11 @@
 
 Version 0.3 adds a runnable file-to-file path for the published Dense Inter 1837 weights. It reuses the historical SDR decoder, face geometry, shot detection and full-frame compositor, and replaces the old NAF restoration path with the current frozen H3 → Dense → frozen H3 model.
 
+Version 0.3.1 retains 1837 as the default and also accepts an explicitly selected
+[experimental 3139 bundle](DENSE3139.md). The commands below use 1837. To compare
+3139, prepare it separately and change only the `--dense-weights` path as shown
+in that model's guide; the output report records the actual selected identity.
+
 The caller supplies a video file, not pre-cropped faces. The command detects faces, stabilizes head crops, splits eligible segments into real temporal windows, restores them, pastes their corrections into the working full frames, and writes H.264 video plus a JSON report. No private training checkpoint, dataset registry, NAF model or local research receipt is needed.
 
 [中文操作说明](#中文操作说明) · [Agent reproduction procedure](AGENT_REPRODUCTION.md) · [Asset identities](ASSETS.md)

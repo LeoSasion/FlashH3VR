@@ -10,6 +10,8 @@
 
 **[下载 Dense Inter 1837 权重包](https://github.com/LeoSasion/FlashH3VR/releases/download/v0.2.0/flashh3vr-dense-1837-bundle.zip)**：GitHub 直接下载，ZIP 约 11.18 MiB，内含模型许可与校验清单。完整解压到 models 目录，再按[权重与依赖](docs/ASSETS.md)单独准备 H3 基座文件。
 
+**v0.3.1** 新增[3139可选实验版权重](docs/DENSE3139.md)：新增训练窗拟合更好，旧448照片嘴部仍弱于3258候选。1837研发基线与默认下载保持，3139须显式选择，旧权重可继续用于对照与回退。对照数据、限制及直接运行命令见该说明。
+
 ## 安装
 
 验证环境使用 Python 3.12、PyTorch 2.10.0。先安装适合本机 CUDA 的 PyTorch，再运行：

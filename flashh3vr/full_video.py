@@ -23,7 +23,6 @@ from h3ce.infer.video_output import encode_srgb_h264
 from scripts.video_benchmark_math import blend_weights, chunk_plan
 
 from .backend import H3_WEIGHT_SHA256, sha256_file
-from .dense import DENSE_WEIGHT_SHA256
 from .inference import BUCKETS, DenseRestorer, REAL_VIDEO_FRAMES
 
 
@@ -263,11 +262,14 @@ def restore_full_video_file(source: str | Path, destination: str | Path, *,
     time_bases = [list(frame.time_base) for frame in decoded]
     encode_srgb_h264(destination, result["prediction"], integer_pts, time_bases, rate=rate)
     public_plan = {key: value for key, value in plan.items() if key != "transforms"}
+    model_contract = restorer.contract()
     receipt.write_text(json.dumps({
         "source": str(source.resolve()), "output": str(destination.resolve()),
         "source_sha256": sha256_file(source),
         "h3_weight_sha256": H3_WEIGHT_SHA256,
-        "dense_weight_sha256": DENSE_WEIGHT_SHA256,
+        "dense_weight_sha256": model_contract["dense_weight_sha256"],
+        "dense_weight_filename": model_contract["dense_weight_filename"],
+        "dense_optimizer_step": model_contract["dense_optimizer_step"],
         "face_weight_sha256": FACE_WEIGHT_SHA256,
         "source_frame_indices": [frame.source_frame_index for frame in decoded],
         "source_pts_integer": integer_pts, "source_time_bases": time_bases,

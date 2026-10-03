@@ -1,3 +1,37 @@
+# Version 0.3.1 verification
+
+- **391 CPU tests and 19 subtests passed**, with one external-model test deselected.
+  New checks cover the two pinned Dense identities, rejecting one model renamed
+  as the other, preserving default documents during optional downloads, and
+  reporting the selected model's identity in the full-video sidecar.
+- All four exported FP32 tensors are bitwise equal to the frozen Adam3139
+  endpoint. The adopted1837 baseline, asset hash and default download are
+  unchanged. Both real bundles passed complete member/checksum and offline
+  verification. The optional model is documented in [DENSE3139.md](DENSE3139.md).
+- The final wheel passed ZIP integrity,146 packaged Python files matched source,
+  and isolated Python imported its CLI/full-video modules from the extracted
+  wheel. Both real1837/3139 assets loaded through that wheel's CPU loader with
+  their correct hashes and model step in the contract.
+- The actual public CLI restored all44 frames at768 ×432 / head448, with three
+  windows22/22/10. The same process then checked the two- and six-frame prefixes
+  through the public API. Independent CPU decoding preserved complete frame
+  counts, rational source PTS and canvas dimensions. The short H3 contexts were
+  five and22 frames, while the outputs contained only two and six real frames.
+- Eleven fixed native-size input/3139 panels were actually inspected: no obvious
+  new severe grid, ghosting, facial damage or rectangular paste seam appeared in
+  those views. Faces, lip texture and fine hair remained softer than source.
+- Chromium actually played3139's44-frame output, its two/six-frame prefixes and
+  the same44-frame input/1837 comparison at1× through the end. Sampled normal-size
+  live views showed no obvious new severe artifacts. This is bounded automated
+  playback with screenshots, not exhaustive human inspection of every moving
+  frame or temporal-stability certification.
+- The fixture is one reused private44-frame excerpt,52 input-frame executions
+  and44 unique source frames. It does not add an independent test family or
+  certify long-video quality, FPS or16GB. No new training ran for publication.
+
+[Current machine-readable summary](../release_verification.json). The historical
+0.3.0 summary is retained in [release_verification_v0_3.json](../release_verification_v0_3.json).
+
 # Version 0.3.0 verification
 
 - **386 CPU tests and 19 subtests passed**, with one external-model test deselected. Coverage includes cut/gap/missing/ambiguous-face segmentation, same-frame overlap, short native context, paste-back, frame limits, rational PTS and explicit asset verification.

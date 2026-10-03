@@ -1,5 +1,6 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "default_dense_model": "1837",
   "assets": {
     "dense": {
       "filename": "flashh3vr-dense-1837-bundle.zip",
@@ -23,6 +24,17 @@
       "sha256": "6ccbe920c1fac95ed84de570519e89fbe24d326d466a7aae297960b3ecc6c661",
       "size_bytes": 40499429,
       "format": "upstream_pytorch_checkpoint"
+    }
+  },
+  "optional_dense_models": {
+    "3139": {
+      "filename": "flashh3vr-dense-3139-bundle.zip",
+      "url": "https://github.com/LeoSasion/FlashH3VR/releases/download/v0.3.1/flashh3vr-dense-3139-bundle.zip",
+      "sha256": "679e1de5bf103379bbb970600bddba9b2748875eb4305fd6c6d1ca00ec5d6609",
+      "size_bytes": 11716535,
+      "format": "dense_bundle",
+      "weight_filename": "flashh3vr-dense-3139.safetensors",
+      "weight_sha256": "1f199f95b3ae146d17bdf2ac8b7dede20262483a569189a4ce1c78a27cf58551"
     }
   }
 }

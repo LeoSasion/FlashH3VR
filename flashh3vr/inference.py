@@ -12,7 +12,7 @@ from PIL import Image
 import torch
 
 from .backend import H3_PRECISION, H3_WEIGHT_SHA256, PinnedH3Backend, tf32_disabled
-from .dense import DENSE_WEIGHT_SHA256, DenseInter, load_dense
+from .dense import DenseInter, load_dense
 from .native import native_tiled_dense_inter
 
 
@@ -76,7 +76,7 @@ def align_half_input(low: torch.Tensor, *, kind: str, target_side: int) -> torch
 
 
 class DenseRestorer:
-    """Head-crop tensor inference with the adopted four-tensor Dense baseline.
+    """Head-crop tensor inference with an explicitly selected pinned Dense asset.
 
     Input and output are RGB float [B,3,T,H,W]. B is currently 1, T is 1 for
     images or 2–22 for a real, continuous video window. Accepted canvases are
@@ -91,8 +91,8 @@ class DenseRestorer:
             raise ValueError("The verified release numerical path requires CUDA")
         if self.device.index is None:
             self.device = torch.device("cuda", torch.cuda.current_device())
-        self.h3 = PinnedH3Backend.load(h3_weights, device=self.device)
         self.dense: DenseInter = load_dense(dense_weights, device=self.device)
+        self.h3 = PinnedH3Backend.load(h3_weights, device=self.device)
         self.last_plan: dict | None = None
 
     def restore_tensor(self, rgb: torch.Tensor, *, meta: FrameMeta,
@@ -148,7 +148,9 @@ class DenseRestorer:
 
     def contract(self) -> dict:
         return {"h3_weight_sha256": H3_WEIGHT_SHA256,
-                "dense_weight_sha256": DENSE_WEIGHT_SHA256,
+                "dense_weight_sha256": self.dense.weight_sha256,
+                "dense_weight_filename": self.dense.weight_filename,
+                "dense_optimizer_step": self.dense.optimizer_step,
                 "precision": H3_PRECISION,
                 "native_tile_pixels": 256,
                 "minimum_overlap_pixels": 64,

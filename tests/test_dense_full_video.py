@@ -101,8 +101,11 @@ def test_full_scene_pastes_only_head_delta_and_blends_overlap():
     assert torch.allclose(output[17:22, :, 60, 60], output[16:17, :, 60, 60].expand(5, -1), atol=1e-5)
 
 
-def test_file_pipeline_decodes_detects_pastes_encodes_and_keeps_pts(tmp_path, monkeypatch):
+@pytest.mark.parametrize("step", (1837, 3139))
+def test_file_pipeline_decodes_detects_pastes_encodes_and_keeps_pts(tmp_path, monkeypatch, step):
     import flashh3vr.full_video as full_video
+    from flashh3vr.dense import DENSE_ASSETS
+    filename = f"flashh3vr-dense-{step}.safetensors"
 
     source, destination = tmp_path / "source.mp4", tmp_path / "restored.mp4"
     frames = torch.full((6, 3, 128, 128), .35)
@@ -128,6 +131,10 @@ def test_file_pipeline_decodes_detects_pastes_encodes_and_keeps_pts(tmp_path, mo
             assert len(pts) == 6
             return value + .02
 
+        def contract(self):
+            return {"dense_weight_sha256": DENSE_ASSETS[filename]["sha256"],
+                    "dense_weight_filename": filename, "dense_optimizer_step": step}
+
     monkeypatch.setattr(full_video, "PinnedFaceDetector", Detector)
     monkeypatch.setattr(full_video, "DenseRestorer", Restorer)
     result = restore_full_video_file(source, destination, h3_weights="stub-h3",
@@ -139,6 +146,9 @@ def test_file_pipeline_decodes_detects_pastes_encodes_and_keeps_pts(tmp_path, mo
     assert actual_pts == [Fraction(value, 120) for value in pts_integer]
     receipt = json.loads((tmp_path / "restored.flashh3vr.json").read_text(encoding="utf-8"))
     assert receipt["source_canvas_hw"] == receipt["working_output_canvas_hw"] == [128, 128]
+    assert receipt["dense_weight_sha256"] == DENSE_ASSETS[filename]["sha256"]
+    assert receipt["dense_optimizer_step"] == step
+    assert receipt["dense_weight_filename"] == filename
     assert receipt["window_reports"][0]["valid_frames"] == 6
     assert receipt["window_reports"][0]["padded_frames"] == 22
     with pytest.raises(Exception, match="frame limit|frame_limit|Source exceeds"):

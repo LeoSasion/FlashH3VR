@@ -9,6 +9,10 @@ documented in [docs/USAGE.md](docs/USAGE.md).
 - Use the pinned model identities and `scripts/download_public_assets.py` for
   explicit acquisition. Keep the bundled model license and notice. No private
   dataset, training receipt, NAF weights or author-specific directory is needed.
+- 1837 remains the default. Use the optional 3139 candidate only on explicit user
+  choice; see [docs/DENSE3139.md](docs/DENSE3139.md). Keep each bundle's license,
+  card and checksums in its own directory. Do not replace SHA checks or mislabel
+  the selected model in receipts.
 - Preserve real source frames/PTS, cut boundaries, skipped-frame reasons and
   native H3 temporal/spatial context. Context padding is not real video data.
 - The model applies one Dense latent correction. Use no repeated repair, silent

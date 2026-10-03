@@ -8,7 +8,7 @@ import torch
 
 from flashh3vr import BUCKETS, DENSE_WEIGHT_SHA256, FrameMeta, align_half_input
 from flashh3vr.backend import H3_VENDOR_SHA256, sha256_file
-from flashh3vr.dense import DENSE_SHAPES, DenseInter, load_dense
+from flashh3vr.dense import DENSE_ASSETS, DENSE_SHAPES, DenseInter, load_dense
 from flashh3vr.native import native_tiled_dense_inter
 from flashh3vr import _vendor
 from flashh3vr.__main__ import _read_video_window
@@ -34,6 +34,42 @@ def test_dense_exact_single_residual_formula():
         model.output.bias.fill_(0.125)
     z = torch.arange(24 * 2 * 16 * 16, dtype=torch.float32).reshape(1, 24, 2, 16, 16) / 8192
     assert torch.equal(model(z), z + 0.125)
+
+
+@pytest.mark.parametrize("filename", list(DENSE_ASSETS))
+def test_pinned_model_identity_reaches_loaded_model_and_contract(tmp_path, monkeypatch, filename):
+    from flashh3vr import DenseRestorer
+    identity = DENSE_ASSETS[filename]
+    path = tmp_path / filename
+    state = {key: torch.zeros(shape, dtype=torch.float32) for key, shape in DENSE_SHAPES.items()}
+    save_file(state, str(path), metadata={"step": str(identity["optimizer_step"])})
+    digest = sha256_file(path)
+    monkeypatch.setitem(DENSE_ASSETS, filename, {**identity, "sha256": digest})
+    loaded = load_dense(path, device="cpu")
+    assert all(torch.equal(loaded.state_dict()[key], value) for key, value in state.items())
+    assert not loaded.training and all(not p.requires_grad for p in loaded.parameters())
+    restorer = DenseRestorer.__new__(DenseRestorer)
+    restorer.dense = loaded
+    contract = restorer.contract()
+    assert contract["dense_weight_sha256"] == digest
+    assert contract["dense_weight_filename"] == filename
+    assert contract["dense_optimizer_step"] == identity["optimizer_step"]
+
+
+def test_wrong_model_bytes_cannot_be_loaded_under_other_pinned_filename(tmp_path, monkeypatch):
+    import flashh3vr.dense as dense
+    state = {key: torch.zeros(shape, dtype=torch.float32) for key, shape in DENSE_SHAPES.items()}
+    old = tmp_path / dense.DENSE_WEIGHT_FILENAME
+    save_file(state, str(old), metadata={"step": "1837"})
+    monkeypatch.setitem(DENSE_ASSETS, old.name, {"sha256": sha256_file(old), "optimizer_step": 1837})
+    renamed = tmp_path / dense.DENSE_3139_WEIGHT_FILENAME
+    renamed.write_bytes(old.read_bytes())
+    with pytest.raises(ValueError, match="SHA256"):
+        load_dense(renamed, device="cpu")
+    unknown = tmp_path / "unregistered.safetensors"
+    unknown.write_bytes(old.read_bytes())
+    with pytest.raises(ValueError, match="unknown filename"):
+        load_dense(unknown, device="cpu")
 
 
 def test_real_video_pts_and_image_context():

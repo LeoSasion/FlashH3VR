@@ -31,11 +31,11 @@ def _read_video_window(path: Path) -> torch.Tensor:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Frozen H3 + adopted Dense head restoration")
+    parser = argparse.ArgumentParser(description="Frozen H3 + pinned Dense head restoration")
     parser.add_argument("--h3-weights", type=Path, required=True,
                         help="External pinned H3 INT8 ConvRot safetensors")
     parser.add_argument("--dense-weights", type=Path, required=True,
-                        help="flashh3vr-dense-1837.safetensors")
+                        help="Pinned flashh3vr-dense-1837.safetensors (default model) or optional flashh3vr-dense-3139.safetensors")
     parser.add_argument("--kind", choices=("image", "video", "full-video"), required=True)
     parser.add_argument("--input", type=Path, required=True,
                         help="RGB PNG (image), float32 [2–22,S,S,3] NPY (video), or SDR video file (full-video)")
@@ -115,7 +115,7 @@ def main() -> None:
     print(json.dumps({"status": "restored", "kind": args.kind,
                       "output": str(args.output.resolve()),
                       "pts_output": str(pts_output.resolve()) if pts_output else None,
-                      "plan": restorer.last_plan},
+                      "model": restorer.contract(), "plan": restorer.last_plan},
                      ensure_ascii=False))
 
 

@@ -10,6 +10,11 @@ The new **flashh3vr** package is the current inference entry. Older h3ce/NAF rec
 
 **[Download Dense Inter 1837 weights](https://github.com/LeoSasion/FlashH3VR/releases/download/v0.2.0/flashh3vr-dense-1837-bundle.zip)** — 11.18 MiB ZIP, including the model license and checksums. Extract it into models and obtain the external H3 checkpoint listed in [Assets](docs/ASSETS.md).
 
+Version **0.3.1** also accepts [optional experimental Dense Inter 3139](docs/DENSE3139.md).
+It fits the newly admitted training windows better, while the old 448 photograph
+mouth metric is weaker than candidate 3258. Model 1837 remains the adopted baseline
+and default download. Choose 3139 explicitly and keep 1837 available for comparison.
+
 ## Install
 
 Python 3.12 and PyTorch 2.10.0 are the verification environment. Install a PyTorch build appropriate for your CUDA device, then:

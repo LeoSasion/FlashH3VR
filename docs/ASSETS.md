@@ -5,12 +5,13 @@ Source and learned weights have separate distribution terms.
 | Asset | SHA256 | Availability |
 |---|---|---|
 | Dense Inter 1837, four FP32 tensors | a210d161a00f7089122495c5176118303fd7d6efe9ff1d2d4d112a0c6753b804 | [Download the GitHub Release bundle](https://github.com/LeoSasion/FlashH3VR/releases/download/v0.2.0/flashh3vr-dense-1837-bundle.zip) (11.18 MiB ZIP). |
+| Optional experimental Dense Inter 3139, four FP32 tensors | 1f199f95b3ae146d17bdf2ac8b7dede20262483a569189a4ce1c78a27cf58551 | [Download v0.3.1 bundle](https://github.com/LeoSasion/FlashH3VR/releases/download/v0.3.1/flashh3vr-dense-3139-bundle.zip); see [comparison and usage](DENSE3139.md). Default remains 1837. |
 | External H3 INT8 ConvRot | 9bb2d96f218c76babd85e0611b85ca8fb330a90546c01a0005e8a58a59593410 | Obtain separately from the [pinned upstream file](https://huggingface.co/Kijai/MiniMax-H3-experimental/blob/f4cac997f880e93cf6940af61ee8d58ef31ff7f3/minimax_h3_video_vae_int8_convrot.safetensors), under H3 terms. |
 | YOLO11m face, needed only for automatic full-video | 6ccbe920c1fac95ed84de570519e89fbe24d326d466a7aae297960b3ecc6c661 | Obtain from the [versioned upstream asset](https://github.com/akanametov/yolo-face/releases/download/1.0.0/yolov11m-face.pt), under its applicable terms. |
 | Training/evaluation media, crops, raw outputs and caches | Not distributed | Not included. |
 | Full optimizer checkpoint and H3 base weights | Not distributed by this project | Not included in the source repository or adapter package. |
 
-The Dense file contains 3,152,128 parameters and is 12,609,192 bytes. [Machine-readable export identity](../configs/dense1837.weights.json). The release loader accepts the exact two model hashes and checks the Dense names, shapes, dtype and finite values.
+Both Dense assets contain 3,152,128 parameters. The 1837 file is 12,609,192 bytes and 3139 is 12,608,912 bytes. [Default export identity](../configs/dense1837.weights.json), [optional 3139 identity](../configs/dense3139.weights.json). The loader accepts only each registered filename with its matching SHA256 and checks tensor names, shapes, dtype and finite values. Renaming one model as the other fails. The H3 identity remains unchanged.
 
 Extract the complete Dense bundle into models, retaining its license, notice, model card and checksums. Obtain the external H3 file separately under its terms. The two model files should be at:
 
@@ -33,11 +34,22 @@ python scripts/download_public_assets.py --asset all --models-dir models --verif
 
 Use `--asset dense`, `--asset h3` or `--asset face` to prepare one component. Verification checks exact sizes and SHA256; `--verify-only` never downloads or writes. Existing wrong files are left untouched and cause an error. See [public_assets.json](../configs/public_assets.json) for the complete machine-readable download manifest and [the automatic workflow](FULL_VIDEO.md) for usage.
 
+The default commands above select 1837. To add 3139 without replacing the default bundle's model card or checksums:
+
+~~~bash
+python scripts/download_public_assets.py --asset dense --dense-model 3139 --models-dir models
+python scripts/download_public_assets.py --asset dense --dense-model 3139 --models-dir models --verify-only
+~~~
+
+This stores the complete optional bundle in `models/dense-3139`. Pass `--dense-weights models/dense-3139/flashh3vr-dense-3139.safetensors` to the same inference command. H3 and face assets stay in the original models directory. `--asset all --dense-model 3139` prepares this optional model and both external assets; it does not download 1837 implicitly.
+
 ## Weight distribution
 
 The project-owned inference code is AGPL-3.0-only. The H3-dependent adapter is distributed with the **MiniMax H3 Community License** and its notices, not a claim of unrestricted open-source model licensing. The license includes excluded territories and downstream-use conditions. See the [official license](https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE) and [bundled reference copy](../h3ce/vae/_upstream/MiniMax-H3-LICENSE).
 
 The adapter is hosted directly in [GitHub Release v0.2.0](https://github.com/LeoSasion/FlashH3VR/releases/tag/v0.2.0). The ZIP contains the safetensors file, model card, MiniMax H3 license, NOTICE, weights manifest and SHA256SUMS. Its SHA256 is a2199b0bdd4b187feeada476b81526677cf767420248971ec0879fc59e12f236 (11,720,843 bytes).
+
+Optional 3139 is hosted in [v0.3.1](https://github.com/LeoSasion/FlashH3VR/releases/tag/v0.3.1) with the same seven-member bundle format. Its ZIP is 11,716,535 bytes, SHA256 `679e1de5bf103379bbb970600bddba9b2748875eb4305fd6c6d1ca00ec5d6609`. Downloading it leaves the default 1837 bundle unchanged.
 
 Download and extract it, then follow [the inference guide](USAGE.md). The adapter requires the external H3 checkpoint above; that base checkpoint is not included in the bundle.
 

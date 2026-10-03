@@ -1,5 +1,8 @@
 # FlashH3VR Dense Inter 1837
 
+This is the adopted baseline/default model card. The optional experimental 3139
+candidate has its own [model card, comparison and commands](docs/DENSE3139.md).
+
 ## Identity and use
 
 A single-person head-restoration research adapter trained for Go Youn-jung (고윤정). It predicts a residual in the frozen MiniMax H3 video VAE latent space. The automatic video wrapper supplies detection, cropping and paste-back around this adapter. It is not an identity-recognition model, a general face-restoration benchmark winner, or an independently trained replacement for H3.

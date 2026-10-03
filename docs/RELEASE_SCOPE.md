@@ -1,6 +1,10 @@
-# Release scope — 0.3.0
+# Release scope — 0.3.1
 
-This version adds automatic full-frame file inference around the published Dense Inter 1837 core. The learned weights are unchanged from version 0.2.0.
+This version retains the automatic full-frame path from 0.3.0 and adds an explicitly
+selected, pinned experimental Dense Inter 3139 asset. The adopted 1837 baseline and
+default download remain unchanged. Each model has separate weight/license/card
+files; runtime reports identify the model actually loaded. The new optional
+bundle and its reported 448 tradeoff are documented in [DENSE3139.md](DENSE3139.md).
 
 Included:
 
@@ -16,7 +20,10 @@ Excluded from Git:
 - Dense/H3/NAF/YOLO weight binaries, optimizer checkpoints, media, raw arrays, crops, generated portrait examples and private research data.
 - Local environments, CUDA binaries, credential files, internal task instructions and private execution logs.
 
-The Dense Inter 1837 safetensors are distributed separately as a GitHub Release bundle, together with the model card, license, notice and checksums. Download links and exact identities are in [ASSETS.md](ASSETS.md). The weight binary is a Release asset and is not committed to Git.
+Dense Inter 1837 and optional 3139 safetensors are distributed separately as GitHub
+Release bundles with their model card, license, notice and checksums. Download
+links and exact identities are in [ASSETS.md](ASSETS.md). Weight binaries are
+Release assets and are not committed to Git.
 
 No new training was performed for this release. The head-crop API is retained, and the new full-video entry automatically handles a finite supported SDR clip. It is an in-memory implementation, rejects audio, and does not establish whole-film streaming or multi-person identity selection. Old throughput and VRAM tags apply only to the [historical version](HISTORICAL_0_1_BASELINE.md).
 

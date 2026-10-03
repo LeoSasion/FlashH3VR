@@ -13,6 +13,12 @@ python -m flashh3vr --help
 
 Download [the Dense Inter 1837 bundle](https://github.com/LeoSasion/FlashH3VR/releases/download/v0.2.0/flashh3vr-dense-1837-bundle.zip) and extract it into models, keeping its license and notice alongside the safetensors file. Obtain the exact external H3 safetensors file listed in [ASSETS.md](ASSETS.md), subject to its terms. No automatic download or random-weight fallback is provided. A different H3 or Dense hash is rejected.
 
+1837 remains the default. Version 0.3.1 can also load the optional pinned
+[3139 candidate](DENSE3139.md): use
+`--dense-weights models/dense-3139/flashh3vr-dense-3139.safetensors` in any example
+below after explicitly preparing that bundle. Unknown filenames or mismatching
+hashes still fail.
+
 ## One head image
 
 An RGB PNG with a square side of 256, 448, 640 or 832:

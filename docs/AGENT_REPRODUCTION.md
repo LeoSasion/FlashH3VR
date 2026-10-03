@@ -11,7 +11,7 @@ Use the user's video file, a new output path, their CUDA device, and an explicit
 ~~~bash
 git clone https://github.com/LeoSasion/FlashH3VR.git
 cd FlashH3VR
-git checkout v0.3.0
+git checkout v0.3.1
 python -m venv .venv
 ~~~
 
@@ -26,6 +26,12 @@ python scripts/download_public_assets.py --asset all --models-dir models --verif
 ~~~
 
 The downloader obtains the Dense bundle from GitHub and the two pinned upstream models from their recorded sources. It preserves the Dense license/notice and refuses mismatching files. The manifests and loader hashes are the authority for this release; do not silently substitute another H3, face detector or Dense checkpoint to get past an error. Users who already have exact files can prepare them manually according to [ASSETS.md](ASSETS.md).
+
+The commands above keep 1837 as the default. Optional experimental 3139 is available
+only by explicit choice; follow [DENSE3139.md](DENSE3139.md) to download it into a
+separate subdirectory and change only the `--dense-weights` argument. Keep the
+model's tradeoffs and weight identity in the output report;3139 does not change
+the adopted research baseline.
 
 ## Execute the real entry
 

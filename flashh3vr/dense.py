@@ -1,4 +1,4 @@
-"""The adopted four-tensor, single-step Dense residual Inter."""
+"""Pinned four-tensor, single-step Dense adapters; 1837 remains the default."""
 
 from __future__ import annotations
 
@@ -14,6 +14,12 @@ from .backend import sha256_file
 
 DENSE_WEIGHT_FILENAME = "flashh3vr-dense-1837.safetensors"
 DENSE_WEIGHT_SHA256 = "a210d161a00f7089122495c5176118303fd7d6efe9ff1d2d4d112a0c6753b804"
+DENSE_3139_WEIGHT_FILENAME = "flashh3vr-dense-3139.safetensors"
+DENSE_3139_WEIGHT_SHA256 = "1f199f95b3ae146d17bdf2ac8b7dede20262483a569189a4ce1c78a27cf58551"
+DENSE_ASSETS = {
+    DENSE_WEIGHT_FILENAME: {"sha256": DENSE_WEIGHT_SHA256, "optimizer_step": 1837},
+    DENSE_3139_WEIGHT_FILENAME: {"sha256": DENSE_3139_WEIGHT_SHA256, "optimizer_step": 3139},
+}
 DENSE_PARAMETER_COUNT = 3_152_128
 DENSE_SHAPES = {
     "body.1.weight": (256, 6144),
@@ -48,11 +54,12 @@ class DenseInter(nn.Module):
 
 def load_dense(path: str | Path, *, device: str | torch.device = "cuda") -> DenseInter:
     path = Path(path)
-    if path.name != DENSE_WEIGHT_FILENAME or not path.is_file() or sha256_file(path) != DENSE_WEIGHT_SHA256:
-        raise ValueError("Dense asset missing, wrong filename, or SHA256 differs from adopted step 1837")
+    identity = DENSE_ASSETS.get(path.name)
+    if identity is None or not path.is_file() or sha256_file(path) != identity["sha256"]:
+        raise ValueError("Dense asset missing, unknown filename, or SHA256 differs from its pinned identity")
     state = load_file(str(path), device="cpu")
     if set(state) != set(DENSE_SHAPES):
-        raise ValueError("Dense asset must contain exactly the adopted four tensor keys")
+        raise ValueError("Dense asset must contain exactly the pinned four tensor keys")
     for name, shape in DENSE_SHAPES.items():
         value = state[name]
         if value.shape != shape or value.dtype != torch.float32 or not torch.isfinite(value).all():
@@ -61,4 +68,7 @@ def load_dense(path: str | Path, *, device: str | torch.device = "cuda") -> Dens
     model.load_state_dict(state, strict=True)
     if sum(p.numel() for p in model.parameters()) != DENSE_PARAMETER_COUNT:
         raise ValueError("Dense parameter count differs")
+    model.weight_filename = path.name
+    model.weight_sha256 = identity["sha256"]
+    model.optimizer_step = identity["optimizer_step"]
     return model.to(device=device).eval().requires_grad_(False)

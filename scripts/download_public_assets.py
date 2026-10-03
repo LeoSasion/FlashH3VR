@@ -20,6 +20,7 @@ BUNDLE_MEMBERS = {
     "flashh3vr-dense-1837.safetensors", "LICENSE-MINIMAX-H3", "MODEL_CARD.md",
     "NOTICE", "README.md", "SHA256SUMS", "weights_manifest.json",
 }
+DENSE_FILENAMES = {"flashh3vr-dense-1837.safetensors", "flashh3vr-dense-3139.safetensors"}
 
 
 def sha256(path: Path) -> str:
@@ -70,10 +71,13 @@ def download_asset(entry: dict, directory: Path, *, verify_only: bool = False) -
 
 def unpack_dense(archive: Path, entry: dict, directory: Path, *, verify_only: bool = False) -> None:
     """Validate the entire fixed bundle before writing any extracted member."""
+    if entry["weight_filename"] not in DENSE_FILENAMES:
+        raise ValueError("Unknown Dense bundle weight filename")
+    members = (BUNDLE_MEMBERS - {"flashh3vr-dense-1837.safetensors"}) | {entry["weight_filename"]}
     verify_file(archive, entry["sha256"], entry["size_bytes"])
     with zipfile.ZipFile(archive) as zipped:
         names = zipped.namelist()
-        if len(names) != len(BUNDLE_MEMBERS) or set(names) != BUNDLE_MEMBERS:
+        if len(names) != len(members) or set(names) != members:
             raise ValueError("Unexpected or duplicate Dense bundle member")
         if sum(info.file_size for info in zipped.infolist()) > 16 * 1024 * 1024:
             raise ValueError("Unexpected Dense bundle uncompressed size")
@@ -84,7 +88,7 @@ def unpack_dense(archive: Path, entry: dict, directory: Path, *, verify_only: bo
         if name in checks:
             raise ValueError("Duplicate bundle checksum")
         checks[name] = digest
-    if set(checks) != BUNDLE_MEMBERS - {"SHA256SUMS"}:
+    if set(checks) != members - {"SHA256SUMS"}:
         raise ValueError("Incomplete bundle checksum manifest")
     for name, digest in checks.items():
         if hashlib.sha256(contents[name]).hexdigest() != digest:
@@ -108,16 +112,23 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--models-dir", type=Path, default=Path("models"))
     parser.add_argument("--asset", choices=("dense", "h3", "face", "all"), required=True)
+    parser.add_argument("--dense-model", choices=("1837", "3139"), default="1837",
+                        help="1837 stays the default; optional 3139 is stored separately under models-dir/dense-3139")
     parser.add_argument("--verify-only", action="store_true", help="Check existing downloads and extracted files without network access or writes")
     args = parser.parse_args(argv)
-    assets = json.loads(MANIFEST.read_text(encoding="utf-8"))["assets"]
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    assets = dict(manifest["assets"])
+    if args.dense_model != "1837":
+        assets["dense"] = manifest["optional_dense_models"][args.dense_model]
     names = list(assets) if args.asset == "all" else [args.asset]
     for name in names:
         entry = assets[name]
-        print(f"{'Checking' if args.verify_only else 'Preparing'} {name}: {entry['filename']}", flush=True)
-        path = download_asset(entry, args.models_dir, verify_only=args.verify_only)
+        directory = (args.models_dir / f"dense-{args.dense_model}"
+                     if name == "dense" and args.dense_model != "1837" else args.models_dir)
+        print(f"{'Checking' if args.verify_only else 'Preparing'} {name}: {directory / entry['filename']}", flush=True)
+        path = download_asset(entry, directory, verify_only=args.verify_only)
         if entry["format"] == "dense_bundle":
-            unpack_dense(path, entry, args.models_dir, verify_only=args.verify_only)
+            unpack_dense(path, entry, directory, verify_only=args.verify_only)
         print(f"Verified {name}: {entry['sha256']}", flush=True)
     return 0
 

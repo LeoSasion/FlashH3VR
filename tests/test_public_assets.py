@@ -5,24 +5,26 @@ import zipfile
 
 import pytest
 
-from scripts.download_public_assets import BUNDLE_MEMBERS, MANIFEST, download_asset, unpack_dense
+from scripts.download_public_assets import BUNDLE_MEMBERS, MANIFEST, download_asset, main, unpack_dense
 
 
-def bundle(tmp_path, *, extra=None, bad_checksum=False):
-    data = {name: name.encode() for name in BUNDLE_MEMBERS - {"SHA256SUMS"}}
+def bundle(tmp_path, *, extra=None, bad_checksum=False, model="1837"):
+    weight = f"flashh3vr-dense-{model}.safetensors"
+    members = (BUNDLE_MEMBERS - {"SHA256SUMS", "flashh3vr-dense-1837.safetensors"}) | {weight}
+    data = {name: f"{model}:{name}".encode() for name in members}
     checks = {name: hashlib.sha256(value).hexdigest() for name, value in data.items()}
     if bad_checksum:
         checks["NOTICE"] = "0" * 64
     data["SHA256SUMS"] = "".join(f"{digest}  {name}\n" for name, digest in checks.items()).encode()
     if extra:
         data[extra] = b"unexpected"
-    archive = tmp_path / "bundle.zip"
+    archive = tmp_path / f"bundle-{model}.zip"
     with zipfile.ZipFile(archive, "w") as zipped:
         for name, value in data.items():
             zipped.writestr(name, value)
     entry = {"filename": archive.name, "sha256": hashlib.sha256(archive.read_bytes()).hexdigest(),
-             "size_bytes": archive.stat().st_size, "weight_filename": "flashh3vr-dense-1837.safetensors",
-             "weight_sha256": checks["flashh3vr-dense-1837.safetensors"]}
+             "size_bytes": archive.stat().st_size, "format": "dense_bundle", "weight_filename": weight,
+             "weight_sha256": checks[weight]}
     return archive, entry
 
 
@@ -66,7 +68,34 @@ def test_bundle_can_be_verified_without_rewriting(tmp_path):
 
 
 def test_manifest_matches_runtime_dense_and_h3_identities():
-    from flashh3vr import DENSE_WEIGHT_SHA256, H3_WEIGHT_SHA256
-    assets = json.loads(MANIFEST.read_text(encoding="utf-8"))["assets"]
+    from flashh3vr import DENSE_WEIGHT_SHA256, DENSE_3139_WEIGHT_SHA256, H3_WEIGHT_SHA256
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    assets = manifest["assets"]
     assert assets["dense"]["weight_sha256"] == DENSE_WEIGHT_SHA256
     assert assets["h3"]["sha256"] == H3_WEIGHT_SHA256
+    assert manifest["default_dense_model"] == "1837"
+    assert manifest["optional_dense_models"]["3139"]["weight_sha256"] == DENSE_3139_WEIGHT_SHA256
+
+
+def test_optional_download_keeps_default_bundle_and_documents_untouched(tmp_path, monkeypatch):
+    import scripts.download_public_assets as helper
+    old_zip, old_entry = bundle(tmp_path)
+    new_zip, new_entry = bundle(tmp_path, model="3139")
+    manifest = tmp_path / "manifest.json"
+    manifest.write_text(json.dumps({"assets": {"dense": old_entry},
+                                   "optional_dense_models": {"3139": new_entry}}), encoding="utf-8")
+    monkeypatch.setattr(helper, "MANIFEST", manifest)
+    monkeypatch.setattr("urllib.request.urlopen", lambda *a, **k: pytest.fail("existing bundles need no network"))
+    models = tmp_path / "models"
+    models.mkdir()
+    (models / old_zip.name).write_bytes(old_zip.read_bytes())
+    main(["--asset", "dense", "--models-dir", str(models)])
+    before = {p.name: p.read_bytes() for p in models.iterdir() if p.is_file()}
+    optional = models / "dense-3139"
+    optional.mkdir()
+    (optional / new_zip.name).write_bytes(new_zip.read_bytes())
+    main(["--asset", "dense", "--dense-model", "3139", "--models-dir", str(models)])
+    assert before == {p.name: p.read_bytes() for p in models.iterdir() if p.is_file()}
+    assert (optional / new_entry["weight_filename"]).is_file()
+    for model in ("1837", "3139"):
+        main(["--asset", "dense", "--dense-model", model, "--models-dir", str(models), "--verify-only"])
