@@ -20,7 +20,8 @@ BUNDLE_MEMBERS = {
     "flashh3vr-dense-1837.safetensors", "LICENSE-MINIMAX-H3", "MODEL_CARD.md",
     "NOTICE", "README.md", "SHA256SUMS", "weights_manifest.json",
 }
-DENSE_FILENAMES = {"flashh3vr-dense-1837.safetensors", "flashh3vr-dense-3139.safetensors"}
+DENSE_FILENAMES = {"flashh3vr-dense-1837.safetensors", "flashh3vr-dense-3139.safetensors",
+                   "flashh3vr-dense-4036.safetensors"}
 
 
 def sha256(path: Path) -> str:
@@ -112,8 +113,8 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--models-dir", type=Path, default=Path("models"))
     parser.add_argument("--asset", choices=("dense", "h3", "face", "all"), required=True)
-    parser.add_argument("--dense-model", choices=("1837", "3139"), default="1837",
-                        help="1837 stays the default; optional 3139 is stored separately under models-dir/dense-3139")
+    parser.add_argument("--dense-model", choices=("1837", "3139", "4036"), default="1837",
+                        help="1837 stays the default; optional models use separate models-dir/dense-STEP folders")
     parser.add_argument("--verify-only", action="store_true", help="Check existing downloads and extracted files without network access or writes")
     args = parser.parse_args(argv)
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))

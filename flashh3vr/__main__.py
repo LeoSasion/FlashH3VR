@@ -35,7 +35,7 @@ def main() -> None:
     parser.add_argument("--h3-weights", type=Path, required=True,
                         help="External pinned H3 INT8 ConvRot safetensors")
     parser.add_argument("--dense-weights", type=Path, required=True,
-                        help="Pinned flashh3vr-dense-1837.safetensors (default model) or optional flashh3vr-dense-3139.safetensors")
+                        help="Pinned Dense 1837 (default), or explicit optional 3139/4036 safetensors")
     parser.add_argument("--kind", choices=("image", "video", "full-video"), required=True)
     parser.add_argument("--input", type=Path, required=True,
                         help="RGB PNG (image), float32 [2–22,S,S,3] NPY (video), or SDR video file (full-video)")

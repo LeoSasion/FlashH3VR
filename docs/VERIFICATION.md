@@ -1,3 +1,37 @@
+# Version 0.3.2 verification
+
+- **393 CPU tests and 19 subtests passed**, with one external-model test
+  deselected. The loader accepts only the registered 1837, 3139 and 4036
+  filenames with their exact hashes; the downloader keeps 1837 as default and
+  stores optional bundles separately.
+- The 4036 adapter's four FP32 tensors are bitwise equal to the frozen Adam4036
+  research endpoint. Its complete seven-member bundle and the two older real
+  bundles passed member checksums and offline verification without rewriting
+  existing files. No full Adam checkpoint, H3 base or private media is included.
+- The 0.3.2 wheel passed ZIP integrity; all 146 packaged Python files matched
+  source. Isolated imports and CLI help passed, and all three real pinned Dense
+  models loaded through the extracted wheel on CPU with the correct Adam step.
+- The actual public CLI restored 44/44 frames at 768×432, using 22/22/10 real
+  frame windows. The shared API restored 2/2 and 6/6 frames with five- and
+  22-frame internal H3 contexts. Independent decode confirmed rational PTS,
+  complete frame counts and the original canvas; no frames were skipped.
+- Eleven fixed full-size source/4036 panels were actually reviewed. In those
+  frames, there was no obvious new severe grid, ghosting, facial structural
+  damage or rectangular paste seam. Skin, lips, brows and fine hair remained
+  soft; a broad detail gain was not established.
+- Bounded 1× Chromium playback reached the end for the same 44-frame source,
+  1837 and 4036 clips, plus 4036's 2/6-frame prefixes. Sampled live views
+  showed no obvious new severe artifacts, but this is not exhaustive moving-
+  frame inspection or temporal-stability certification.
+- The fixture is one reused private 44-frame excerpt: 52 input-frame executions
+  with only 44 unique source frames. No new training was run for publication.
+  These checks do not certify other identities, long-film streaming, FPS or
+  16GB GPU operation. Research improvements and regressions are documented in
+  [DENSE4036.md](DENSE4036.md).
+
+[Current machine-readable summary](../release_verification.json). The 0.3.1
+summary is preserved in [release_verification_v0_3_1.json](../release_verification_v0_3_1.json).
+
 # Version 0.3.1 verification
 
 - **391 CPU tests and 19 subtests passed**, with one external-model test deselected.

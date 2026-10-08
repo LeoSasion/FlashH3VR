@@ -30,8 +30,13 @@ The downloader obtains the Dense bundle from GitHub and the two pinned upstream 
 The commands above keep 1837 as the default. Optional experimental 3139 is available
 only by explicit choice; follow [DENSE3139.md](DENSE3139.md) to download it into a
 separate subdirectory and change only the `--dense-weights` argument. Keep the
-model's tradeoffs and weight identity in the output report;3139 does not change
+model's tradeoffs and weight identity in the output report; 3139 does not change
 the adopted research baseline.
+
+Version 0.3.2 also offers explicit `--dense-model 4036`. Follow
+[DENSE4036.md](DENSE4036.md) for its separate directory, pinned identity,
+new-photo gains, and older-material regressions; it does not change the 1837
+default or the historical 3139 option.
 
 ## Execute the real entry
 

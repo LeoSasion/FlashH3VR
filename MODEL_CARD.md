@@ -2,6 +2,8 @@
 
 This is the adopted baseline/default model card. The optional experimental 3139
 candidate has its own [model card, comparison and commands](docs/DENSE3139.md).
+The later optional 4036 photo-fit candidate has a separate
+[card and tradeoff report](docs/DENSE4036.md); it does not replace this default.
 
 ## Identity and use
 

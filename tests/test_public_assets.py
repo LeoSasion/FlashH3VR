@@ -68,22 +68,25 @@ def test_bundle_can_be_verified_without_rewriting(tmp_path):
 
 
 def test_manifest_matches_runtime_dense_and_h3_identities():
-    from flashh3vr import DENSE_WEIGHT_SHA256, DENSE_3139_WEIGHT_SHA256, H3_WEIGHT_SHA256
+    from flashh3vr import (DENSE_WEIGHT_SHA256, DENSE_3139_WEIGHT_SHA256,
+                           DENSE_4036_WEIGHT_SHA256, H3_WEIGHT_SHA256)
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     assets = manifest["assets"]
     assert assets["dense"]["weight_sha256"] == DENSE_WEIGHT_SHA256
     assert assets["h3"]["sha256"] == H3_WEIGHT_SHA256
     assert manifest["default_dense_model"] == "1837"
     assert manifest["optional_dense_models"]["3139"]["weight_sha256"] == DENSE_3139_WEIGHT_SHA256
+    assert manifest["optional_dense_models"]["4036"]["weight_sha256"] == DENSE_4036_WEIGHT_SHA256
 
 
-def test_optional_download_keeps_default_bundle_and_documents_untouched(tmp_path, monkeypatch):
+@pytest.mark.parametrize("optional_model", ("3139", "4036"))
+def test_optional_download_keeps_default_bundle_and_documents_untouched(tmp_path, monkeypatch, optional_model):
     import scripts.download_public_assets as helper
     old_zip, old_entry = bundle(tmp_path)
-    new_zip, new_entry = bundle(tmp_path, model="3139")
+    new_zip, new_entry = bundle(tmp_path, model=optional_model)
     manifest = tmp_path / "manifest.json"
     manifest.write_text(json.dumps({"assets": {"dense": old_entry},
-                                   "optional_dense_models": {"3139": new_entry}}), encoding="utf-8")
+                                   "optional_dense_models": {optional_model: new_entry}}), encoding="utf-8")
     monkeypatch.setattr(helper, "MANIFEST", manifest)
     monkeypatch.setattr("urllib.request.urlopen", lambda *a, **k: pytest.fail("existing bundles need no network"))
     models = tmp_path / "models"
@@ -91,11 +94,11 @@ def test_optional_download_keeps_default_bundle_and_documents_untouched(tmp_path
     (models / old_zip.name).write_bytes(old_zip.read_bytes())
     main(["--asset", "dense", "--models-dir", str(models)])
     before = {p.name: p.read_bytes() for p in models.iterdir() if p.is_file()}
-    optional = models / "dense-3139"
+    optional = models / f"dense-{optional_model}"
     optional.mkdir()
     (optional / new_zip.name).write_bytes(new_zip.read_bytes())
-    main(["--asset", "dense", "--dense-model", "3139", "--models-dir", str(models)])
+    main(["--asset", "dense", "--dense-model", optional_model, "--models-dir", str(models)])
     assert before == {p.name: p.read_bytes() for p in models.iterdir() if p.is_file()}
     assert (optional / new_entry["weight_filename"]).is_file()
-    for model in ("1837", "3139"):
+    for model in ("1837", optional_model):
         main(["--asset", "dense", "--dense-model", model, "--models-dir", str(models), "--verify-only"])

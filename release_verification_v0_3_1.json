@@ -1,44 +1,29 @@
 {
-  "schema_version": 1,
-  "release": "0.3.2",
-  "release_kind": "prerelease_optional_research_weight",
+  "release": "0.3.1",
   "default_dense_optimizer_step": 1837,
   "default_adapter_sha256": "a210d161a00f7089122495c5176118303fd7d6efe9ff1d2d4d112a0c6753b804",
-  "optional_dense_models": [
-    {
-      "optimizer_step": 3139,
-      "sha256": "1f199f95b3ae146d17bdf2ac8b7dede20262483a569189a4ce1c78a27cf58551",
-      "role": "historical_optional"
-    },
-    {
-      "optimizer_step": 4036,
-      "sha256": "89d76c2361daa2d543d3628b1bc43b9ec057a485b44dd848af3c825d81bb21fe",
-      "role": "new_photo_fit_optional"
-    }
-  ],
+  "optional_dense_optimizer_step": 3139,
+  "optional_adapter_sha256": "1f199f95b3ae146d17bdf2ac8b7dede20262483a569189a4ce1c78a27cf58551",
   "research_baseline_changed": false,
   "h3_asset_sha256": "9bb2d96f218c76babd85e0611b85ca8fb330a90546c01a0005e8a58a59593410",
   "face_asset_sha256": "6ccbe920c1fac95ed84de570519e89fbe24d326d466a7aae297960b3ecc6c661",
   "lossless_four_tensor_export": true,
-  "source_checkpoint_sha256": "fe0fe3071f2947602fc5fb508e4898588ccf39bc0fcab66f90100c31459ac79b",
+  "source_checkpoint_sha256": "04cca1fe931e7aa24961d6c9f64ea66cc86186463e946038db7c42e94d2fd72b",
   "cpu_tests": {
-    "passed": 393,
+    "passed": 391,
     "deselected": 1,
     "subtests_passed": 19
   },
-  "wheel_sha256": "79bf49a19f507900b0201d850eabd40359005774c278fbc301102516e7607fb8",
-  "wheel_size_bytes": 496808,
+  "wheel_sha256": "003225cdf83c6225819258e5d419c0f33c3565709ec2a90a6a989e5f60c6362a",
+  "wheel_size_bytes": 496551,
   "isolated_wheel_imports_and_cli": "passed",
   "real_model_cpu_loader_steps": [
     1837,
-    3139,
-    4036
+    3139
   ],
   "packaged_python_files_checked": 146,
   "all_packaged_python_files_match_source": true,
-  "bundle_sha256": "20ea057a9dbbdafe7e1b6236aa14781bd2c67825f761346facd695fe7bebe22e",
-  "bundle_size_bytes": 11711258,
-  "bundle_checksum_verification": "three complete real bundles and offline recheck passed",
+  "bundle_checksum_verification": "both complete real bundles and offline recheck passed",
   "gpu_software_integration_checks": [
     {
       "real_frames": 44,
@@ -109,41 +94,40 @@
       ]
     }
   ],
-  "test_input_scope": "52 input-frame executions from one reused private 44-frame excerpt and its two prefixes; 44 unique source frames",
+  "test_input_scope": "52 input-frame executions from one reused private44-frame excerpt and its two prefixes;44 unique source frames",
   "static_visual_review": {
     "normal_size_panels_actually_seen": 11,
     "decision": "pass for observed severe-artifact gate",
-    "new_obvious_severe_artifact_observed": false,
-    "fine_detail_still_soft": true,
+    "output_softer_than_source": true,
     "clarity_gain_established": false
   },
   "ordinary_playback": {
     "browser": "Chromium",
     "rate": 1,
     "completed_to_end": [
-      "source 44-frame excerpt",
-      "same-input 1837 44-frame output",
-      "4036 44-frame output",
-      "4036 two-frame prefix",
-      "4036 six-frame prefix"
+      "313944-frame output",
+      "same-input1837 output",
+      "input44-frame excerpt",
+      "31392-frame output",
+      "31396-frame output"
     ],
-    "sampled_live_views_seen": true,
-    "exhaustive_temporal_stability_certified": false
+    "observation_scope": "automated actual1x playback with sampled normal-size live screenshots; no exhaustive human per-frame motion certification",
+    "new_obvious_severe_artifacts_in_sampled_views": false
   },
   "source_checksums": {
-    "flashh3vr/dense.py": "85eb82bddb1a657655e48da5ba4039c00fa246df6670ee548270fd855a3c14e6",
+    "flashh3vr/dense.py": "81ce64644781dd8acac627ea2fdf69283ce2d3aa70e15329203c99e7cb5e2549",
     "flashh3vr/inference.py": "b70d555b37346a2d1a06fe06e3b9b44f697cbdb99e70d78fa495320822aa440d",
     "flashh3vr/full_video.py": "581208fa4c170905d805cca191c710f3f0ac1aeaed866942e1dec404e9a7e3ef",
-    "flashh3vr/__main__.py": "42ac5741e1164fc32e0571609a2a856ab971ce83143c5fceaf291042e624ae34",
+    "flashh3vr/__main__.py": "256cc3b95c8a211fe1daaac659c23512d5ee3a1c914fe8f49cbbf49a8f1eb504",
     "flashh3vr/native.py": "4e92408fdd9a8d4586900f6b5330b67fe61e701070692fec0dfc44184e8f3dc8",
     "flashh3vr/backend.py": "a337e9ca0908304afa5aeb3dfd852374f9ecc82cd581a876672289c12a5f63eb",
     "flashh3vr/_vendor.py": "723fc93cf58ad3f3ffe42a770c57046967bdda4288271d0b774ff9ba3a2d2348",
     "h3ce/infer/video_output.py": "5147f1df5607a77ebc15c7394be0e44b2920b423c5f5131d9711002741b65fd7",
-    "configs/public_assets.json": "a907d437954c9ba3cc01af2855efe23ee68153c502109364f0814d33869eb054",
-    "pyproject.toml": "7e3ef5251e703fb4d0b746e4ab9bfa7308deb15bca4f177351e5883709d3101e"
+    "configs/public_assets.json": "12b35e3601d09e20c5b618c03c9fe06cafe2410c1e117d0c6ba4fc184d3d7f99",
+    "pyproject.toml": "f1ff54ac05a19aa7610ec921ab257c189975b92e8246466e4dd34d389bbd1962"
   },
-  "previous_release_verification": "release_verification_v0_3_1.json",
+  "previous_default_software_verification": "release_verification_v0_3.json",
   "private_media_published": false,
   "training_updates_for_publication": 0,
-  "scope": "optional subject-specific research weights and bounded public-entry software/playback checks; no independent-family generalization, FPS, 16GB or whole-film streaming certification"
+  "scope": "optional research weights and bounded software/playback check; no independent generalization, FPS,16GB or whole-film streaming certification"
 }

@@ -15,6 +15,12 @@ It fits the newly admitted training windows better, while the old 448 photograph
 mouth metric is weaker than candidate 3258. Model 1837 remains the adopted baseline
 and default download. Choose 3139 explicitly and keep 1837 available for comparison.
 
+Version **0.3.2** adds [optional Dense Inter 4036](docs/DENSE4036.md) for the
+newer admitted photo set. It reduces error on those trained photos, while some
+older material and reused development conditions regress. It is not a universal
+best model. Select it explicitly with `--dense-model 4036`; 1837 stays the
+default, and 3139 remains available separately.
+
 ## Install
 
 Python 3.12 and PyTorch 2.10.0 are the verification environment. Install a PyTorch build appropriate for your CUDA device, then:

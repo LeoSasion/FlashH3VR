@@ -62,10 +62,12 @@ def test_wrong_model_bytes_cannot_be_loaded_under_other_pinned_filename(tmp_path
     old = tmp_path / dense.DENSE_WEIGHT_FILENAME
     save_file(state, str(old), metadata={"step": "1837"})
     monkeypatch.setitem(DENSE_ASSETS, old.name, {"sha256": sha256_file(old), "optimizer_step": 1837})
-    renamed = tmp_path / dense.DENSE_3139_WEIGHT_FILENAME
-    renamed.write_bytes(old.read_bytes())
-    with pytest.raises(ValueError, match="SHA256"):
-        load_dense(renamed, device="cpu")
+    for optional_filename in (dense.DENSE_3139_WEIGHT_FILENAME,
+                              dense.DENSE_4036_WEIGHT_FILENAME):
+        renamed = tmp_path / optional_filename
+        renamed.write_bytes(old.read_bytes())
+        with pytest.raises(ValueError, match="SHA256"):
+            load_dense(renamed, device="cpu")
     unknown = tmp_path / "unregistered.safetensors"
     unknown.write_bytes(old.read_bytes())
     with pytest.raises(ValueError, match="unknown filename"):

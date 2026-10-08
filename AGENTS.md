@@ -9,8 +9,9 @@ documented in [docs/USAGE.md](docs/USAGE.md).
 - Use the pinned model identities and `scripts/download_public_assets.py` for
   explicit acquisition. Keep the bundled model license and notice. No private
   dataset, training receipt, NAF weights or author-specific directory is needed.
-- 1837 remains the default. Use the optional 3139 candidate only on explicit user
-  choice; see [docs/DENSE3139.md](docs/DENSE3139.md). Keep each bundle's license,
+- 1837 remains the default. Use optional 3139 or 4036 only on explicit user
+  choice; see [docs/DENSE3139.md](docs/DENSE3139.md) and
+  [docs/DENSE4036.md](docs/DENSE4036.md). Keep each bundle's license,
   card and checksums in its own directory. Do not replace SHA checks or mislabel
   the selected model in receipts.
 - Preserve real source frames/PTS, cut boundaries, skipped-frame reasons and

@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "model": "FlashH3VR Dense Inter 4036",
+  "scope": "Subject-specific training fit and bounded development observations; no independent capture-family certification",
+  "method": "Equal populated bucket/kind/condition strata, with equal canonical sources or equal cases within each stratum; not frame weighting. Photographic sources use master SHA. Documentary grouping is secondary and not independent capture certification.",
+  "sign": "Positive means lower error in 4036 relative to the comparator",
+  "inactive_regions": "Excluded, not scored as zero error; video mouth and eye masks are inactive",
+  "causal_claim": false,
+  "pool_composition_note": "Current all_train has 16 populated RGB/edge strata; inherited_train has 14. Each row compares the same samples across models, but rows with different pools are not a common historical trend.",
+  "pools": {
+    "latest_train": {
+      "condition_count": 42,
+      "error_reduction_percent": {
+        "rgb_l1": {
+          "adam1837": 15.754659312734818,
+          "adam3258": 16.743870994843405,
+          "adam3139": 16.778113411259458,
+          "adam3084": 16.898664734344585
+        },
+        "edge_l1": {
+          "adam1837": 4.600237156774154,
+          "adam3258": 4.622097051391794,
+          "adam3139": 4.465416355138703,
+          "adam3084": 4.568716761717856
+        },
+        "mouth_edge": {
+          "adam1837": 27.20241396909525,
+          "adam3258": 27.304968145969855,
+          "adam3139": 27.229026529263813,
+          "adam3084": 27.31965689646062
+        }
+      },
+      "populated_stratum_count": {
+        "rgb_l1": 8,
+        "edge_l1": 8,
+        "mouth_edge": 8
+      }
+    },
+    "inherited_train": {
+      "condition_count": 626,
+      "error_reduction_percent": {
+        "rgb_l1": {
+          "adam1837": 5.884520215754461,
+          "adam3258": 2.5011601842229365,
+          "adam3139": 1.0541462679023943,
+          "adam3084": -0.484556736741433
+        },
+        "edge_l1": {
+          "adam1837": 3.7700280967303743,
+          "adam3258": 1.8249905327917535,
+          "adam3139": 1.3521770771757549,
+          "adam3084": 0.34804689026902114
+        },
+        "mouth_edge": {
+          "adam1837": 5.259013859992099,
+          "adam3258": -0.2773073918161545,
+          "adam3139": 0.7965580781567564,
+          "adam3084": 0.9189285316930134
+        }
+      },
+      "populated_stratum_count": {
+        "rgb_l1": 14,
+        "edge_l1": 14,
+        "mouth_edge": 6
+      }
+    },
+    "latest_validation": {
+      "condition_count": 4,
+      "error_reduction_percent": {
+        "rgb_l1": {
+          "adam1837": 9.7181189513005,
+          "adam3258": 11.780960866210489,
+          "adam3139": 11.831914850791856,
+          "adam3084": 11.776706056169928
+        },
+        "edge_l1": {
+          "adam1837": 0.3347060410578548,
+          "adam3258": 0.1517468073164604,
+          "adam3139": 0.0664938588790969,
+          "adam3084": 0.30366960006596894
+        },
+        "mouth_edge": {
+          "adam1837": 2.5665229336872946,
+          "adam3258": 1.4538317824205733,
+          "adam3139": 3.0036051254843557,
+          "adam3084": 2.8739987850320166
+        }
+      },
+      "populated_stratum_count": {
+        "rgb_l1": 4,
+        "edge_l1": 4,
+        "mouth_edge": 4
+      }
+    },
+    "inherited_validation": {
+      "condition_count": 12,
+      "error_reduction_percent": {
+        "rgb_l1": {
+          "adam1837": -0.8619464795024078,
+          "adam3258": -1.0072872245700528,
+          "adam3139": -1.9232885108550064,
+          "adam3084": -2.0122732466896656
+        },
+        "edge_l1": {
+          "adam1837": -0.17842439145607386,
+          "adam3258": -0.24015265087336618,
+          "adam3139": -0.4842799394841583,
+          "adam3084": -0.3890640768004155
+        },
+        "mouth_edge": {
+          "adam1837": null,
+          "adam3258": null,
+          "adam3139": null,
+          "adam3084": null
+        }
+      },
+      "populated_stratum_count": {
+        "rgb_l1": 4,
+        "edge_l1": 4,
+        "mouth_edge": 0
+      }
+    },
+    "all_train": {
+      "condition_count": 668,
+      "error_reduction_percent": {
+        "rgb_l1": {
+          "adam1837": 8.48869866758956,
+          "adam3258": 6.356550429975698,
+          "adam3139": 5.409123662174077,
+          "adam3084": 4.383404208785823
+        },
+        "edge_l1": {
+          "adam1837": 3.7485808950308335,
+          "adam3258": 2.395706574899385,
+          "adam3139": 1.9976936952452442,
+          "adam3084": 1.3086717208042458
+        },
+        "mouth_edge": {
+          "adam1837": 13.822122510358588,
+          "adam3258": 11.862415755163319,
+          "adam3139": 12.163917557185723,
+          "adam3084": 12.244843195223734
+        }
+      },
+      "populated_stratum_count": {
+        "rgb_l1": 16,
+        "edge_l1": 16,
+        "mouth_edge": 8
+      }
+    }
+  },
+  "regressions": {
+    "adam1837": {
+      "all_conditions": 684,
+      "conditions_with_any_scored_regression": 208,
+      "scored_metric_pairs": 4936,
+      "regressed_metric_pairs": 580,
+      "note": "Correlated metrics and size-derived conditions; not a count of visually damaged images"
+    },
+    "adam3258": {
+      "all_conditions": 684,
+      "conditions_with_any_scored_regression": 578,
+      "scored_metric_pairs": 4936,
+      "regressed_metric_pairs": 3049,
+      "note": "Correlated metrics and size-derived conditions; not a count of visually damaged images"
+    },
+    "adam3139": {
+      "all_conditions": 684,
+      "conditions_with_any_scored_regression": 583,
+      "scored_metric_pairs": 4936,
+      "regressed_metric_pairs": 2555,
+      "note": "Correlated metrics and size-derived conditions; not a count of visually damaged images"
+    },
+    "adam3084": {
+      "all_conditions": 684,
+      "conditions_with_any_scored_regression": 522,
+      "scored_metric_pairs": 4936,
+      "regressed_metric_pairs": 2066,
+      "note": "Correlated metrics and size-derived conditions; not a count of visually damaged images"
+    }
+  }
+}
